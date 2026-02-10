@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import './navbar.css';
+import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
