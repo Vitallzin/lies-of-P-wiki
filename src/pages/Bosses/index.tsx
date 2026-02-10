@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { bossesData } from '../../data/bossesData';
 import BossCard from '../../components/BossCard';
 import SearchBar from '../../components/SearchBar';
-import './bosses.css';
+import './Bosses.css';
 
 const Bosses = () => {
   const [searchTerm, setSearchTerm] = useState('');

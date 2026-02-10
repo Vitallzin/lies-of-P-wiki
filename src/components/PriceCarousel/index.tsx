@@ -1,4 +1,4 @@
-import './priceCarousel.css';
+import './PriceCarousel.css';
 import { priceData } from '../../data/priceData';
 
 const PriceCarousel = () => {

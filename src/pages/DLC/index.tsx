@@ -1,4 +1,4 @@
-import './dlc.css';
+import './Dlc.css';
 
 const Dlc = () => {
   return (

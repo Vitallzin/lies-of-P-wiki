@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './bossCard.css';
+import './BossCard.css';
 
 interface BossCardProps {
   id: string;

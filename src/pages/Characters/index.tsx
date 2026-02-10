@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { charactersData } from '../../data/charactersData';
 import CharacterCard from '../../components/CharacterCard';
 import SearchBar from '../../components/SearchBar';
-import './characters.css';
+import './Characters.css';
 
 const Characters = () => {
   const [searchTerm, setSearchTerm] = useState('');

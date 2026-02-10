@@ -1,4 +1,4 @@
-import './home.css';
+import './Home.css';
 import PriceCarousel from '../../components/PriceCarousel';
 import FeaturesGrid from '../../components/FeatureGrid';
 import {aboutGame} from '../../data/homeData';

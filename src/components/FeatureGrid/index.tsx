@@ -1,6 +1,6 @@
 import React from 'react';
 import { gameFeatures } from '../../data/homeData';
-import './featureGrid.css';
+import './FeatureGrid.css';
 
 const FeaturesGrid: React.FC = () => {
   return (

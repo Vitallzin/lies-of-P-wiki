@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { weaponsData } from '../../data/waponsData'; // Importando os dados
-import './weaponDetails.css';
+import './WeaponDetails.css';
 
 const WeaponDetails = () => {
   const { id } = useParams<{ id: string }>();

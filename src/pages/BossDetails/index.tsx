@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { bossesData } from '../../data/bossesData';
-import './bossDetails.css';
+import './BossDetails.css';
 
 const BossDetails = () => {
   const { id } = useParams<{ id: string }>();

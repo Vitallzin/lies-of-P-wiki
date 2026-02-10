@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import WeaponCard from '../../components/WeaponsCard';
 import { weaponsData } from '../../data/waponsData';
-import './weapons.css';
+import './Weapons.css';
 
 const Weapons = () => {
   const [searchTerm, setSearchTerm] = useState('');

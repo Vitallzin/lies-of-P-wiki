@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { classesData } from '../../data/classesData';
-import './classesDetails.css';
+import './ClassesDetails.css';
 
 const ClassDetails = () => {
   const { id } = useParams<{ id: string }>();
