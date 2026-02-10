@@ -1,85 +1,201 @@
 .weapons-page {
   min-height: 100vh;
+  padding: 140px 20px 80px;
   background-color: var(--color-bg-primary);
-  padding-bottom: 80px;
-}
-
-.weapons-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-}
-
-/* Container de Busca */
-.search-container {
   position: relative;
-  max-width: 500px;
-  margin: 40px auto 0;
-}
+  overflow: hidden;
 
-.search-input {
-  width: 100%;
-  padding: 15px 25px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--color-bg-secondary);
-  border-radius: 30px;
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  outline: none;
 }
-
-.search-input:focus {
-  border-color: var(--color-accent-gold);
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Brilho sutil atrás do input quando focado */
-.search-glow {
+/* Adicione isso no topo ou fim do arquivo */
+.dynamic-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 30px;
-  box-shadow: 0 0 15px rgba(194, 153, 91, 0);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; /* Fica atrás de tudo */
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none; /* Garante que não bloqueia o clique nos cards */
+}
+
+.dynamic-bg.fade-in {
+  opacity: 0.4; /* Ajuste a opacidade para não ficar claro demais */
+}
+
+/* Garante que o conteúdo apareça por cima */
+.weapons-header, 
+.weapons-category-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.weapons-overlay {
+  z-index: 1;
+}
+/* Efeito de vinheta igual ao Classes */
+.weapons-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, #000 100%);
   pointer-events: none;
-  transition: box-shadow 0.3s ease;
 }
 
-.search-input:focus + .search-glow {
-  box-shadow: 0 0 15px rgba(194, 153, 91, 0.2);
-}
-
-/* Grid de Armas */
-.weapons-grid-container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.weapons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.no-results {
+.weapons-header {
   text-align: center;
-  padding: 100px 0;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.cinzel-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 10px;
+}
+
+.title-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.title-separator .line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to var(--dir, right), var(--color-accent-gold), transparent);
+}
+
+.title-separator .line:last-child { --dir: left; }
+
+.title-separator .diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent-gold);
+  transform: rotate(45deg);
+}
+
+.subtitle {
   color: var(--color-text-secondary);
-  font-style: italic;
+  font-family: var(--font-body);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Grid de Categorias */
+.weapons-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.weapon-category-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid rgba(194, 153, 91, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.weapon-category-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.card-image-wrapper {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(40%) contrast(1.1);
+}
+
+.weapon-category-card:hover img {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+.card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-bg-secondary), transparent 70%);
+}
+
+.card-body {
+  padding: 30px 25px;
+  text-align: center;
+}
+
+.category-type-name {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.category-short-desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  min-height: 45px;
+}
+
+.gold-glow-line {
+  width: 0%;
+  height: 2px;
+  background: var(--color-accent-gold);
+  margin: 0 auto 20px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px var(--color-accent-gold);
+}
+
+.weapon-category-card:hover .gold-glow-line {
+  width: 80%;
+}
+
+.view-category-btn {
+  background: transparent;
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  padding: 10px 25px;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.weapon-category-card:hover .view-category-btn {
+  background: var(--color-accent-gold);
+  color: #000;
 }
 
 /* Responsividade */
-@media (max-width: 600px) {
-  .weapons-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
+@media (max-width: 768px) {
+  .cinzel-title { font-size: 2.2rem; }
+  .weapons-category-grid { grid-template-columns: 1fr; }
 }

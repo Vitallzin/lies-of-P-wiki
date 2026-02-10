@@ -1,4 +1,9 @@
 // src/data/weaponsData.ts
+import bgarmas from '../assets/img/weapons/bgArmas.jpg';
+import bglegiao from '../assets/img/weapons/bgLegiao.png';
+import armas from '../assets/img/weapons/armas.jpg';
+import legiao from '../assets/img/weapons/legiao.png';
+
 
 export interface Weapon {
   id: string;
@@ -10,6 +15,30 @@ export interface Weapon {
   description: string;
   image: string;
 }
+
+export const weaponsCategories = [
+  {
+    id: 'armas',
+    name: 'Armas de Ataque',
+    description: 'Lâminas e cabos forjados para enfrentar os horrores de Krat.',
+    image: bgarmas,
+    bgImage: armas // Adicione seus caminhos aqui
+  },
+  {
+    id: 'legioes',
+    name: 'Braços da Legião',
+    description: 'Próteses mecânicas com tecnologias únicas de combate.',
+    image: legiao,
+    bgImage: bglegiao // Adicione seus caminhos aqui
+  },
+  {
+    id: 'amuletos e partes defensivas',
+    name: 'Itens de Suporte',
+    description: 'Itens que oferecem proteção e vantagens estratégicas em combate.',
+    image: '/assets/img/home/feature5.png',
+    bgImage: '/assets/img/weapons/bg-skills.jpg'
+  }
+];
 
 export const weaponsData: Weapon[] = [
   {
