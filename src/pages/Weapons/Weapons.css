@@ -1,5 +1,4 @@
 .weapons-page {
-  padding-top: 120px; /* Espaço para a Navbar fixa */
   min-height: 100vh;
   background-color: var(--color-bg-primary);
   padding-bottom: 80px;
