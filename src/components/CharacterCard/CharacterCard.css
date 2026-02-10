@@ -1,0 +1,85 @@
+.char-card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(194, 153, 91, 0.1);
+}
+
+.char-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent-gold);
+}
+
+.char-img-container {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+.char-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.char-card:hover .char-img {
+  transform: scale(1.05);
+}
+
+.char-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-bg-secondary), transparent);
+}
+
+.char-glow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 40px;
+  background: var(--color-accent-glow);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.char-card:hover .char-glow {
+  opacity: 0.3;
+}
+
+.char-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.char-role {
+  font-family: var(--font-body);
+  color: var(--color-accent-copper);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.char-name {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  margin: 5px 0 15px;
+}
+
+.char-line {
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent-gold);
+  margin: 0 auto;
+  transition: width 0.3s ease;
+}
+
+.char-card:hover .char-line {
+  width: 80px;
+}

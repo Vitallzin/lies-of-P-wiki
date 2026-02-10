@@ -1,0 +1,67 @@
+.boss-card {
+  background: #0f0f12;
+  border: 1px solid rgba(255, 0, 0, 0.1); /* Tom avermelhado sutil */
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boss-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff4444;
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+}
+
+.boss-image-wrapper {
+  position: relative;
+  height: 250px;
+}
+
+.boss-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(40%) contrast(110%);
+  transition: filter 0.3s ease;
+}
+
+.boss-card:hover .boss-card-img {
+  filter: grayscale(0%) contrast(100%);
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.difficulty-badge.fácil { color: #44ff44; border: 1px solid #44ff44; }
+.difficulty-badge.média { color: #ffaa44; border: 1px solid #ffaa44; }
+.difficulty-badge.difícil { color: #ff4444; border: 1px solid #ff4444; }
+
+.boss-card-info {
+  padding: 20px;
+  background: linear-gradient(to top, #000, transparent);
+}
+
+.boss-card-name {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.boss-card-location {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

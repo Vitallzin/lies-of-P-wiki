@@ -1,0 +1,23 @@
+.bosses-page {
+  padding-top: 120px;
+  min-height: 100vh;
+  background-color: #050507; /* Um tom ainda mais escuro que o normal */
+  padding-bottom: 80px;
+}
+
+.bosses-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.bosses-grid-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bosses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}

@@ -1,0 +1,23 @@
+.characters-page {
+  padding-top: 120px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  padding-bottom: 80px;
+}
+
+.characters-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.characters-grid-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 40px;
+}

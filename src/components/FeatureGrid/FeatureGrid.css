@@ -1,0 +1,94 @@
+.features-section {
+  padding: 60px 0;
+  background-color: var(--color-bg-primary);
+}
+
+.features-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 40px;
+}
+
+/* Header do Card */
+.feature-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.header-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Moldura e Imagem */
+.feature-frame {
+  position: relative;
+  padding: 10px;
+  border: 1px solid rgba(194, 153, 91, 0.3);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.feature-frame img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.frame-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-accent-gold);
+}
+
+.top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* Texto e Destaques */
+.feature-description {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+.highlight-red {
+  color: #ff4d4d; /* Tom de vermelho sangue para o tema */
+  font-weight: 600;
+}
+
+/* Efeito de Hover */
+.feature-card:hover .feature-frame {
+  border-color: var(--color-accent-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr; }
+}

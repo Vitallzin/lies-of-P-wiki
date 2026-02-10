@@ -1,0 +1,22 @@
+
+:root {
+  /* Paleta Sombria e Elegante */
+  --color-bg-primary: #0a0a0c;   /* Quase preto, levemente azulado/frio */
+  --color-bg-secondary: #141418; /* Cinza chumbo escuro */
+  --color-text-primary: #e0e0e0; /* Branco sujo para leitura confortável */
+  --color-text-secondary: #a0a0a0;
+  
+  /* Detalhes Steampunk (Dourado/Cobre/Ferrugem) */
+  --color-accent-gold: #c2995b; /* Dourado envelhecido */
+  --color-accent-details: #b12727; /* Vermelho escuro para detalhes de icones */
+  --color-accent-copper: #b85c38; /* Cobre para alguns subtextos */
+  --color-accent-glow: #e71010; /* Azul do Ergo (energia do jogo) */
+
+  /* Tipografia */
+  --font-heading: 'Cinzel', serif; /* Exemplo de fonte séria/gótica */
+  --font-body: 'Lato', sans-serif;
+  
+  /* Espaçamentos e Bordas */
+  --border-radius: 4px; /* Bordas levemente arredondadas, não muito */
+  --container-width: 1200px;
+}
