@@ -24,7 +24,7 @@ export const weaponsCategories = [
 
 
 // Import de imagens de armas
-import boosterGlavie from '../assets/img/weaponsDetails/booster-glaive-weapon.png';
+import boosterGlavie from '../assets/img/WeaponsDetails/booster-glaive-weapon.png';
 import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-weapon.png';
 import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.png';
 import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.png';
