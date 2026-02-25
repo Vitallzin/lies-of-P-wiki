@@ -38,8 +38,8 @@ export interface equipments {
   name: string;
   type: string;
   weight: string;
-  slash: string;
-  stab: string;
+  slash?: string;
+  stab?: string;
   attack: string;
   Motivity: string;
   Technique: string;

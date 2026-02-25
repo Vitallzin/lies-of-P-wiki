@@ -15,8 +15,8 @@
   --glow-color: rgba(0, 212, 255, 0.3); /* Cor de brilho para itens DLC */
 
   /* Tipografia */
-  --font-heading: 'Cinzel', serif; /* Exemplo de fonte séria/gótica */
-  --font-body: 'Lato', sans-serif;
+  --font-heading: 'EB Garamond', serif; 
+  --font-body: 'EB Garamond', serif;
   
   /* Espaçamentos e Bordas */
   --border-radius: 4px; /* Bordas levemente arredondadas, não muito */

@@ -147,7 +147,7 @@
   align-items: center;
 }
 .ascii-bar {
-  font-family: 'Courier New', Courier, monospace; /* Garante que os blocos fiquent alinhados */
+  font-family: var(--font-body); /* Garante que os blocos fiquent alinhados */
   letter-spacing: 2px; /* Espaço opcional entre os blocos */
   font-size: 1.2rem;
   color: var(--current-accent); /* Usa a cor Dourada ou Azul da DLC automaticamente */
