@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>Navegação</h3>
           <ul>
-            <li><a href="/weapons">Arsenal</a></li>
+            <li><a href="/equipments">Arsenal</a></li>
             <li><a href="/bosses">Chefes</a></li>
             <li><a href="/classes">Caminhos</a></li>
           </ul>

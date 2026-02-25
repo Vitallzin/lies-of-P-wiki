@@ -1,0 +1,224 @@
+.details-page {
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+  background: #0a0a0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- BOTÃO VOLTAR --- */
+.back-btn-modern {
+  background: transparent;
+  border: none;
+  color: var(--color-accent-gold);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-btn-modern .text {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.back-btn-modern .btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent-gold);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.back-btn-modern:hover .btn-line {
+  width: 100%;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.details-main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- SEÇÃO SUPERIOR (Texto | Imagem) --- */
+.details-header-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Texto maior que a imagem */
+  gap: 40px;
+  align-items: start;
+}
+
+.weapon-name-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+
+.category-tag {
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+}
+
+.description-box h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.description-box p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Frame da Imagem */
+.image-frame {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(194, 153, 91, 0.2);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+}
+
+/* --- SEÇÃO INFERIOR (Informações Técnicas) --- */
+.details-footer-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px;
+}
+
+.block-label {
+  font-family: var(--font-heading);
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 10px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.data-item span { color: #888; font-size: 0.85rem; margin-right: 8px; }
+.data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
+
+/* Escalonamento */
+.scaling-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scale-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ascii-bar {
+  font-family: 'Courier New', Courier, monospace; /* Garante que os blocos fiquent alinhados */
+  letter-spacing: 2px; /* Espaço opcional entre os blocos */
+  font-size: 1.2rem;
+  color: var(--current-accent); /* Usa a cor Dourada ou Azul da DLC automaticamente */
+  text-shadow: 0 0 8px var(--current-glow); /* Adiciona um brilho no "preenchimento" */
+}
+
+/* Opcional: Deixar os blocos vazios (░) um pouco mais escuros que os cheios */
+.ascii-bar {
+  opacity: 1;
+}
+
+.scale-box .label { font-size: 0.65rem; color: #777; margin-bottom: 5px; }
+.scale-box .value { font-family: var(--font-heading); font-size: 1.8rem; color: #333; }
+.scale-box .value.gold { color: var(--color-accent-gold); }
+
+/* Localização */
+.location-block {
+  grid-column: span 2; /* Ocupa a largura toda em baixo */
+  border-left: 3px solid var(--color-accent-gold);
+}
+
+.location-block p { font-size: 0.9rem; color: #aaa; line-height: 1.5; }
+
+
+/* Variáveis de Tema */
+.theme-normal {
+  --current-accent: var(--color-accent-gold);
+  --current-glow: rgba(194, 153, 91, 0.3);
+}
+
+.theme-dlc {
+  --current-accent: var(--color-accent-dlc);
+  --current-glow: var(--glow-color);
+}
+
+/* Aplicando as variáveis nos elementos existentes */
+.back-btn-modern,
+.category-tag,
+.weapon-name-title,
+.description-box h3,
+.data-item strong,
+.value.gold, /* Classe do escalonamento */
+.stat-color
+ {
+  color: var(--current-accent) !important;
+}
+
+.btn-line,
+.location-block
+{
+  border-color: var(--current-accent) !important;
+}
+
+.theme-dlc .image-frame {
+  border-color: var(--current-accent);
+  box-shadow: inset 0 0 30px var(--current-glow);
+}
+
+/* Efeito de brilho pulsante específico para itens DLC */
+.theme-dlc .frame-glow {
+  background: radial-gradient(circle, var(--current-glow) 0%, transparent 70%);
+}
+
+.weapon-name-title {
+    color: #fff !important; /* Mantendo o título branco para leitura, ou mude para var se quiser azul */
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .details-header-section, .details-footer-info {
+    grid-template-columns: 1fr;
+  }
+  .location-block { grid-column: span 1; }
+}

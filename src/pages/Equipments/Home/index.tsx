@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { weaponsCategories } from '../../data/waponsData';
+import { weaponsCategories } from '../../../data/waponsData';
 import './Weapons.css';
 
-const Weapons = () => {
+  const Equipments = () => {
   const navigate = useNavigate();
   // Estado para guardar qual imagem de fundo exibir
   const [activeBg, setActiveBg] = useState('');
@@ -32,7 +32,7 @@ const Weapons = () => {
           <div 
             key={cat.id} 
             className="weapon-category-card" 
-            onClick={() => navigate(`/weapons/${cat.id}`)}
+            onClick={() => navigate(`/equipments/${cat.id}`)}
             onMouseEnter={() => setActiveBg(cat.bgImage)} // Muda o fundo
             onMouseLeave={() => setActiveBg('')}          // Volta ao padrão
           >
@@ -57,4 +57,4 @@ const Weapons = () => {
   );
 };
 
-export default Weapons;
+export default Equipments;

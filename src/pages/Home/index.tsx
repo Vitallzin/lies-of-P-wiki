@@ -100,11 +100,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    
-         
-            
-          
-     
+
 
       {/* SEÇÃO 5: PREÇOS */}
       <section className="prices-section">

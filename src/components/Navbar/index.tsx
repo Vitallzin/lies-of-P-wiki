@@ -32,8 +32,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/weapons" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Armas
+            <NavLink to="/equipments" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Equipamentos
             </NavLink>
           </li>
           <li>
