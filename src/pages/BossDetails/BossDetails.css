@@ -1,112 +1,123 @@
-.boss-details-page {
-  min-height: 100vh;
-  background-color: #050507;
-  color: #fff;
+/* 1. SISTEMA DE TEMAS (Sempre no topo) */
+.details-page.theme-normal {
+  --current-accent: var(--color-accent-gold);
+  --current-glow: rgba(194, 153, 91, 0.3);
 }
 
-.boss-details-hero {
-  height: 60vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
+.details-page.theme-dlc {
+  --current-accent: var(--color-accent-dlc);
+  --current-glow: var(--glow-color);
+}
+
+/* 2. BASE E CONTAINERS */
+.details-page {
+  padding: 120px 20px 60px;
+  background: #0a0a0c;
+  min-height: 100vh;
+}
+
+/* 3. TEXTOS DINÂMICOS (Usando --current-accent para DLC funcionar) */
+.data-item strong,
+.category-tag,
+.weapon-name-title,
+.description-box h3,
+.block-label,
+.sensor-item strong {
+  color: var(--current-accent) !important;
+}
+
+.data-item span { 
+  color: #888; 
+  font-size: 0.85rem; 
+  margin-right: 8px; 
+}
+
+/* 4. GRID DE SENSORES (Otimizado) */
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.sensor-item {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 10% 50px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 2px solid var(--current-accent); /* Detalhe lateral charmoso */
 }
 
-.back-link {
-  position: absolute;
-  top: 100px;
-  left: 5%;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-family: var(--font-heading);
+.sensor-item span {
+  font-size: 0.6rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+/* Destaque para fraquezas (Valores negativos) */
+.sensor-item strong.weak {
+  color: #ff4444 !important; 
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
+}
+
+.sensor-item-divider {
+  grid-column: span 3;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--current-accent), transparent);
+  opacity: 0.2;
+  margin: 10px 0;
+}
+
+/* 5. DROPS E TAGS */
+.drops-container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.drop-tag {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--current-accent);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #eee;
   transition: all 0.3s ease;
 }
 
-.back-link:hover {
-  background: #fff;
+.drop-tag:hover {
+  background: var(--current-accent);
   color: #000;
+  box-shadow: 0 0 15px var(--current-glow);
 }
 
-.boss-hero-content {
-  max-width: 800px;
+/* 6. IMAGEM DO BOSS */
+.details-header-section .image-frame {
+  max-height: 500px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
 }
 
-.boss-name-huge {
-  font-family: var(--font-heading);
-  font-size: 4rem;
-  text-transform: uppercase;
-  margin: 10px 0;
-  letter-spacing: 5px;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+.details-header-section .image-frame img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px #000);
 }
 
-.difficulty-tag {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  padding: 5px 15px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* 7. RESPONSIVIDADE */
+.full-width {
+  grid-column: span 2;
 }
 
-.difficulty-tag.fácil { background: #22c55e; }
-.difficulty-tag.média { background: #eab308; }
-.difficulty-tag.difícil { background: #ef4444; }
-
-.boss-details-body {
-  max-width: 1000px;
-  margin: -30px auto 0;
-  padding: 60px 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
-  position: relative;
-  z-index: 2;
-}
-
-.boss-lore h2, .boss-rewards h2 {
-  font-family: var(--font-heading);
-  color: var(--color-accent-gold);
-  border-bottom: 1px solid rgba(194, 153, 91, 0.3);
-  padding-bottom: 15px;
-  margin-bottom: 25px;
-}
-
-.boss-lore p {
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  font-size: 1.1rem;
-}
-
-.drops-list {
-  list-style: none;
-  padding: 0;
-}
-
-.drop-item {
-  background: rgba(255, 255, 255, 0.05);
-  margin-bottom: 10px;
-  padding: 15px;
-  border-left: 3px solid var(--color-accent-gold);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .boss-details-body {
-    grid-template-columns: 1fr;
-    margin-top: 0;
-  }
-  .boss-name-huge {
-    font-size: 2.5rem;
-  }
+@media (max-width: 968px) {
+  .details-header-section { grid-template-columns: 1fr; }
+  .details-footer-info { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
+  .sensor-grid { grid-template-columns: repeat(2, 1fr); }
 }

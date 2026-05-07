@@ -16,6 +16,7 @@ import Equipments from './pages/Equipments/Home';
 import WeaponList from './pages/Equipments/WeaponList'; // Você deve criar este arquivo
 import WeaponDetails from './pages/Equipments/WeaponDetails';
 import Bosses from './pages/Bosses';
+import BossDetails from './pages/BossDetails';
 import Characters from './pages/Characters';
 import Classes from './pages/Classes';
 import ClassDetails from './pages/ClassesDetails';
@@ -37,6 +38,7 @@ function App() {
             <Route path="/equipments/:category" element={<WeaponList />} />
             <Route path="/equipments/:category/:id" element={<WeaponDetails />} />
             <Route path="/bosses" element={<Bosses />} />
+            <Route path="/bosses/:id" element={<BossDetails />} />
             <Route path="/characters" element={<Characters />} />
             <Route path="/classes" element={<Classes />} />
             <Route path="/classes/:id" element={<ClassDetails />} />

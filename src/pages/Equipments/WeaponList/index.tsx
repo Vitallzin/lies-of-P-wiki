@@ -21,7 +21,7 @@ const WeaponList = () => {
         </button>
 
         <header className="list-header">
-          <h1 className="cinzel-title">{categoryInfo?.name || "Arsenal"}</h1>
+          <h1 className="cinzel-title">{categoryInfo?.name}</h1>
           <div className="gold-divider"></div>
         </header>
 

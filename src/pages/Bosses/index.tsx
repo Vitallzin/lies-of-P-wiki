@@ -30,7 +30,7 @@ const Bosses = () => {
       <main className="bosses-grid-container">
         <div className="bosses-grid">
           {filteredBosses.map((boss) => (
-            <BossCard 
+            <BossCard
               key={boss.id}
               {...boss} // Espalha as props id, name, location, etc.
             />

@@ -164,5 +164,8 @@ export const weaponsData: equipments[] = [
     Pode ser encontrado em um baú no segundo nível da sala de exposição Zebra.`,
     image: royalHornBow
   },
+  // Adicione mais armas aqui seguindo o mesmo formato
+
+  //Falta por as armas da categoria "Braços da Legião"
 
 ];
