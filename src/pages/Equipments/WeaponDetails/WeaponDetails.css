@@ -1,3 +1,13 @@
+.details-page.theme-normal {
+  --current-accent: var(--color-accent-gold);
+  --current-glow: rgba(194, 153, 91, 0.3);
+}
+
+.details-page.theme-dlc {
+  --current-accent: var(--color-accent-dlc);
+  --current-glow: var(--glow-color);
+}
+
 .details-page {
   padding: 120px 20px 60px;
   min-height: 100vh;
@@ -36,7 +46,7 @@
 .back-btn-modern .btn-line {
   width: 40px;
   height: 1px;
-  background: var(--color-accent-gold);
+  background: var(--current-accent);
   margin-top: 8px;
   transition: width 0.3s ease;
 }

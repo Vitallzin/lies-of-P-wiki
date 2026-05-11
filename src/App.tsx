@@ -18,6 +18,7 @@ import WeaponDetails from './pages/Equipments/WeaponDetails';
 import Bosses from './pages/Bosses';
 import BossDetails from './pages/BossDetails';
 import Characters from './pages/Characters';
+import CharacterDetails from './pages/CharacterDetails';
 import Classes from './pages/Classes';
 import ClassDetails from './pages/ClassesDetails';
 import Dlc from './pages/DLC';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/bosses" element={<Bosses />} />
             <Route path="/bosses/:id" element={<BossDetails />} />
             <Route path="/characters" element={<Characters />} />
+            <Route path="/characters/:id" element={<CharacterDetails />} />
             <Route path="/classes" element={<Classes />} />
             <Route path="/classes/:id" element={<ClassDetails />} />
             <Route path="/dlc" element={<Dlc />} />

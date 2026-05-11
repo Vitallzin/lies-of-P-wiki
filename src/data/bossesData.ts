@@ -9,6 +9,7 @@ export interface Boss {
     NGplus: number;
     NGplus2: number;
   };
+  BossCategory: string;
   location: string;
   isOptional: boolean;
   isSpecterSommer: boolean;
@@ -58,6 +59,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: true,
     isDLC: false,
     type: "Marionete",
+    BossCategory: "Chefe Principal",
     health: { normal: 8710, NGplus: 30088, NGplus2: 39446 },
     isbreakableWeapons: false,
     damage: { fase1: "Condudente",fase2: "Condudente, Descarga Elétrica",},

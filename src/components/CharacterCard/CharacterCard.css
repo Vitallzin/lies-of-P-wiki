@@ -1,85 +1,99 @@
-.char-card {
+.characters-card {
   background: var(--color-bg-secondary);
-  border-radius: var(--border-radius);
-  overflow: hidden;
+  border: 1px solid rgba(194, 153, 91, 0.2);
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: 1px solid rgba(194, 153, 91, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  max-width: 350px;
 }
 
-.char-card:hover {
+/* Efeito Hover Geral */
+.characters-card:hover {
   transform: translateY(-10px);
   border-color: var(--color-accent-gold);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-.char-img-container {
+/* Tema DLC (Azul) */
+.characters-card.is-dlc-boss:hover {
+  border-color: var(--color-accent-dlc);
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+}
+
+.characters-image-wrapper {
   position: relative;
-  height: 380px;
+  height: 400px;
   overflow: hidden;
 }
 
-.char-img {
+.characters-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
+  filter: grayscale(30%) contrast(1.1);
 }
 
-.char-card:hover .char-img {
-  transform: scale(1.05);
+.characters-card:hover .characters-card-img {
+  transform: scale(1.1);
+  filter: grayscale(0%);
 }
 
-.char-overlay {
+/* Badge de Dificuldade */
+.difficulty-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, var(--color-bg-secondary), transparent);
+  top: 15px;
+  right: 15px;
+  padding: 4px 12px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  z-index: 5;
 }
 
-.char-glow {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%;
-  height: 40px;
-  background: var(--color-accent-glow);
-  filter: blur(30px);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+/* Ajuste de cor para Bosses DLC */
+.is-dlc-boss .difficulty-badge {
+  border-color: var(--color-accent-dlc);
+  color: var(--color-accent-dlc);
 }
 
-.char-card:hover .char-glow {
-  opacity: 0.3;
-}
-
-.char-info {
-  padding: 20px;
+.characters-card-info {
+  padding: 25px;
   text-align: center;
 }
 
-.char-role {
-  font-family: var(--font-body);
-  color: var(--color-accent-copper);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.char-name {
+.characters-card-name {
   font-family: var(--font-heading);
   color: var(--color-text-primary);
-  font-size: 1.5rem;
-  margin: 5px 0 15px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
-.char-line {
-  width: 40px;
+.characters-card-location {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.characters-glow-line {
+  width: 0%;
   height: 2px;
   background: var(--color-accent-gold);
-  margin: 0 auto;
-  transition: width 0.3s ease;
+  margin: 15px auto 0;
+  transition: width 0.4s ease;
 }
 
-.char-card:hover .char-line {
-  width: 80px;
+.characters-card:hover .characters-glow-line {
+  width: 100%;
+}
+
+.is-dlc-boss .characters-glow-line {
+  background: var(--color-accent-dlc);
+  box-shadow: 0 0 10px var(--color-accent-dlc);
 }

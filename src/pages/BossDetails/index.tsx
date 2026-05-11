@@ -26,7 +26,7 @@ const BossDetails = () => {
           <div className="details-header-section">
             <div className="header-text">
               <span className="category-tag">
-                {boss.isDLC ? 'Expansão: Shadow of Krat' : 'Chefe Principal'}
+                {boss.isDLC ? `${boss.BossCategory} DLC` : boss.BossCategory}
               </span>
               <h1 className="weapon-name-title">{boss.name}</h1>
               <div className="description-box">
