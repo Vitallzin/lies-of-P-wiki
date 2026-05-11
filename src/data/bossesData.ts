@@ -1,4 +1,4 @@
-import scrappedWatchman from '../assets/img/boss/scrapped-watchman.avif';
+import scrappedWatchman from '../assets/img/boss/scrapped-watchman.webp';
 
 export interface Boss {
   id: string;
@@ -23,7 +23,6 @@ export interface Boss {
     normal: number;
     NGplus: number;
     NGplus2: number;
-
   }; // Lista de ergos que o chefe pode dropar
   damage: {
     fase1: string;

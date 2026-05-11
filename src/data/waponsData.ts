@@ -1,8 +1,8 @@
 // src/data/waponsData.ts
-import bgarmas from '../assets/img/weapons/bgArmas.jpg';
-import bglegiao from '../assets/img/weapons/bgLegiao.png';
-import armas from '../assets/img/weapons/armas.jpg';
-import legiao from '../assets/img/weapons/legiao.png';
+import bgarmas from '../assets/img/weapons/bgArmas.webp';
+import bglegiao from '../assets/img/weapons/bgLegiao.webp';
+import armas from '../assets/img/weapons/armas.webp';
+import legiao from '../assets/img/weapons/legiao.webp';
 
 
 export const weaponsCategories = [
@@ -24,11 +24,11 @@ export const weaponsCategories = [
 
 
 // Import de imagens de armas
-import boosterGlavie from '../assets/img/WeaponsDetails/booster-glaive-weapon.png';
-import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-weapon.png';
-import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.png';
-import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.png';
-import royalHornBow from '../assets/img/WeaponsDetails/royal_horn_bow-weapon-special.png';
+import boosterGlavie from '../assets/img/WeaponsDetails/booster-glaive-weapon.webp';
+import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-weapon.webp';
+import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.webp';
+import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.webp';
+import royalHornBow from '../assets/img/WeaponsDetails/royal_horn_bow-weapon-special.webp';
 
 export interface equipments {
   id: string;

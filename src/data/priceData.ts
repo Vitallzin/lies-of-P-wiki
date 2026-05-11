@@ -1,7 +1,7 @@
-import xbox from '../assets/img/home/xbox.jpg';
-import ps from '../assets/img/home/playstation.png';
-import steam from '../assets/img/home/steam.png';
-import nuuvem from '../assets/img/home/nuuvem.png';
+import xbox from '../assets/img/home/xbox.webp';
+import ps from '../assets/img/home/playstation.webp';
+import steam from '../assets/img/home/steam.webp';
+import nuuvem from '../assets/img/home/nuuvem.webp';
 
 
 // Classe de ícone ou URL

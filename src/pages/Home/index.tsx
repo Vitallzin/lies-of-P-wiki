@@ -5,7 +5,7 @@ import {aboutGame} from '../../data/homeData';
 import { historyGame } from '../../data/homeData';
 import { keyFeatures } from '../../data/homeData';
 import { aboutDev } from '../../data/homeData';
-import Lies_of_P_logo from '../../assets/img/home/logo.png';
+import Lies_of_P_logo from '../../assets/img/home/logo.webp';
 
 const Home = () => {
   return (

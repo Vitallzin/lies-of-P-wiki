@@ -1,13 +1,13 @@
 
-import aboutgame from '../assets/img/home/aboutGame.jpg'
-import dev from '../assets/img/home/dev.png'
-import history from '../assets/img/home/history.jpg'
-import feature1 from '../assets/img/home/gamefeatures1.jpg'
-import feature2 from '../assets/img/home/gamefeatures2.jpg'
-import feature3 from '../assets/img/home/gamefeatures3.jpg'
-import feature4 from '../assets/img/home/gamefeatures4.jpg'
-import feature5 from '../assets/img/home/gamefeatures5.jpg'
-import feature6 from '../assets/img/home/gamefeatures6.jpg'
+import aboutgame from '../assets/img/home/aboutGame.webp'
+import dev from '../assets/img/home/dev.webp'
+import history from '../assets/img/home/history.webp'
+import feature1 from '../assets/img/home/gamefeatures1.webp'
+import feature2 from '../assets/img/home/gamefeatures2.webp'
+import feature3 from '../assets/img/home/gamefeatures3.webp'
+import feature4 from '../assets/img/home/gamefeatures4.webp'
+import feature5 from '../assets/img/home/gamefeatures5.webp'
+import feature6 from '../assets/img/home/gamefeatures6.webp'
 
 
 export const hero = {
