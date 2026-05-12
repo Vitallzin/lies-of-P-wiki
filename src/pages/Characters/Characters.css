@@ -1,3 +1,4 @@
+/* Characters.css - Otimizado */
 .characters-page {
   padding-top: 120px;
   min-height: 100vh;
@@ -10,20 +11,6 @@
   max-width: 800px;
   margin: 0 auto 50px;
   padding: 0 20px;
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  color: var(--color-accent-gold);
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.section-subtitle {
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  letter-spacing: 1px;
 }
 
 /* Container da Barra de Busca */
@@ -43,13 +30,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-}
-
-.no-results {
-  text-align: center;
-  color: #555;
-  font-style: italic;
-  margin-top: 50px;
 }
 
 .icon-gold {

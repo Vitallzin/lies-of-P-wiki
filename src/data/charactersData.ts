@@ -15,7 +15,7 @@ export interface Character {
 
 export const charactersData: Character[] = [
   {
-    id: '1',
+    id: 'geppeto',
     name: "Geppetto",
     location: "Oficina de Krat",
     whereFind: "Encontrado na Oficina de Krat, onde ele trabalha.",

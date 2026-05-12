@@ -14,7 +14,7 @@ const BossCard = ({ id, name, location, image, isDLC }: BossCardProps) => {
 
   return (
     <div 
-      className={`boss-card ${isDLC ? 'is-dlc-boss' : ''}`} 
+      className={`boss-card soulslike-card ${isDLC ? 'is-dlc-boss is-dlc-card' : ''}`} 
       onClick={() => navigate(`/bosses/${id}`)}
     >
       <div className="boss-image-wrapper">

@@ -44,3 +44,133 @@ body {
   /* Padding top para compensar a Navbar fixa (ajuste conforme a altura da sua nav) */
   padding-top: 80px; 
 }
+
+/* Classes Globais Otimizadas */
+
+.page-container {
+  padding-top: 120px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  color: #fff;
+}
+
+.section-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-accent-gold);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.text-gold { color: var(--color-accent-gold); }
+.text-dlc { color: var(--color-accent-dlc); }
+
+.no-results {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-top: 50px;
+}
+
+/* Cartões Estilo Soulslike */
+.soulslike-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid rgba(194, 153, 91, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.soulslike-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.soulslike-card.is-dlc-card:hover {
+  border-color: var(--color-accent-dlc);
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+}
+
+/* Emblemas e Tags */
+.badge-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 5;
+}
+
+.difficulty-badge, .dlc-badge, .special-badge {
+  padding: 4px 12px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.difficulty-badge {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+}
+
+.is-dlc-card .difficulty-badge {
+  border-color: var(--color-accent-dlc);
+  color: var(--color-accent-dlc);
+}
+
+.dlc-badge {
+  background: var(--color-accent-dlc);
+  color: #000;
+}
+
+.special-badge {
+  background: #ff4444;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
+}
+
+/* Molduras e Divisores Globais */
+.image-frame {
+  position: relative;
+  padding: 15px;
+  border: 1px solid rgba(194, 153, 91, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent-gold);
+  margin-bottom: 30px;
+}
+
+/* Utilitários de Grid */
+.standard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}

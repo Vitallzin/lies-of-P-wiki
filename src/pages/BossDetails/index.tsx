@@ -17,7 +17,7 @@ const BossDetails = () => {
       <div className="details-container">
         {/* BOTÃO VOLTAR PADRONIZADO */}
         <button className="back-btn-modern" onClick={() => navigate(-1)}>
-          <span className="text">Voltar aos Registros</span>
+          <span className="text">Voltar aos Chefes</span>
           <div className="btn-line"></div>
         </button>
 

@@ -16,8 +16,9 @@ const WeaponList = () => {
       <div className="list-overlay"></div>
       
       <div className="list-container">
-        <button className="back-btn" onClick={() => navigate('/equipments')}>
-          ← Voltar Categorias
+        <button className="back-btn-modern" onClick={() => navigate('/equipments')}>
+          <span className="text">Retornar Categorias</span>
+          <div className="btn-line"></div>
         </button>
 
         <header className="list-header">
@@ -29,7 +30,7 @@ const WeaponList = () => {
           {filteredItems.map((item) => (
             <div 
               key={item.id} 
-              className={`item-card ${item.isDLC ? 'is-dlc-card' : ''} ${item.isSpecial ? 'is-special-card' : ''}`}
+              className={`item-card soulslike-card ${item.isDLC ? 'is-dlc-card' : ''} ${item.isSpecial ? 'is-special-card' : ''}`}
               onClick={() => navigate(`/equipments/${item.category}/${item.id}`)}
             >
               {/* Container para as Tags/Badges */}

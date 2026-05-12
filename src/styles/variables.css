@@ -22,3 +22,14 @@
   --border-radius: 4px; /* Bordas levemente arredondadas, não muito */
   --container-width: 1200px;
 }
+
+/* Temas Compartilhados */
+.theme-normal {
+  --current-accent: var(--color-accent-gold);
+  --current-glow: rgba(194, 153, 91, 0.3);
+}
+
+.theme-dlc {
+  --current-accent: var(--color-accent-dlc);
+  --current-glow: var(--glow-color);
+}

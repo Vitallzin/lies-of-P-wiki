@@ -14,39 +14,45 @@ const CharacterDetails = () => {
   const themeClass = character.isDLC ? 'theme-dlc' : 'theme-normal';
 
   return (
-    <div className={`char-details-page ${themeClass}`}>
-      <div className="char-details-container">
-        
-        {/* LADO ESQUERDO: VISUAL */}
-        <div className="char-visual-section">
-          <div className="char-frame">
-            <img src={character.image} alt={character.name} className="char-large-img" />
-            <div className="char-blood-glow"></div>
+    <div className={`details-page ${themeClass}`}>
+      <div className="details-container">
+        {/* BOTÃO VOLTAR PADRONIZADO */}
+        <button className="back-btn-modern" onClick={() => navigate('/characters')}>
+          <span className="text">Retornar a lista de Personagens</span>
+          <div className="btn-line"></div>
+        </button>
+
+        <div className="details-main-layout">
+          {/* TOPO: BIOGRAFIA (ESQUERDA) | IMAGEM (DIREITA) */}
+          <div className="details-header-section">
+            <div className="header-text">
+              <span className="category-tag">
+                {character.location}
+              </span>
+              <h1 className="weapon-name-title">{character.name}</h1>
+              <div className="description-box">
+                <h3>Crônica do Personagem</h3>
+                <p>{character.description}</p>
+              </div>
+            </div>
+
+            <div className="header-visual">
+              <div className="image-frame">
+                <img src={character.image} alt={character.name} />
+                <div className="frame-glow"></div>
+              </div>
+            </div>
           </div>
-          <button className="back-btn-minimal" onClick={() => navigate(-1)}>
-            ← Retornar ao Hotel Krat
-          </button>
-        </div>
 
-        {/* LADO DIREITO: INFORMAÇÕES NARRATIVAS */}
-        <div className="char-text-section">
-          <header className="char-header-info">
-            <span className="char-affiliation-tag">{character.location}</span>
-            <h1 className="char-name-title">{character.name}</h1>
-          </header>
-
-          <div className="char-biography">
-            <h2 className="section-small-title">Crônica do Personagem</h2>
-            <p className="char-desc-text">{character.description}</p>
-          </div>
-
-          {/* GRID DE INFORMAÇÕES TÉCNICAS (Estilo Boss) */}
-          <div className="char-info-grid">
+          {/* BAIXO: INFORMAÇÕES NARRATIVAS E TÉCNICAS */}
+          <div className="details-footer-info">
+            {/* Bloco 1: Onde Encontrar */}
             <div className="info-block">
               <h4 className="block-label">Onde Encontrar</h4>
               <p className="block-content-text">{character.whereFind}</p>
             </div>
 
+            {/* Bloco 2: Objetivos (Quests) */}
             <div className="info-block">
               <h4 className="block-label">Objetivos (Quests)</h4>
               <ul className="quests-list">
@@ -56,6 +62,7 @@ const CharacterDetails = () => {
               </ul>
             </div>
 
+            {/* Bloco 3: Curiosidades (Ocupa a largura total) */}
             <div className="info-block full-width">
               <h4 className="block-label">Curiosidades e Rumores</h4>
               <div className="trivia-grid">
@@ -68,15 +75,7 @@ const CharacterDetails = () => {
               </div>
             </div>
           </div>
-
-          <div className="char-status-footer">
-            <div className="status-indicator">
-              <span className="dot"></span>
-              <p>Status: Ativo nos registros de Geppetto</p>
-            </div>
-          </div>
         </div>
-
       </div>
     </div>
   );

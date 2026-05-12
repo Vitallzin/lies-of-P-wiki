@@ -1,24 +1,7 @@
+/* CharacterCard.css - Otimizado */
 .characters-card {
-  background: var(--color-bg-secondary);
-  border: 1px solid rgba(194, 153, 91, 0.2);
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
+  /* Estilos herdados de .soulslike-card no global.css */
   max-width: 350px;
-}
-
-/* Efeito Hover Geral */
-.characters-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--color-accent-gold);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-}
-
-/* Tema DLC (Azul) */
-.characters-card.is-dlc-boss:hover {
-  border-color: var(--color-accent-dlc);
-  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
 }
 
 .characters-image-wrapper {
@@ -38,27 +21,6 @@
 .characters-card:hover .characters-card-img {
   transform: scale(1.1);
   filter: grayscale(0%);
-}
-
-/* Badge de Dificuldade */
-.difficulty-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 4px 12px;
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--color-accent-gold);
-  color: var(--color-accent-gold);
-  z-index: 5;
-}
-
-/* Ajuste de cor para Bosses DLC */
-.is-dlc-boss .difficulty-badge {
-  border-color: var(--color-accent-dlc);
-  color: var(--color-accent-dlc);
 }
 
 .characters-card-info {

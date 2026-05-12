@@ -1,3 +1,4 @@
+/* FeatureGrid.css - Otimizado */
 .features-section {
   padding: 60px 0;
   background-color: var(--color-bg-primary);
@@ -39,11 +40,13 @@
 
 /* Moldura e Imagem */
 .feature-frame {
+  /* Usa estilos base de .image-frame do global se aplicável, mas aqui tem corners específicos */
   position: relative;
   padding: 10px;
   border: 1px solid rgba(194, 153, 91, 0.3);
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .feature-frame img {
@@ -73,7 +76,7 @@
 }
 
 .highlight-red {
-  color: #ff4d4d; /* Tom de vermelho sangue para o tema */
+  color: #ff4d4d;
   font-weight: 600;
 }
 

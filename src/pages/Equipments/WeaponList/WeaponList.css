@@ -1,9 +1,11 @@
+/* WeaponList.css - Otimizado */
 .weapon-list-page {
   min-height: 100vh;
   padding: 120px 20px 60px;
   background-color: #0a0a0c;
   position: relative;
 }
+
 .back-btn {
   background: transparent;
   border: none;
@@ -33,18 +35,9 @@
 }
 
 .item-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(194, 153, 91, 0.2);
+  /* Estilos base do global .soulslike-card */
   padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.item-card:hover {
-  border-color: var(--color-accent-gold);
-  transform: translateY(-5px);
-  background: rgba(194, 153, 91, 0.05);
 }
 
 .item-image-wrapper {
@@ -83,38 +76,6 @@
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 10px;
 }
-/* Badge de DLC */
-.badge-container {
-  position: absolute;
-  display: flex;
-  flex-direction: column; /* Coloca uma embaixo da outra se houver as duas */
-  gap: 5px;
-  z-index: 5;
-}
-
-/* Badge DLC (Azul) - você já deve ter algo assim */
-.dlc-badge {
-  background: var(--color-accent-dlc);
-  color: #000;
-  padding: 2px 8px;
-  font-weight: bold;
-  font-size: 0.65rem;
-  border-radius: 3px;
-  text-transform: uppercase;
-}
-
-/* Badge ESPECIAL (Vermelho) */
-.special-badge {
-  background: #ff4444; /* Vermelho vibrante */
-  color: #fff;
-  padding: 2px 8px;
-  font-weight: bold;
-  font-size: 0.65rem;
-  border-radius: 3px;
-  text-transform: uppercase;
-  box-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
 
 /* Estilo para Card DLC */
 .item-card.is-dlc-card {
@@ -122,15 +83,10 @@
 }
 
 .item-card.is-dlc-card:hover {
-  border-color: var(--color-accent-dlc);
   background: rgba(0, 212, 255, 0.05);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
 }
 
-
 .item-card.is-dlc-card .item-info span {
   color: var(--color-accent-dlc);
-}
-.item-card.is-dlc-card h3 {
-  color: #fff; /* Mantém branco ou pode mudar para azul claro */
 }

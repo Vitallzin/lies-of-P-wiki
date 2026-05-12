@@ -1,38 +1,13 @@
-/* 1. SISTEMA DE TEMAS (Sempre no topo) */
-.details-page.theme-normal {
-  --current-accent: var(--color-accent-gold);
-  --current-glow: rgba(194, 153, 91, 0.3);
-}
+/* BossDetails.css - Otimizado e Unificado */
 
-.details-page.theme-dlc {
-  --current-accent: var(--color-accent-dlc);
-  --current-glow: var(--glow-color);
-}
-
-/* 2. BASE E CONTAINERS */
-.details-page {
-  padding: 120px 20px 60px;
-  background: #0a0a0c;
-  min-height: 100vh;
-}
-
-/* 3. TEXTOS DINÂMICOS (Usando --current-accent para DLC funcionar) */
-.data-item strong,
-.category-tag,
-.weapon-name-title,
-.description-box h3,
-.block-label,
-.sensor-item strong {
-  color: var(--current-accent) !important;
-}
-
+/* 1. TEXTOS E DECORAÇÕES ESPECÍFICAS */
 .data-item span { 
   color: #888; 
   font-size: 0.85rem; 
   margin-right: 8px; 
 }
 
-/* 4. GRID DE SENSORES (Otimizado) */
+/* 2. GRID DE SENSORES */
 .sensor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -46,7 +21,7 @@
   background: rgba(255, 255, 255, 0.02);
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-left: 2px solid var(--current-accent); /* Detalhe lateral charmoso */
+  border-left: 2px solid var(--current-accent);
 }
 
 .sensor-item span {
@@ -57,7 +32,6 @@
   margin-bottom: 4px;
 }
 
-/* Destaque para fraquezas (Valores negativos) */
 .sensor-item strong.weak {
   color: #ff4444 !important; 
   text-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
@@ -71,7 +45,7 @@
   margin: 10px 0;
 }
 
-/* 5. DROPS E TAGS */
+/* 3. DROPS E TAGS */
 .drops-container-flex {
   display: flex;
   flex-wrap: wrap;
@@ -95,29 +69,12 @@
   box-shadow: 0 0 15px var(--current-glow);
 }
 
-/* 6. IMAGEM DO BOSS */
-.details-header-section .image-frame {
-  max-height: 500px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-}
-
-.details-header-section .image-frame img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 20px #000);
-}
-
-/* 7. RESPONSIVIDADE */
+/* 4. RESPONSIVIDADE ESPECÍFICA */
 .full-width {
   grid-column: span 2;
 }
 
 @media (max-width: 968px) {
-  .details-header-section { grid-template-columns: 1fr; }
-  .details-footer-info { grid-template-columns: 1fr; }
   .full-width { grid-column: span 1; }
   .sensor-grid { grid-template-columns: repeat(2, 1fr); }
 }

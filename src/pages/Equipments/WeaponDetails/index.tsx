@@ -10,22 +10,21 @@ const WeaponDetails = () => {
   if (!weapon) {
     return (
       <div className="details-page">
-        <h1 style={{color: 'white', marginTop: '150px'}}>
-          Equipamento {id} não encontrado!
-        </h1>
-        <button onClick={() => navigate(-1)}>Voltar</button>
+        <button className="back-btn-modern" onClick={() => navigate(-1)}>
+          <span className="text">Retornar ao Arsenal</span>
+          <div className="btn-line"></div>
+        </button>
       </div>
     );
   }
 
-  // Define se usa o tema de DLC (azul) ou padrão (dourado)
   const themeClass = weapon.isDLC ? 'theme-dlc' : 'theme-normal';
 
   return (
     <div className={`details-page ${themeClass}`}>
       <div className="details-container">
         <button className="back-btn-modern" onClick={() => navigate(-1)}>
-          <span className="text">Voltar</span>
+          <span className="text">Retornar ao Arsenal</span>
           <div className="btn-line"></div>
         </button>
 

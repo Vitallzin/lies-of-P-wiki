@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Estilos
 import './styles/global.css';
-import './styles/varibles.css';
+import './styles/variables.css';
 import './styles/animations.css';
 
 // Componentes

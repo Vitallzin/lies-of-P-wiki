@@ -1,209 +1,10 @@
-/* CharacterDetails.css - REFORMULAÇÃO TOTAL */
+/* CharacterDetails.css - Otimizado e Unificado */
 
-/* 1. SISTEMA DE TEMAS (Sempre no topo, herança direta do Boss) */
-.char-details-page.theme-normal {
-  --current-accent: var(--color-accent-gold);
-  --current-glow: rgba(194, 153, 91, 0.3);
-}
-
-.char-details-page.theme-dlc {
-  --current-accent: var(--color-accent-dlc);
-  --current-glow: var(--glow-color);
-}
-
-/* 2. BASE E CONTAINERS (Layout Assimétrico e Dramático) */
-.char-details-page {
-  padding: 120px 20px 80px;
-  background: #050507; /* Fundo ligeiramente mais escuro para maior contraste */
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Overlay de textura de papel envelhecido sutil em toda a página */
-.char-details-page::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('../assets/img/textures/paper-texture.png'); /* Você precisará desta imagem */
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.char-details-container {
-  max-width: 1400px; /* Container mais largo para layout assimétrico */
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.6fr; /* Imagem menor, texto maior e imponente */
-  gap: 60px;
-  position: relative;
-  z-index: 2;
-}
-
-/* 3. LADO ESQUERDO: VISUAL (Dramatismo e Foco) */
-.char-visual-section {
-  position: sticky;
-  top: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.char-frame {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-.char-large-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  filter: sepia(30%) contrast(1.1) brightness(0.9); /* Visual de foto antiga */
-}
-
-/* Brilho de "pulso de Ergo" atrás da imagem */
-.char-blood-glow {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 120%; height: 120%;
-  background: radial-gradient(circle, var(--current-glow) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
-  z-index: -1;
-  animation: ergoPulse 4s infinite alternate;
-}
-
-@keyframes ergoPulse {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
-  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
-}
-
-/* Botão Voltar Mínimo */
-.back-btn-minimal {
-  background: transparent;
-  border: none;
-  color: #555;
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.7rem;
-  cursor: pointer;
-  margin-top: 30px;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid transparent;
-}
-
-.back-btn-minimal:hover {
-  color: var(--current-accent);
-  border-bottom-color: var(--current-accent);
-}
-
-/* 4. LADO DIREITO: NARRATIVA (Impacto e Mistério) */
-.char-text-section {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.char-header-info {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 20px;
-}
-
-.char-affiliation-tag {
-  font-family: var(--font-heading);
-  color: var(--current-accent);
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  opacity: 0.7;
-}
-
-.char-name-title {
-  font-family: var(--font-heading);
-  font-size: 4rem; /* Título massivo e imponente */
-  color: #fff;
-  margin: 10px 0;
-  line-height: 1;
-  text-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-
-/* Estilo da Crônica/Biografia */
-.char-biography {
-  position: relative;
-  padding-left: 30px;
-}
-
-/* Linha decorativa vertical estilo "Corte de bisturi" */
-.char-biography::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 2px; height: 100%;
-  background: linear-gradient(to bottom, transparent, var(--current-accent), transparent);
-}
-
-.section-small-title {
-  font-family: var(--font-heading);
-  color: #fff;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
-}
-
-.char-desc-text {
-  font-family: 'Crimson Text', serif; /* Fonte serifada para a Lore */
-  font-size: 1.1rem;
-  color: #aaa;
-  line-height: 1.8;
-  font-style: italic;
-}
-
-/* 5. GRID DE INFORMAÇÕES NARRATIVAS (Onde o design anterior falhou) */
-.char-info-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Coluna única para fluxo narrativo */
-  gap: 30px;
-}
-
-.info-block {
-  background: transparent; /* Remove o fundo de caixa */
-  border: none; /* Remove a borda padrão */
-  padding: 0;
-  position: relative;
-}
-
-.block-label {
-  font-family: var(--font-heading);
-  color: var(--current-accent);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Adiciona um pequeno losango decorativo antes do label */
-.block-label::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--current-accent);
-  transform: rotate(45deg);
-  box-shadow: 0 0 5px var(--current-accent);
-}
-
+/* 1. TEXTOS E DECORAÇÕES ESPECÍFICAS */
 .block-content-text, .quests-list li {
   color: #eee;
   font-size: 0.95rem;
   line-height: 1.6;
-  padding-left: 16px;
 }
 
 /* Estilo da Lista de Quests */
@@ -215,6 +16,7 @@
 .quests-list li {
   position: relative;
   margin-bottom: 8px;
+  padding-left: 16px;
 }
 
 .quests-list li::before {
@@ -225,14 +27,7 @@
   font-size: 0.8rem;
 }
 
-/* Estilo da Seção de Trivia (Curiosidades) */
-.info-block.full-width {
-  margin-top: 20px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-}
-
+/* Estilo da Seção de Trivia */
 .trivia-grid {
   display: flex;
   flex-direction: column;
@@ -247,70 +42,19 @@
 
 .trivia-item .bullet {
   width: 8px; height: 8px;
-  background: #333; /* Cor neutra para o bullet */
+  background: #333;
   border: 1px solid var(--current-accent);
   margin-top: 6px;
-  border-radius: 2px; /* Bullet quadrado */
+  border-radius: 2px;
   flex-shrink: 0;
 }
 
 .trivia-item p {
   color: #999;
   font-size: 0.85rem;
-  font-style: normal; /* Trivia não é Lore, é fato */
+  font-style: normal;
   line-height: 1.5;
 }
 
-/* 6. FOOTER DE STATUS (Detalhe Final de Imersão) */
-.char-status-footer {
-  margin-top: 50px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
+/* 2. FOOTER DE STATUS */
 
-.status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
-  color: #444;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.status-indicator .dot {
-  width: 8px; height: 8px;
-  background: #222;
-  border: 1px solid #444;
-  border-radius: 50%;
-}
-
-/* Status Ativo (Pode ser controlado via JS depois) */
-.status-indicator.active {
-  color: #888;
-}
-
-.status-indicator.active .dot {
-  background: #0f0; /* Verde neon sutil */
-  box-shadow: 0 0 10px #0f0;
-  border-color: #0f0;
-}
-
-/* RESPONSIVIDADE (Ajuste para telas menores mantendo o drama) */
-@media (max-width: 1000px) {
-  .char-details-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .char-visual-section {
-    position: relative;
-    top: 0;
-  }
-  
-  .char-name-title {
-    font-size: 3rem;
-  }
-}
