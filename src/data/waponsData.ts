@@ -29,6 +29,7 @@ import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-wea
 import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.webp';
 import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.webp';
 import royalHornBow from '../assets/img/WeaponsDetails/royal_horn_bow-weapon-special.webp';
+import greatswordOfFate from '../assets/img/WeaponsDetails/greatsword-of-fate.webp';
 
 export interface equipments {
   id: string;
@@ -40,6 +41,17 @@ export interface equipments {
   weight: string;
   slash?: string;
   stab?: string;
+  typeAttack?: {
+    attackNormal1: string;
+    attackNormal2?: string;
+    attackSpecial1?: string;
+    attackSpecial2?: string;
+    attackCharged1?: number | string;
+    attackCharged2?: number | string;
+    dodgingNormalAttack?: string;
+    SprintgNormalAttack?: string;
+    SprintSpecialAttack?: string;
+  }
   attack: string;
   Motivity: string;
   Technique: string;
@@ -164,6 +176,41 @@ export const weaponsData: equipments[] = [
     Pode ser encontrado em um baú no segundo nível da sala de exposição Zebra.`,
     image: royalHornBow
   },
+  {
+    id: 'Greatsword_of_Fate',
+    category: 'armas',
+    name: "Greatsword of Fate",
+    isDLC: false,
+    isSpecial: false,
+    type: "Espada grande",
+    weight: "13.8",
+    slash: "██░",
+    stab: "██░",
+    attack: "111",
+    Motivity: "B",
+    Technique: "D",
+    Advanced: "-",
+    durability: "100",
+    typeAttack: {
+      attackNormal1: "35",
+      attackNormal2: "37",
+      attackSpecial1: "46",
+      attackSpecial2: "44",
+      attackCharged1: "29+44",
+      attackCharged2: "64",
+      dodgingNormalAttack: "35",
+      SprintgNormalAttack: "34",
+      SprintSpecialAttack: "41"
+    },
+    description: `A Espada Longa do Destino é uma arma em Lies of P. A Espada Longa do Destino é um conjunto de armas composto pelas
+    seguintes peças: Lâmina da Espada Longa do Destino e Cabo da Espada Longa do Destino. Em Lies of P, as armas são encontradas como
+    peças individuais, tais como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre é composta
+    por uma Lâmina e um Cabo, que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência.`,
+    
+    Location:`Esta é a arma padrão ou inicial caso você escolha a Memória de Combate: Caminho do Varredor: Força.
+    Ela também pode ser comprada do Comerciante Errante por 300 Ergo`,
+    image: greatswordOfFate
+  }
   // Adicione mais armas aqui seguindo o mesmo formato
 
   //Falta por as armas da categoria "Braços da Legião"

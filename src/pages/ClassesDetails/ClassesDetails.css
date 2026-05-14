@@ -13,9 +13,17 @@
   font-family: var(--font-heading);
   color: var(--color-text-primary);
   font-size: 3rem;
-  margin: 20px 0 40px;
+  margin: 20px 0 10px;
   border-bottom: 2px solid var(--color-accent-gold);
   padding-bottom: 10px;
+}
+
+.class-subtitle {
+  color: var(--color-accent-gold);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
 .class-main-content {
@@ -27,6 +35,7 @@
 /* Sidebar de Atributos */
 .class-portrait-frame {
   position: relative;
+  width: 90%;
   border: 1px solid var(--color-accent-gold);
   margin-bottom: 30px;
 }
@@ -42,15 +51,41 @@
 
 .stats-box-detailed {
   background: var(--color-bg-secondary);
-  padding: 20px;
+  padding: 30px;
   border-radius: var(--border-radius);
+  margin-bottom: 40px;
+  border: 1px solid rgba(194, 153, 91, 0.2);
+}
+
+.stats-section-header h3 {
+  font-size: 0.9rem;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--color-accent-gold);
+  padding-left: 15px;
+}
+
+.stats-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 40px;
+}
+
+.stats-small {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .stat-line {
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
-.stat-line span { font-size: 0.75rem; color: var(--color-text-secondary); text-transform: uppercase; }
+.stat-line span { 
+  font-size: 0.75rem; 
+  color: var(--color-text-secondary); 
+  text-transform: uppercase; 
+}
 
 .stat-value-container {
   display: flex;
@@ -65,9 +100,102 @@
   box-shadow: 0 0 8px var(--color-accent-glow);
 }
 
-/* Guia de Build */
-.guide-block {
-  margin-bottom: 40px;
+.description-text {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.weapons-section {
+  margin-top: 40px;
+}
+
+.description-section {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(194, 153, 91, 0.1);
+}
+
+.sidebar-weapon-section {
+  margin-top: 20px;
+  width: 90%;
+}
+
+.sidebar-weapon-section h3 {
+  font-size: 0.8rem;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sidebar-weapon-section .recommended-weapons-grid {
+  display: block;
+}
+
+.start-weapon-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  max-width: 400px;
+}
+
+.weapon-img-container {
+  width: 120px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(194, 153, 91, 0.2);
+}
+
+.weapon-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weapon-info {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weapon-name {
+  color: var(--color-accent-gold);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.weapon-type {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+  .stats-small {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .class-main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-small {
+    grid-template-columns: 1fr;
+  }
 }
 
 .guide-block h3 {

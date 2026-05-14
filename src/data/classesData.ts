@@ -1,51 +1,56 @@
+import balanceImage from '../assets/img/classes/balance.webp';
+import balancevideo from '../assets/video/video-balance.mp4';
+
+import dexterityImage from '../assets/img/classes/dexterity.webp';
+import dexterityvideo from '../assets/video//video-dexterity.mp4';
+
+import strengthImage from '../assets/img/classes/strength.webp';
+import strengthvideo from '../assets/video/video-strength.mp4';
+
 export interface GameClass {
   id: string;
   name: string;
-  description: string;
-  stats: { [key: string]: number };
-  bestWeapons: string[]; // IDs ou Nomes das armas recomendadas
-  buildTips: string[];
+  descriptionCard: string;
+  baseStats: { [key: string]: number };
+  baseAttributes: { [key: string]: number };
+  descriptionDetail: string;
+  startWeapon: string;
   image: string;
+  video: string;
 }
 
 export const classesData: GameClass[] = [
   {
     id: '1',
     name: "Caminho do Grilo (Equilíbrio)",
-    description: "O caminho ideal para quem busca versatilidade. Permite adaptar-se a qualquer situação em Krat.",
-    stats: { Vitalidade: 11, Vigor: 12, Capacidade: 11, Motricidade: 9, Técnica: 9, Avanço: 7 },
-    bestWeapons: ["Puppet's Saber", "Trident of the Covenant", "Seven-Coiled Spring Sword"],
-    buildTips: [
-      "Foque em elevar Vitalidade e Vigor inicialmente.",
-      "Aproveite que seus atributos de Motricidade e Técnica são iguais para testar diferentes montagens de armas.",
-      "Use braços mecânicos que complementem sua falta de especialização inicial."
-    ],
-    image: "https://placehold.co/600x800/0a0a0c/c2995b?text=Path+of+the+Cricket"
+    descriptionCard: "O caminho ideal para quem busca versatilidade. Permite adaptar-se a qualquer situação em Krat.",
+    baseStats: { Vitalidade: 11, Vigor: 12, Capacidade: 11, Motricidade: 9, Técnica: 9, Avanço: 7 },
+    baseAttributes: { Vitalidade: 11, Vigor: 12, Capacidade: 11, Motricidade: 9, Técnica: 9, Avanço: 7 },
+    descriptionDetail: "O caminho ideal para quem busca versatilidade. Permite adaptar-se a qualquer situação em Krat.",
+    startWeapon: "Puppet's Saber",
+    image: balanceImage,
+    video: balancevideo
   },
   {
     id: '2',
-    name: "Caminho do Bastardo (Agilidade)",
-    description: "Foco total em velocidade, estamina e ataques críticos rápidos.",
-    stats: { Vitalidade: 8, Vigor: 15, Capacidade: 9, Motricidade: 5, Técnica: 11, Advance: 6 },
-    bestWeapons: ["Wintry Rapier", "Etiquette", "Two-Dragons Sword"],
-    buildTips: [
-      "Aprenda o tempo do Perfect Guard, pois sua vida inicial é baixa.",
-      "Invista pesado em Técnica para escalar o dano das suas armas rápidas.",
-      "Mantenha o peso do equipamento abaixo de 60% para maximizar a regeneração de estamina."
-    ],
-    image: "https://placehold.co/600x800/0a0a0c/c2995b?text=Path+of+the+Bastard"
+    name: "Caminho do Bastardo (Destreza)",
+    descriptionCard: "Foco total em velocidade, estamina e ataques críticos rápidos.",
+    baseStats: { Vitalidade: 8, Vigor: 15, Capacidade: 9, Motricidade: 5, Técnica: 11, Avanço: 6 },
+    baseAttributes: { Vitalidade: 8, Vigor: 15, Capacidade: 9, Motricidade: 5, Técnica: 11, Avanço: 6 },
+    descriptionDetail: "Foco total em velocidade, estamina e ataques críticos rápidos.",
+    startWeapon: "Wintry Rapier",
+    image: dexterityImage,
+    video: dexterityvideo
   },
   {
     id: '3',
     name: "Caminho da Varredura (Força)",
-    description: "Esmague a resistência das marionetes com golpes pesados e alta defesa.",
-    stats: { Vitalidade: 13, Vigor: 7, Capacidade: 12, Motricidade: 11, Técnica: 5, Advance: 6 },
-    bestWeapons: ["Greatsword of Fate", "Holy Sword of the Ark", "Noblesse Oblige"],
-    buildTips: [
-      "Utilize ataques carregados para quebrar a postura dos inimigos rapidamente.",
-      "Aumente a Capacidade para conseguir usar peças de defesa pesadas sem ficar lento.",
-      "Sempre recupere vida através do sistema de 'Guard Regain' após bloquear ataques."
-    ],
-    image: "https://placehold.co/600x800/0a0a0c/c2995b?text=Path+of+the+Sweeper"
+    descriptionCard: "Esmague a resistência das marionetes com golpes pesados e alta defesa.",
+    baseStats: { Vitalidade: 11, Vigor: 5, Capacidade: 11, Motricidade: 11, Técnica: 5, Avanço: 6 },
+    baseAttributes: { HP: 323, Resistência: 96, Recuperação_de_Guarda: 65, Limite_de_Peso: 73.3, Ataque_Físico: 123, Defesa_Física: 80 },
+    descriptionDetail: "O Caminho do Varredor: Força é uma Memória de Combate (Estilo de Combate) em Lies of P. O Caminho do Varredor privilegia a Força e a Defesa acima de tudo; esse arquétipo inicial oferece vantagem na derrota de inimigos ao explorar as primeiras seções do jogo. As Memórias de Combate são arquétipos ou classes pré-definidas para Pinóquio; cada memória de combate terá um conjunto pré-definido de armas, estatísticas básicas e atributos que se concentram em diferentes estilos de jogo. Elas só estão disponíveis para escolha no início do jogo, e os jogadores têm liberdade para criar uma configuração e desenvolver Pinóquio à medida que avançam.",
+    startWeapon: "Greatsword of Fate",
+    image: strengthImage,
+    video: strengthvideo
   }
 ];

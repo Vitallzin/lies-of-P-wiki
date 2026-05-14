@@ -14,7 +14,7 @@ const Characters = () => {
 
 /* No seu index.tsx, o retorno deve ser exatamente este: */
 return (
-  <div className="characters-page"> {/* Certifique-se que o CSS tem esse 's' */}
+  <div className="characters-page" >
     <header className="characters-header">
       <h1 className="section-title">Habitantes de Krat</h1>
       <p className="section-subtitle">Amigos e inimigos encontrados nas ruas decadentes.</p>

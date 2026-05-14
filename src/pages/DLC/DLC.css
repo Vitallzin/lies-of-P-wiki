@@ -4,6 +4,11 @@
   background-color: var(--color-bg-primary);
 }
 
+.dlc-hero-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
 /* Hero DLC */
 .dlc-hero {
   position: relative;

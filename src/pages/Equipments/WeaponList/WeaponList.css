@@ -6,20 +6,37 @@
   position: relative;
 }
 
-.back-btn {
+.back-btn{
   background: transparent;
   border: none;
   color: var(--color-accent-gold);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-btn .text {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.8rem;
-  cursor: pointer;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
+  margin-top: 5px;
 }
 
+.back-btn .btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--current-accent);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.back-btn:hover .btn-line {
+  width: 100%;
+}
 .list-container {
   max-width: 1200px;
   margin: 0 auto;

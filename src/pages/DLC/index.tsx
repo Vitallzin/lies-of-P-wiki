@@ -1,3 +1,4 @@
+import logo from '../../assets/img/DLC/logoDLC.webp'
 import './DLC.css';
 
 const Dlc = () => {
@@ -8,6 +9,7 @@ const Dlc = () => {
         <div className="dlc-hero-background"></div>
         <div className="dlc-hero-overlay"></div>
         <div className="dlc-hero-content">
+          <img src={logo} alt="Logo da DLC" className="dlc-hero-logo" />
           <h1 className="dlc-title">Sombras de <span className="blue-glow">Krat</span></h1>
           <p className="dlc-subtitle">A Expansão Definitiva</p>
         </div>

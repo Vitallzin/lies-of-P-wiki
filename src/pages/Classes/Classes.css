@@ -49,7 +49,7 @@
   display: flex;
   justify-content: center;
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -82,19 +82,33 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: opacity 0.4s ease;
   filter: grayscale(30%) contrast(1.1);
+  position: relative;
+  z-index: 1;
 }
 
-.class-selection-card:hover img {
-  transform: scale(1.1);
-  filter: grayscale(0%) contrast(1.2);
+.card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.class-selection-card:hover .card-video {
+  opacity: 1;
 }
 
 .card-gradient {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--color-bg-secondary), transparent 70%);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .card-body {

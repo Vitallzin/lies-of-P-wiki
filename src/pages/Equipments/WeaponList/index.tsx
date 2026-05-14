@@ -16,7 +16,7 @@ const WeaponList = () => {
       <div className="list-overlay"></div>
       
       <div className="list-container">
-        <button className="back-btn-modern" onClick={() => navigate('/equipments')}>
+        <button className="back-btn" onClick={() => navigate('/equipments')}>
           <span className="text">Retornar Categorias</span>
           <div className="btn-line"></div>
         </button>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { classesData } from '../../data/classesData';
 import './Classes.css';
 
+
 const Classes = () => {
   const navigate = useNavigate();
 
@@ -23,13 +24,29 @@ const Classes = () => {
         {classesData.map((c) => (
           <div key={c.id} className="class-selection-card" onClick={() => navigate(`/classes/${c.id}`)}>
             <div className="card-image-wrapper">
-              <img src={c.image} alt={c.name} />
+              <img src={c.image} alt={c.name} className="card-image" />
+              <video 
+                src={c.video} 
+                className="card-video" 
+                muted 
+                loop 
+                playsInline
+                onMouseEnter={(e) => {
+                  const video = e.currentTarget;
+                  video.play().catch(err => console.error("Video play failed:", err));
+                }}
+                onMouseLeave={(e) => {
+                  const video = e.currentTarget;
+                  video.pause();
+                  video.currentTime = 0;
+                }}
+              />
               <div className="card-gradient"></div>
             </div>
             
             <div className="card-body">
               <h2 className="class-type-name">{c.name}</h2>
-              <p className="class-short-desc">{c.description}</p>
+              <p className="class-short-desc">{c.descriptionCard}</p>
               
               <div className="action-area">
                 <div className="red-glow-line"></div>
