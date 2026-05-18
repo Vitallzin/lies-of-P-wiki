@@ -8,7 +8,14 @@
   max-width: var(--container-width);
   margin: 0 auto;
 }
-
+.back-btn {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1.1rem;
+}
+.back-btn:hover .btn-line {
+  width: 100%;
+}
 .class-details-header h1 {
   font-family: var(--font-heading);
   color: var(--color-text-primary);
@@ -179,22 +186,64 @@
 
 /* Responsivo */
 @media (max-width: 1000px) {
+  .class-details-page {
+    padding-top: 100px;
+  }
+
+  .class-details-header h1 {
+    font-size: 2.5rem;
+  }
+
   .stats-small {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 900px) {
   .class-main-content {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .class-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .class-portrait-frame, .sidebar-weapon-section {
+    width: 100%;
+    max-width: 400px;
   }
   
   .stats-grid-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
   
   .stats-small {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .class-details-header h1 {
+    font-size: 2rem;
+  }
+
+  .stats-grid-container, .stats-small {
     grid-template-columns: 1fr;
+  }
+
+  .start-weapon-card {
+    flex-direction: column;
+  }
+
+  .weapon-img-container {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid rgba(194, 153, 91, 0.2);
   }
 }
 

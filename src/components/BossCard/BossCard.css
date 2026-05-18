@@ -1,13 +1,25 @@
 /* BossCard.css - Otimizado */
 .boss-card {
   /* Estilos herdados de .soulslike-card no global.css */
-  max-width: 350px;
+  width: 100%;
 }
 
 .boss-image-wrapper {
   position: relative;
   height: 400px;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .boss-image-wrapper {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boss-image-wrapper {
+    height: 250px;
+  }
 }
 
 .boss-card-img {

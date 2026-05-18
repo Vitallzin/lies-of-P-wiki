@@ -164,11 +164,44 @@
 
 /* Responsivo */
 @media (max-width: 1000px) {
+  .classes-page {
+    padding-top: 100px;
+  }
+
+  .cinzel-title {
+    font-size: 2.8rem;
+  }
+
+  .classes-header {
+    margin-bottom: 50px;
+  }
+
   .classes-grid {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
   .class-selection-card {
     width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinzel-title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .title-separator .line {
+    width: 60px;
+  }
+
+  .class-selection-card {
+    max-width: 100%;
+  }
+
+  .card-image-wrapper {
+    height: 300px;
   }
 }

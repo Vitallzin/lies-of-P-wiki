@@ -94,16 +94,30 @@
   padding-top: 10px;
 }
 
-/* Estilo para Card DLC */
-.item-card.is-dlc-card {
-  border-color: rgba(0, 212, 255, 0.2);
+/* Responsivo */
+@media (max-width: 768px) {
+  .weapon-list-page {
+    padding: 100px 20px 40px;
+  }
+
+  .cinzel-title {
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
 }
 
-.item-card.is-dlc-card:hover {
-  background: rgba(0, 212, 255, 0.05);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-}
+@media (max-width: 480px) {
+  .cinzel-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
 
-.item-card.is-dlc-card .item-info span {
-  color: var(--color-accent-dlc);
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
 }

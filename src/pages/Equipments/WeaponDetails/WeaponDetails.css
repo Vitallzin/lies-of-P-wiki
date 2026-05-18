@@ -1,4 +1,4 @@
-/* WeaponDetails.css - Otimizado */
+/* WeaponDetails.css - Otimizado e Ajustado */
 
 .details-page {
   padding: 120px 20px 60px;
@@ -121,7 +121,13 @@
 .data-item span { color: #888; font-size: 0.85rem; margin-right: 8px; }
 .data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
 
-/* Escalonamento */
+/* --- AJUSTE: Slash e Stab Lado a Lado --- */
+.data-item.full-width {
+  grid-column: span 1; /* Remove o span total da grid para alinhar lado a lado */
+  display: flex; /* Alinha o texto e a barra horizontalmente */
+  align-items: center; 
+}
+
 .scaling-row {
   display: flex;
   justify-content: space-around;
@@ -139,6 +145,7 @@
   font-size: 1.2rem;
   color: var(--current-accent);
   text-shadow: 0 0 8px var(--current-glow);
+  margin-left: 5px; /* Pequeno espaçamento entre a label e a barra */
 }
 
 .scale-box .label { font-size: 0.65rem; color: #777; margin-bottom: 5px; }
@@ -179,8 +186,67 @@
 
 /* Responsivo */
 @media (max-width: 900px) {
-  .details-header-section, .details-footer-info {
+  .details-page {
+    padding: 100px 20px 40px;
+  }
+
+  .details-header-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .header-visual {
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-frame {
+    max-width: 300px;
+  }
+
+  .weapon-name-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .category-tag {
+    display: block;
+    text-align: center;
+  }
+
+  .description-box {
+    text-align: center;
+  }
+
+  .details-footer-info {
     grid-template-columns: 1fr;
   }
+
   .location-block { grid-column: span 1; }
+}
+
+@media (max-width: 480px) {
+  .weapon-name-title {
+    font-size: 2rem;
+  }
+
+  /* No mobile, voltamos a ocupar a linha inteira para não espremer as barras */
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .data-item.full-width {
+      display: block; /* Volta ao padrão */
+      grid-column: span 1;
+  }
+
+  .scaling-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .scale-box {
+    width: 30%;
+  }
 }

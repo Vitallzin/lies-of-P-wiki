@@ -142,6 +142,14 @@
     text-align: left;
 }
 
+.dlc-description-top {
+    margin-bottom: 25px;
+}
+
+.dlc-description-bottom {
+    margin-top: 5px; /* Reduzido pois a moldura já tem margin-bottom */
+}
+
 .dlc-feature-card:hover .dlc-feature-frame {
     border-color: var(--color-accent-dlc);
     transform: translateY(-5px);
@@ -150,7 +158,51 @@
 
 /* Responsividade */
 @media (max-width: 900px) {
-    .dlc-features-grid { grid-template-columns: 1fr; }
+    .dlc-hero-section {
+        padding: 0 30px;
+        min-height: 60vh;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .dlc-hero-background {
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+        mask-image: linear-gradient(to bottom, transparent, black);
+    }
+
+    .dlc-hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dlc-hero-logo {
+        width: 150px !important;
+    }
+
+    .dlc-hero-divider {
+        margin: 30px auto;
+    }
+
+    .dlc-features-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dlc-hero-section {
+        min-height: 50vh;
+    }
+
+    .dlc-feature-title {
+        font-size: 1rem;
+    }
+
+    .dlc-feature-description {
+        font-size: 0.9rem;
+    }
 }
 
 /* Keyframes de Animação */

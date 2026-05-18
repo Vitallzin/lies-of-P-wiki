@@ -1,6 +1,9 @@
 import whatDLCimage  from '../assets/img/DLC/whatDLC.webp';
 import howAccessImage from '../assets/img/DLC/howAccess.webp';
 import newwapon from '../assets/img/DLC/newWeapon.webp';
+import newLegion from '../assets/img/DLC/newLegion.webp';
+import hotelKrat from '../assets/img/DLC/hotelKrat.webp';
+import newEnemy from '../assets/img/DLC/newEnemies.webp';
 
 
 
@@ -54,7 +57,7 @@ export const dlcNewGampelay = [
     description2: `O braço da segunda legião possui lâminas que os jogadores podem disparar, chamadas de Ícaro, que funcionam de maneira semelhante ao objeto lançável 
     “Lâmina de Serra”. Ele dispara várias lâminas que giram ao redor do inimigo; os jogadores também podem mudar o alvo para que as lâminas girem ao redor deles, causando 
     mais dano de área aos inimigos próximos. Isso é útil quando os jogadores estão cercados por inimigos e começam a ficar um pouco sobrecarregados.`,
-    image: newwapon
+    image: newLegion
   },
   {
     id: 3,
@@ -65,7 +68,7 @@ export const dlcNewGampelay = [
     description2: `Outra habilidade de combate introduzida no DLC é a habilidade de usar o ambiente a seu favor. Os jogadores podem interagir com objetos no ambiente, como 
     barris ou paredes, para criar oportunidades de ataque ou se proteger de ataques inimigos. Por exemplo, os jogadores podem usar um barril para se esconder e evitar ataques 
     inimigos, ou podem usar uma parede para se proteger de ataques à distância.`,
-    image: newwapon
+    image: hotelKrat
   },
   {
     id: 4,
@@ -74,6 +77,6 @@ export const dlcNewGampelay = [
     eventos de Overture. Os jogadores encontrarão inimigos que já enfrentaram antes, mas também surgirão novos inimigos notáveis à medida que se aproximam do zoológico. Novos 
     inimigos, como cangurus infectados por ergo, elefantes com pescoços muito mais longos e um novo chefe que parece ser um crocodilo gigante, com um forte golpe de cauda e 
     mandíbulas enormes.`,
-    image: newwapon
+    image: newEnemy
   }
 ]

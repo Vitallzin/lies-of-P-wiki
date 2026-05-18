@@ -1,11 +1,130 @@
 /* BossDetails.css - Otimizado e Unificado */
 
+.details-page {
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+  background: #0a0a0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- BOTÃO VOLTAR --- */
+.back-btn-modern {
+  background: transparent;
+  border: none;
+  color: var(--color-accent-gold);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-btn-modern .text {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.back-btn-modern .btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--current-accent);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.back-btn-modern:hover .btn-line {
+  width: 100%;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.details-main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- SEÇÃO SUPERIOR --- */
+.details-header-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.weapon-name-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+
+.category-tag {
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+}
+
+.description-box h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.description-box p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* --- SEÇÃO INFERIOR --- */
+.details-footer-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px;
+}
+
+.block-label {
+  font-family: var(--font-heading);
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 10px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
 /* 1. TEXTOS E DECORAÇÕES ESPECÍFICAS */
 .data-item span { 
   color: #888; 
   font-size: 0.85rem; 
   margin-right: 8px; 
 }
+.data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
 
 /* 2. GRID DE SENSORES */
 .sensor-grid {
@@ -74,7 +193,84 @@
   grid-column: span 2;
 }
 
+/* Aplicando as variáveis dinâmicas */
+.back-btn-modern,
+.category-tag,
+.description-box h3,
+.data-item strong,
+.sensor-item strong,
+.stat-color {
+  color: var(--current-accent) !important;
+}
+
+.btn-line,
+.location-block,
+.drop-tag {
+  border-color: var(--current-accent) !important;
+}
+
+.theme-dlc .image-frame {
+  border-color: var(--current-accent);
+  box-shadow: inset 0 0 30px var(--current-glow);
+}
+
 @media (max-width: 968px) {
+  .details-page {
+    padding: 100px 20px 40px;
+  }
+
+  .details-header-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .header-visual {
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-frame {
+    max-width: 400px;
+  }
+
+  .weapon-name-title {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+  .category-tag {
+    display: block;
+    text-align: center;
+  }
+
+  .description-box {
+    text-align: center;
+  }
+
+  .details-footer-info {
+    grid-template-columns: 1fr;
+  }
+
   .full-width { grid-column: span 1; }
   .sensor-grid { grid-template-columns: repeat(2, 1fr); }
+  .sensor-item-divider { grid-column: span 2; }
+}
+
+@media (max-width: 480px) {
+  .weapon-name-title {
+    font-size: 2rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sensor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sensor-item-divider {
+    grid-column: span 1;
+  }
 }

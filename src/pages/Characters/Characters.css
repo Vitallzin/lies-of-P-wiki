@@ -25,11 +25,40 @@
   margin: 0 auto;
   padding: 0 20px 60px;
 }
-
 .characters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .characters-page {
+    padding-top: 100px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .characters-header {
+    margin-bottom: 30px;
+  }
+
+  .characters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .characters-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .icon-gold {

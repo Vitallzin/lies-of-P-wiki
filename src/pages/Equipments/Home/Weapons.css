@@ -195,7 +195,43 @@
 }
 
 /* Responsividade */
+@media (max-width: 968px) {
+  .weapons-page {
+    padding: 100px 20px 60px;
+  }
+
+  .cinzel-title {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+  }
+
+  .title-separator .line {
+    width: 60px;
+  }
+}
+
 @media (max-width: 768px) {
-  .cinzel-title { font-size: 2.2rem; }
-  .weapons-category-grid { grid-template-columns: 1fr; }
+  .cinzel-title { 
+    font-size: 2rem; 
+    letter-spacing: 2px;
+  }
+  
+  .weapons-header {
+    margin-bottom: 50px;
+  }
+
+  .weapons-category-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .card-image-wrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinzel-title {
+    font-size: 1.6rem;
+  }
 }

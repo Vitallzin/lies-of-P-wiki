@@ -1,9 +1,9 @@
 import './DLC.css';
-import PriceCarousel from '../../components/PriceCarousel';
+import PriceCarouselDLC from '../../components/PriceCarouselDLC';
 import { whatDLC, howAccess, dlcNewGampelay } from '../../data/DLC';
 import logoDLC from '../../assets/img/DLC/logoDLC.webp';
 
-const Dlc = () => {
+const Dlc = () => { 
   return (
     <div className="home-container dlc-page-container">
       {/* SEÇÃO 1: HERO / SINOPSE */}
@@ -88,18 +88,36 @@ const Dlc = () => {
                 <div className="dlc-header-line"></div>
               </div>
 
-              <div className="dlc-feature-image-container">
-                <div className="dlc-feature-frame">
-                  <img src={feature.image} alt={feature.title} />
-                  <div className="dlc-frame-corner dlc-top-left"></div>
-                  <div className="dlc-frame-corner dlc-bottom-right"></div>
-                </div>
-              </div>
-
-              <div className="dlc-feature-description">
-                <p>{feature.description}</p>
-                {feature.description2 && <p style={{ marginTop: '10px' }}>{feature.description2}</p>}
-              </div>
+              {feature.description2 ? (
+                <>
+                  <div className="dlc-feature-description dlc-description-top">
+                    <p>{feature.description}</p>
+                  </div>
+                  <div className="dlc-feature-image-container">
+                    <div className="dlc-feature-frame">
+                      <img src={feature.image} alt={feature.title} />
+                      <div className="dlc-frame-corner dlc-top-left"></div>
+                      <div className="dlc-frame-corner dlc-bottom-right"></div>
+                    </div>
+                  </div>
+                  <div className="dlc-feature-description dlc-description-bottom">
+                    <p>{feature.description2}</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="dlc-feature-image-container">
+                    <div className="dlc-feature-frame">
+                      <img src={feature.image} alt={feature.title} />
+                      <div className="dlc-frame-corner dlc-top-left"></div>
+                      <div className="dlc-frame-corner dlc-bottom-right"></div>
+                    </div>
+                  </div>
+                  <div className="dlc-feature-description dlc-description-bottom">
+                    <p>{feature.description}</p>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -109,7 +127,7 @@ const Dlc = () => {
       <section className="prices-section">
         <h2 className="section-title">Adquira sua Edição</h2>
         <p className="section-subtitle">Disponível para todas as plataformas</p>
-        <PriceCarousel />
+        <PriceCarouselDLC />
       </section>
     </div>
   );

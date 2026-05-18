@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,38 +17,52 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isOpen ? 'open' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <NavLink to="/">
+          <NavLink to="/" onClick={closeMenu}>
             LIES OF <span className="highlight-p">P</span><span className="highlight-wiki"> Wiki</span>
           </NavLink>
         </div>
 
-        <ul className="navbar-links">
+        <button className={`menu-toggle ${isOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+
+        <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
           <li>
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Início
             </NavLink>
           </li>
           <li>
-            <NavLink to="/equipments" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/equipments" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Equipamentos
             </NavLink>
           </li>
           <li>
-            <NavLink to="/bosses" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/bosses" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Bosses
             </NavLink>
           </li>
           <li>
-            <NavLink to="/characters" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/characters" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Personagens
             </NavLink>
           </li>
           <li>
-            <NavLink to="/classes" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/classes" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Classes
             </NavLink>
           </li>
@@ -56,6 +71,7 @@ const Navbar = () => {
             <NavLink 
               to="/dlc" 
               className={({ isActive }) => (isActive ? 'active nav-dlc' : 'nav-dlc')}
+              onClick={closeMenu}
             >
               DLC
             </NavLink>

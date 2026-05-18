@@ -16,7 +16,8 @@ const ClassDetails = () => {
     <div className="class-details-page">
       <div className="class-details-wrapper">
         <header className="class-details-header">
-          <button onClick={() => navigate('/classes')} className="back-btn">← Escolher Outro Caminho</button>
+          <button onClick={() => navigate('/classes')} className="back-btn"> Escolher Outro Caminho</button>
+          <div className="btn-line"></div>
           <h1>{gameClass.name}</h1>
           <p className="class-subtitle">{gameClass.descriptionCard}</p>
         </header>

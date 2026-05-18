@@ -33,7 +33,7 @@ import greatswordOfFate from '../assets/img/WeaponsDetails/greatsword-of-fate.we
 
 export interface equipments {
   id: string;
-  category: 'armas' | 'legioes'; // Define a categoria
+  category: 'armas'; // Define a categoria
   isDLC?: boolean; // Indica se é do DLC
   isSpecial?: boolean; // Indica se é um item especial
   name: string;

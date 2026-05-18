@@ -1,13 +1,25 @@
 /* CharacterCard.css - Otimizado */
 .characters-card {
   /* Estilos herdados de .soulslike-card no global.css */
-  max-width: 350px;
+  width: 100%;
 }
 
 .characters-image-wrapper {
   position: relative;
   height: 400px;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .characters-image-wrapper {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .characters-image-wrapper {
+    height: 250px;
+  }
 }
 
 .characters-card-img {
@@ -17,6 +29,7 @@
   transition: transform 0.8s ease;
   filter: grayscale(30%) contrast(1.1);
 }
+
 
 .characters-card:hover .characters-card-img {
   transform: scale(1.1);
