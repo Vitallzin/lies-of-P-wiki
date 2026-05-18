@@ -1,4 +1,4 @@
-import scrappedWatchman from '../assets/img/boss/scrapped-watchman.webp';
+import scrappedWatchman from '../assets/img/boss/scrappedWatchman.webp';
 import championVictor from '../assets/img/boss/championVictor.webp';
 import paradeMaster from '../assets/img/boss/paredeMaster.webp';
 import kingsFlameFuoco from '../assets/img/boss/kingsFlameFuoco.webp';
@@ -50,7 +50,7 @@ export interface Boss {
     decay: number;
   };
   drops: string[];
-  image?: string;
+  image: string;
 }
 
 export const bossesData: Boss[] = [
