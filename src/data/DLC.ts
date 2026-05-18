@@ -1,7 +1,6 @@
-import  whatDLCimage  from '../assets/img/DLC/whatDLC.webp';
+import whatDLCimage  from '../assets/img/DLC/whatDLC.webp';
 import howAccessImage from '../assets/img/DLC/howAccess.webp';
-import newGameplayImage from '../assets/img/DLC/newGameplay.webp';
-
+import newwapon from '../assets/img/DLC/newWeapon.webp';
 
 
 
@@ -34,7 +33,7 @@ export const howAccess = {
 export const dlcNewGampelay = [
   {
     id: 1,
-    title: "Novos tipos de armas em Lies of P Overture",
+    title: "Novos tipos de armas em Lies of P: Overture",
     description: `A nova jogabilidade de Lies of P Overture apresenta novos tipos de armas, como a Gun Blade, as Garras e o Arco. A Gun Blade apresentada é chamada de Pale 
     Knight; o tipo de lâmina é uma espada longa, e ela funciona de maneira semelhante a uma espada longa. No entanto, clicar no botão de ataque forte faz com que a arma 
     dispare contra os inimigos à frente do jogador e faz com que P seja empurrado para trás. Clicar nele novamente fará com que ela dispare atrás de P, fazendo com que ele 
@@ -44,13 +43,37 @@ export const dlcNewGampelay = [
     carrega o tiro e pode interromper os ataques inimigos. Uma vantagem do arco é que ele tem munição ilimitada, mas ainda assim são necessários alguns tiros carregados para 
     derrubar completamente um inimigo. A próxima arma em destaque são as Garras, longas e afiadas o suficiente para rasgar e despedaçar os inimigos. Além dos novos tipos de 
     armas, há certamente novas armas e personalizações de armas com as quais os jogadores podem experimentar para se adequarem ao seu estilo de jogo.`,
-   image: newGameplayImage
+   image: newwapon
   },
   {
     id: 2,
-    title: "Novas áreas e missões em Lies of P Overture",
-    description: `O DLC traz novas áreas para explorar e missões adicionais que expandem a história de Lies of P. Você encontrará novos inimigos, desafios e recompensas ao longo de sua jornada.`,
-    image: newGameplayImage
+    title: "Novas armas da Legião em Lies of P: Overture",
+    description: `Com novas armas vêm novos Armas da Legião. Uma delas é uma variante de uma arma chamada Cataclismo. Essa Arma da Legião possui canos duplos e permite que 
+    os jogadores atirem nos inimigos à frente, mas funciona melhor apenas em combate de curta distância. Os jogadores podem carregá-la até a metade para causar dano 
+    considerável aos inimigos próximos, enquanto carregá-la totalmente pode atordoar inimigos maiores e interromper seus ataques.`,
+    description2: `O braço da segunda legião possui lâminas que os jogadores podem disparar, chamadas de Ícaro, que funcionam de maneira semelhante ao objeto lançável 
+    “Lâmina de Serra”. Ele dispara várias lâminas que giram ao redor do inimigo; os jogadores também podem mudar o alvo para que as lâminas girem ao redor deles, causando 
+    mais dano de área aos inimigos próximos. Isso é útil quando os jogadores estão cercados por inimigos e começam a ficar um pouco sobrecarregados.`,
+    image: newwapon
+  },
+  {
+    id: 3,
+    title: "Hotel Krat em Lies of P: Overture",
+    description: `Na parte do DLC, você retorna ao Hotel Krat em um momento anterior à inauguração. Lá, ainda é possível encontrar as máquinas para melhorar o seu Legion Arm
+    e também para melhorar o seu P-Organ. Ao lado da cadeira há um baú que contém um Quartz e um Upgrade Core. Um novo serviço foi introduzido em Lies of P, onde agora você 
+    pode ampliar ainda mais as habilidades do P-Organ. `,
+    description2: `Outra habilidade de combate introduzida no DLC é a habilidade de usar o ambiente a seu favor. Os jogadores podem interagir com objetos no ambiente, como 
+    barris ou paredes, para criar oportunidades de ataque ou se proteger de ataques inimigos. Por exemplo, os jogadores podem usar um barril para se esconder e evitar ataques 
+    inimigos, ou podem usar uma parede para se proteger de ataques à distância.`,
+    image: newwapon
+  },
+  {
+    id: 4,
+    title: "Novos inimigos em Lies of P: Overture",
+    description: `O local mostrado no novo vídeo de gameplay era o Zoológico de Krat, que, segundo Gimini, aparentemente havia sido destruído por um incêndio muito antes dos 
+    eventos de Overture. Os jogadores encontrarão inimigos que já enfrentaram antes, mas também surgirão novos inimigos notáveis à medida que se aproximam do zoológico. Novos 
+    inimigos, como cangurus infectados por ergo, elefantes com pescoços muito mais longos e um novo chefe que parece ser um crocodilo gigante, com um forte golpe de cauda e 
+    mandíbulas enormes.`,
+    image: newwapon
   }
-
 ]

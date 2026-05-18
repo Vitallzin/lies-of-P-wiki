@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# 🎭 Lies of P Wiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Lies of P Banner](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-Currently, two official plugins are available:
+Um guia definitivo e imersivo para os fãs de **Lies of P**, explorando a Belle Époque sombria da cidade de Krat. Este projeto reúne informações detalhadas sobre chefes, personagens, armas, classes e a expansão DLC.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Acesse agora:** [https://lies-of-p-wiki-ddsr.vercel.app](https://lies-of-p-wiki-ddsr.vercel.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌑 Sobre o Projeto
 
-## Expanding the ESLint configuration
+Lies of P Wiki foi desenvolvido para ser uma central de informações estilizada e funcional. O design foi cuidadosamente elaborado para refletir a estética *Soulslike* e *Steampunk* do jogo, utilizando paletas de cores sombrias, detalhes em dourado envelhecido e uma temática azulada exclusiva para o conteúdo da DLC.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Principais Funcionalidades:
+- **Catálogo de Armas e Equipamentos:** Detalhes sobre o arsenal disponível no jogo.
+- **Bestiário de Chefes:** Informações sobre os principais desafios mecânicos e biológicos.
+- **Guia de Personagens:** Conheça os aliados e inimigos que habitam Krat.
+- **Seção Especial DLC (Overture):** Conteúdo exclusivo da expansão com mudança dinâmica de tema (Azul Ergo).
+- **Design Responsivo:** Otimizado para desktop e dispositivos móveis.
+- **Carrossel de Preços:** Informações atualizadas sobre onde adquirir o jogo.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tecnologias Utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+O projeto foi construído utilizando as melhores práticas de desenvolvimento moderno:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React 18** (UI Library)
+- **TypeScript** (Segurança e Tipagem)
+- **Vite** (Build Tool ultra-rápida)
+- **React Router Dom** (Navegação SPA)
+- **Vanilla CSS** (Estilização personalizada e alto desempenho)
+- **Vercel** (Hospedagem e Deployment)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 Design System
+
+O projeto utiliza um sistema de temas dinâmicos:
+- **Tema Base:** Dourado e Vermelho (Krat clássica).
+- **Tema DLC:** Azul e Vermelho (Energia Ergo/Overture).
+
+As fontes utilizadas, como a **EB Garamond**, foram escolhidas para transmitir a elegância e o mistério do período vitoriano.
+
+---
+
+## 🚀 Como Executar Localmente
+
+Se você deseja explorar o código ou rodar o projeto em sua máquina:
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/Vitallzin/lies-of-P-wiki.git
+   ```
+
+2. **Entre no diretório:**
+   ```bash
+   cd lies-of-P-wiki
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Acesse no navegador:**
+   O projeto estará disponível em `http://localhost:5173`.
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+Desenvolvido com dedicação por **VITALLZIN** (Engenheiro de Krat).
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vitallzin)
+
+---
+
+## 📜 Licença
+
+Este projeto é destinado a fins educacionais e informativos para a comunidade de fãs de Lies of P. Todos os direitos das imagens e conteúdos do jogo pertencem à **Neowiz Games** e **Round8 Studio**.
+
+---
+*“A aparência engana mais do que a própria mentira.”*

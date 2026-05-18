@@ -1,127 +1,177 @@
-/* DLC.css - Otimizado */
+/* DLC.css */
+
+/* Reutilizando classes da Home mas com as cores da DLC */
+
 .dlc-page-container {
-  width: 100%;
   background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- SEÇÃO 1: HERO (Ajuste exato de tamanho e logo) --- */
+.dlc-hero-section .hero-background {
+    background-image: url('../../assets/img/DLC/heroDLC.webp'); /* Corrigido para imagem existente */
+    -webkit-mask-image: linear-gradient(to right, transparent, black);
+    mask-image: linear-gradient(to right, transparent, black);
+}
+
+.dlc-hero-content {
+    animation: slideInLeft 1.2s ease-out forwards;
 }
 
 .dlc-hero-logo {
-  width: 200px;
-  margin-bottom: 20px;
+    /* Mesmo tamanho da Home: 200px (conforme Home.css) */
+    width: 200px !important; 
+    margin-bottom: 20px;
 }
 
-/* Hero DLC */
-.dlc-hero {
-  position: relative;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
+.dlc-hero-logo img {
+    width: 200%;
+    filter: drop-shadow(0 0 10px var(--color-accent-dlc));
 }
 
-.dlc-hero-background {
-  position: absolute;
-  width: 100%; height: 100%;
-  background-image: url('../../assets/img/dlc/dlc-hero.png');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.4) saturate(0.8);
+.dlc-hero-divider {
+    background-color: var(--color-accent-details) !important; /* Vermelho */
 }
 
-.dlc-title {
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  color: #fff;
-  z-index: 2;
-  text-transform: uppercase;
-  letter-spacing: 5px;
+.dlc-quote-text {
+    color: var(--color-accent-dlc) !important; /* Azul */
 }
 
-.blue-glow {
-  color: var(--color-accent-dlc);
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+/* --- SEÇÕES DE CONTEÚDO (Com Animação de Fade) --- */
+.about-game-section {
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
-/* Estrutura de Informação */
-.dlc-info-section {
-  padding: 100px 20px;
+.features-main-section {
+    animation: fadeIn 1.8s ease-out forwards;
 }
 
-.alt-bg { background-color: var(--color-bg-secondary); }
-
-.dlc-container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
-
-.dlc-container.reverse { flex-direction: row; }
-
-.dlc-image-side, .dlc-text-side { flex: 1; }
-
-/* Moldura Azul */
-.blue-frame {
-  position: relative;
-  padding: 15px;
-  border: 1px solid rgba(0, 212, 255, 0.1);
-  transition: all 0.5s ease;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.blue-frame:hover {
-  border-color: var(--color-accent-dlc);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
-  transform: scale(1.02);
-}
-
-.blue-frame img {
-  width: 100%;
-  display: block;
-  filter: grayscale(30%);
-  transition: filter 0.5s ease;
-}
-
-.blue-frame:hover img {
-  filter: grayscale(0%);
-}
-
-/* Detalhes Visuais Azuis */
-.blue-border-top, .blue-border-bottom {
-  position: absolute;
-  width: 40px; height: 40px;
-  border: 2px solid var(--color-accent-dlc);
-  transition: all 0.5s ease;
-}
-
-.blue-border-top { top: -5px; left: -5px; border-right: none; border-bottom: none; }
-.blue-border-bottom { bottom: -5px; right: -5px; border-left: none; border-top: none; }
-
-.blue-frame:hover .blue-border-top { transform: translate(-5px, -5px); }
-.blue-frame:hover .blue-border-bottom { transform: translate(5px, 5px); }
-
-.blue-divider {
-  width: 80px; height: 3px;
-  background: var(--color-accent-dlc);
-  margin-bottom: 25px;
-}
-
-.blue-highlight {
-  border-left: 3px solid var(--color-accent-dlc);
-  padding-left: 20px;
-  color: #fff !important;
-  font-style: italic;
-  margin-top: 25px;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .dlc-container, .dlc-container.reverse {
-    flex-direction: column !important;
+/* Garante que o container de texto da seção de features ocupe a largura total e centralize */
+.features-main-section .about-game-content2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-  }
-  .blue-divider { margin: 0 auto 25px; }
-  .dlc-title { font-size: 2.5rem; }
+}
+
+/* --- DIVISORES E DETALHES AZUIS --- */
+.dlc-blue-divider {
+    background: var(--color-accent-dlc) !important;
+}
+
+.dlc-blue-divider-features {
+    background: var(--color-accent-dlc) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* --- MOLDURAS (Ajuste para Azul) --- */
+.dlc-page-container .image-frame {
+    border-color: rgba(0, 212, 255, 0.3) !important;
+}
+
+.dlc-page-container .frame-border-top, 
+.dlc-page-container .frame-border-bottom {
+    border-color: var(--color-accent-dlc) !important;
+}
+
+/* --- SEÇÃO DE FEATURES (Design da Seção 4 da Home) --- */
+.dlc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+    margin-top: 40px;
+}
+
+.dlc-feature-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dlc-header-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-dlc), transparent);
+}
+
+.dlc-feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dlc-feature-frame {
+    position: relative;
+    padding: 10px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dlc-feature-frame img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.dlc-frame-corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--color-accent-dlc);
+}
+
+.dlc-top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.dlc-bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.dlc-feature-description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    text-align: left;
+}
+
+.dlc-feature-card:hover .dlc-feature-frame {
+    border-color: var(--color-accent-dlc);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .dlc-features-grid { grid-template-columns: 1fr; }
+}
+
+/* Keyframes de Animação */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
