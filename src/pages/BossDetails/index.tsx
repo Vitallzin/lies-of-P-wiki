@@ -72,7 +72,7 @@ const BossDetails = () => {
 
                 {boss.inflictsStatus && <div className="data-item"><span>Inflige Status:</span> <strong>{boss.inflictsStatus.join(', ')}</strong></div>}
 
-                {boss.poise && <div className="data-item"><span>Valor de Poise:</span> <strong>{boss.poise.NGplus} (NG+), {boss.poise.NGplus2} (NG+2)</strong></div>}
+                {boss.poise && <div className="data-item"><span>Valor de Poise:</span> <strong>{boss.poise.NGplus} (NG+) | {boss.poise.NGplus2} (NG+2)</strong></div>}
 
               </div>
             </div>
