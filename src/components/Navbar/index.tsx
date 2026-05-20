@@ -46,26 +46,49 @@ const Navbar = () => {
               Início
             </NavLink>
           </li>
-          <li>
+          
+          <li className="dropdown">
             <NavLink to="/equipments" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
-              Equipamentos
+              Equipamentos <span className="arrow">▼</span>
             </NavLink>
+            <ul className="dropdown-menu">
+              <li>
+                <NavLink to="/equipments/armas" onClick={closeMenu}>Armas</NavLink>
+              </li>
+              <li>
+                <NavLink to="/equipments/legioes" onClick={closeMenu}>Braços de Legião</NavLink>
+              </li>
+            </ul>
           </li>
+
           <li>
             <NavLink to="/bosses" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Bosses
             </NavLink>
           </li>
           <li>
-            <NavLink to="/characters" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
+            <NavLink to="/NPC" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
               Personagens
             </NavLink>
           </li>
-          <li>
+
+          <li className="dropdown">
             <NavLink to="/classes" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
-              Classes
+              Classes <span className="arrow">▼</span>
             </NavLink>
+            <ul className="dropdown-menu">
+              <li>
+                <NavLink to="/classes/1" onClick={closeMenu}>Equilíbrio</NavLink>
+              </li>
+              <li>
+                <NavLink to="/classes/2" onClick={closeMenu}>Destreza</NavLink>
+              </li>
+              <li>
+                <NavLink to="/classes/3" onClick={closeMenu}>Força</NavLink>
+              </li>
+            </ul>
           </li>
+
           <li>
             {/* Classe especial nav-dlc adicionada aqui */}
             <NavLink 

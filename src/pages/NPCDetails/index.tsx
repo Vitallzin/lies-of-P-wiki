@@ -1,13 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { charactersData } from '../../data/charactersData';
-import './CharacterDetails.css';
+import { NPCData } from '../../data/NPCData';
+import './NPC.css';
 
 const CharacterDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   // Busca garantindo comparação de strings
-  const character = charactersData.find(c => String(c.id) === String(id));
+  const character = NPCData.find(c => String(c.id) === String(id));
 
   if (!character) return null;
 
@@ -17,7 +17,7 @@ const CharacterDetails = () => {
     <div className={`details-page ${themeClass}`}>
       <div className="details-container">
         {/* BOTÃO VOLTAR PADRONIZADO */}
-        <button className="back-btn-modern" onClick={() => navigate('/characters')}>
+        <button className="back-btn-modern" onClick={() => navigate('/NPC')}>
           <span className="text">Retornar a lista de Personagens</span>
           <div className="btn-line"></div>
         </button>

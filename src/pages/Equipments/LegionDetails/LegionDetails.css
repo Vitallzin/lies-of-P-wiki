@@ -1,0 +1,272 @@
+/* LegionDetails.css - Baseado em WeaponDetails.css */
+
+.details-page {
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+  background: #0a0a0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- BOTÃO VOLTAR --- */
+.back-btn-modern {
+  background: transparent;
+  border: none;
+  color: var(--color-accent-gold);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-btn-modern .text {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.back-btn-modern .btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--current-accent);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.back-btn-modern:hover .btn-line {
+  width: 100%;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.details-main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- SEÇÃO SUPERIOR --- */
+.details-header-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.weapon-name-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+
+.category-tag {
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+}
+
+.description-box h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.description-box p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* --- SEÇÃO INFERIOR --- */
+.details-footer-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px;
+}
+
+.block-label {
+  font-family: var(--font-heading);
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 10px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.data-item span { color: #888; font-size: 0.85rem; margin-right: 8px; }
+.data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
+
+.scaling-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scale-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scale-box .label { font-size: 0.65rem; color: #777; margin-bottom: 5px; }
+.scale-box .value { font-family: var(--font-heading); font-size: 1.8rem; color: #333; }
+.scale-box .value.stat-color { color: var(--color-accent-gold); }
+
+/* Modificações */
+.modifications-block {
+  grid-column: span 2;
+}
+
+.modifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mod-item {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 15px;
+}
+
+.mod-item:last-child {
+  border-bottom: none;
+}
+
+.mod-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.mod-level {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1.1rem;
+}
+
+.mod-materials {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mod-desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+/* Localização */
+.location-block {
+  grid-column: span 2;
+  border-left: 3px solid var(--color-accent-gold);
+}
+
+.location-block p { font-size: 0.9rem; color: #aaa; line-height: 1.5; }
+
+/* Visual frame */
+.image-frame {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+.image-frame img {
+    max-width: 100%;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .details-header-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .header-visual {
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .weapon-name-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .details-footer-info {
+    grid-template-columns: 1fr;
+  }
+
+  .location-block, .modifications-block { grid-column: span 1; }
+}
+
+@media (max-width: 480px) {
+  .weapon-name-title {
+    font-size: 2rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .scaling-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .scale-box {
+    width: 30%;
+  }
+}
+
+/* Aplicando as variáveis dinâmicas */
+.back-btn-modern,
+.category-tag,
+.description-box h3,
+.data-item strong,
+.value.stat-color,
+.stat-color,
+.mod-level {
+  color: var(--current-accent) !important;
+}
+
+.btn-line,
+.location-block {
+  border-color: var(--current-accent) !important;
+}
+
+.theme-dlc .image-frame {
+  border-color: var(--current-accent);
+  box-shadow: inset 0 0 30px var(--current-glow);
+}
+
+.theme-dlc .frame-glow {
+  background: radial-gradient(circle, var(--current-glow) 0%, transparent 70%);
+}

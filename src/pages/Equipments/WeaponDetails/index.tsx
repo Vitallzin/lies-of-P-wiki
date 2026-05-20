@@ -32,7 +32,7 @@ const WeaponDetails = () => {
           <div className="details-header-section">
             <div className="header-text">
               <span className="category-tag">
-                {weapon.isDLC ? 'Conteúdo de Expansão' : weapon.category}
+                {weapon.isDLC ? 'Conteúdo de Expansão' : 'Arma'}
               </span>
               <h1 className="weapon-name-title">{weapon.name}</h1>
               <div className="description-box">

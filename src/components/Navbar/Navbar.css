@@ -95,6 +95,68 @@
   width: 100%;
 }
 
+/* --- DROPDOWN STYLES --- */
+.dropdown {
+  position: relative;
+}
+
+.arrow {
+  font-size: 0.7rem;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(10, 10, 12, 0.98);
+  border: 1px solid rgba(194, 153, 91, 0.3);
+  border-radius: var(--border-radius);
+  min-width: 200px;
+  padding: 10px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(194, 153, 91, 0.1);
+  color: var(--color-accent-gold);
+}
+
+.dropdown-menu li a::after {
+  display: none; /* Remove a linha decorativa nos submenus */
+}
+
 /* --- EXCLUSIVO DLC (AZUL ERGO) --- */
 
 /* Sobrepõe a cor dourada para o link da DLC */
@@ -174,6 +236,37 @@
 
   .navbar-links li a {
     font-size: 1.2rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    min-width: unset;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    max-height: 200px;
+    margin-top: 10px;
+  }
+
+  .dropdown-menu li a {
+    font-size: 1rem;
+    padding: 8px 0;
+    color: var(--color-text-secondary);
+  }
+
+  .arrow {
+    display: inline-block;
   }
 
   /* Impede o scroll do body quando o menu está aberto */

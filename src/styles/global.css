@@ -117,7 +117,8 @@ body {
 }
 
 .difficulty-badge, .dlc-badge, .special-badge {
-  padding: 4px 12px;
+  padding: 2px 12px;
+  text-align: center;
   font-family: var(--font-heading);
   font-size: 0.7rem;
   text-transform: uppercase;

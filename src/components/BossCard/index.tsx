@@ -7,9 +7,10 @@ interface BossCardProps {
   location: string;
   image: string;
   isDLC?: boolean;
+  category?: string;
 }
 
-const BossCard = ({ id, name, location, image, isDLC }: BossCardProps) => {
+const BossCard = ({ id, name, location, image, isDLC, category }: BossCardProps) => {
   const navigate = useNavigate();
 
   return (
@@ -20,8 +21,16 @@ const BossCard = ({ id, name, location, image, isDLC }: BossCardProps) => {
       <div className="boss-image-wrapper">
         <img src={image} alt={name} className="boss-card-img" />
         <div className="boss-card-gradient"></div>
-        {/* Badge de ver se é boss de dlc ou não */}
-        {isDLC && <div className="dlc-badge">DLC</div>}
+        
+        {/* Container para as Tags/Badges */}
+        <div className="badge-container">
+          {isDLC && <div className="dlc-badge">DLC</div>}
+          {category && (
+            <div className={`difficulty-badge ${category === 'Principal' ? 'main-boss-badge' : 'mini-boss-badge'}`}>
+              {category === 'Principal' ? 'Principal' : 'Mini Boss'}
+            </div>
+          )}
+        </div>
       </div>
       <div className="boss-card-info">
         <h3 className="boss-card-name">{name}</h3>

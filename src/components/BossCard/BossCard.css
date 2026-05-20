@@ -35,9 +35,22 @@
   filter: grayscale(0%);
 }
 
+.boss-card-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(10, 10, 12, 1) 0%, rgba(10, 10, 12, 0) 100%);
+  z-index: 1;
+}
+
 .boss-card-info {
   padding: 25px;
   text-align: center;
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg-secondary);
 }
 
 .boss-card-name {
@@ -70,4 +83,29 @@
 .is-dlc-boss .boss-glow-line {
   background: var(--color-accent-dlc);
   box-shadow: 0 0 10px var(--color-accent-dlc);
+}
+
+/* Badge Container customizado para BossCard */
+.boss-image-wrapper .badge-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* Estilos adicionais para as badges no BossCard */
+.main-boss-badge {
+  background: var(--color-accent-gold) !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  font-weight: bold;
+}
+
+.mini-boss-badge {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid var(--color-text-secondary) !important;
+  color: var(--color-text-secondary) !important;
 }

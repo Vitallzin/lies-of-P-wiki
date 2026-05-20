@@ -1,17 +1,17 @@
-/* WeaponList.css - Otimizado */
-.weapon-list-page {
+/* NPC.css - Otimizado */
+.NPC-page {
+  padding: 0 0 80px 0;
   min-height: 100vh;
-  padding: 120px 0 60px;
-  background-color: #0a0a0c;
-  position: relative;
+  background: #0a0a0c;
+  color: #fff;
 }
 
 /* SEÇÃO BLOG - Estilo de Crônicas de Krat */
-.weapons-blog-section {
+.NPC-blog-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-bottom: 20px;
+  gap: 25px;
+  margin-bottom: 40px;
   background: linear-gradient(to bottom, rgba(20, 20, 24, 0.5) 0%, transparent 100%);
   padding: 40px 20px;
   border-bottom: 1px solid rgba(194, 153, 91, 0.1);
@@ -42,7 +42,7 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row; /* Força layout horizontal por padrão */
   position: relative;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -174,29 +174,14 @@
   border-bottom: 1px solid rgba(194, 153, 91, 0.1);
 }
 
-/* Variações específicas */
-.guide-card.horizontal { flex-direction: row-reverse; }
-.guide-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
-
-.advanced-card.horizontal { flex-direction: row-reverse; }
-.advanced-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
-
-/* Card DLC com tema azul */
-.dlc-weapons-card {
-  border-color: rgba(0, 212, 255, 0.3) !important;
-  background: linear-gradient(135deg, rgba(20, 20, 24, 0.95) 0%, rgba(0, 100, 200, 0.15) 100%) !important;
+/* Inverte a ordem para variar o visual */
+.stargazers-card.horizontal {
+  flex-direction: row-reverse;
 }
 
-.dlc-weapons-card::before {
-  background: linear-gradient(90deg, transparent, var(--color-accent-dlc), transparent) !important;
-}
-
-.dlc-weapons-card h3 {
-  color: var(--color-accent-dlc) !important;
-}
-
-.dlc-weapons-card .card-image::after {
-  background: linear-gradient(to bottom, transparent 60%, rgba(0, 40, 80, 0.6) 100%) !important;
+.stargazers-card.horizontal .card-image-stack {
+  border-left: none;
+  border-right: 1px solid rgba(194, 153, 91, 0.1);
 }
 
 .about-card.horizontal {
@@ -207,10 +192,6 @@
 .about-card .card-image.small { 
   flex: 1; 
   height: 300px;
-  border-left: 1px solid rgba(194, 153, 91, 0.1);
-}
-
-.upgrade-card .card-image.mini {
   border-left: 1px solid rgba(194, 153, 91, 0.1);
 }
 
@@ -270,7 +251,7 @@
 }
 
 .blog-expandable-content.visible {
-  max-height: 3500px;
+  max-height: 2500px;
   opacity: 1;
   margin-top: 30px;
 }
@@ -297,135 +278,57 @@
   text-shadow: 0 0 10px rgba(194, 153, 91, 0.5);
 }
 
-/* LISTAGEM */
-.list-header {
+.NPC-header {
   text-align: center;
-  margin-bottom: 50px;
+  max-width: 800px;
+  margin: 0 auto 50px;
   padding: 0 20px;
 }
 
-.cinzel-title {
-  font-size: 4rem;
-  letter-spacing: 12px;
-  margin-bottom: 10px;
-  color: var(--color-accent-gold);
-  text-transform: uppercase;
-  text-align: center;
-  font-family: var(--font-heading);
-}
-
-.gold-divider {
-  height: 2px;
-  width: 200px;
-  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
-  margin: 0 auto 30px;
-}
-
-.back-btn{
-  background: transparent;
-  border: none;
-  color: var(--color-accent-gold);
+.search-section {
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 0;
-  margin: 0 auto 40px;
-  max-width: var(--container-width);
-  transition: all 0.3s ease;
-  padding: 0 20px;
+  justify-content: center;
 }
 
-.back-btn .text {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-  margin-top: 5px;
-}
-
-.back-btn .btn-line {
-  width: 40px;
-  height: 1px;
-  background: var(--color-accent-gold);
-  margin-top: 8px;
-  transition: width 0.3s ease;
-}
-
-.back-btn:hover .btn-line {
-  width: 100%;
-}
-
-.list-container {
+.NPC-grid-container {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  padding: 0 20px 60px;
 }
-
-.items-grid {
+.NPC-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  margin-top: 50px;
 }
 
-.item-card {
-  padding: 20px;
-  text-align: center;
-}
-
-.item-image-wrapper {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.item-image-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-}
-
-.item-info h3 {
-  font-family: var(--font-heading);
-  color: var(--color-text-primary);
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.item-info span {
-  color: var(--color-accent-gold);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
-.view-more {
-  margin-top: 15px;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 10px;
-}
-
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 1024px) {
   .about-card { flex-direction: column; }
   .about-card .card-image.small { border-left: none; border-top: 1px solid rgba(194, 153, 91, 0.1); }
 }
 
 @media (max-width: 768px) {
-  .weapon-list-page { padding: 100px 0 40px; }
   .blog-row { flex-direction: column; padding: 0 15px; }
-  .guide-card, .assemble-card, .equip-card, .advanced-card, .dlc-weapons-card { flex-direction: column !important; }
-  .cinzel-title { font-size: 2.5rem; letter-spacing: 6px; }
-  .items-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+  .stargazers-card { flex-direction: column; }
+  .merchant-card { flex-direction: column; }
+  .card-content h2 { font-size: 1.6rem; }
+  .card-content h3 { font-size: 1.3rem; }
+  .section-title { font-size: 2.5rem; }
+  .NPC-header { margin-bottom: 30px; }
+  .NPC-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
 }
 
 @media (max-width: 480px) {
-  .cinzel-title { font-size: 2rem; letter-spacing: 4px; }
-  .items-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+  .NPC-grid { grid-template-columns: 1fr; }
+}
+
+.icon-gold {
+  color: var(--color-accent-gold);
+  margin-right: 5px;
+}
+
+.is-dlc-boss .icon-gold {
+  color: var(--color-accent-dlc);
 }

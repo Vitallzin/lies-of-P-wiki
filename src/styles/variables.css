@@ -31,14 +31,28 @@
 
 .theme-dlc {
   --color-accent-gold: var(--color-accent-dlc);
+  --color-accent-glow: var(--color-accent-dlc);
+  --color-accent-details: var(--color-accent-dlc);
   --current-accent: var(--color-accent-dlc);
   --current-glow: var(--glow-color);
+}
+
+/* Garante que o brilho do footer também mude para azul */
+.theme-dlc .footer-glow {
+  background: linear-gradient(90deg, transparent, var(--color-accent-dlc), transparent) !important;
+  box-shadow: 0 0 20px var(--color-accent-dlc) !important;
+}
+
+/* Garante que a linha decorativa dos links da navbar mude para azul */
+.theme-dlc .navbar-links li a::after {
+  background-color: var(--color-accent-dlc) !important;
 }
 
 .theme-dlc .highlight-wiki,
 .theme-dlc .footer-logo span,
 .theme-dlc .footer-section h3,
-.theme-dlc .creator-info h3 {
+.theme-dlc .creator-info h3,
+.theme-dlc .highlight-p {
   color: var(--color-accent-dlc) !important;
 }
 
@@ -49,6 +63,10 @@
 }
 
 .theme-dlc .navbar-logo a:hover {
+  color: var(--color-accent-dlc) !important;
+}
+
+.theme-dlc .social-icons {
   color: var(--color-accent-dlc) !important;
 }
 

@@ -1,9 +1,65 @@
+// Importação de imagens dos chefes para exibição
 import scrappedWatchman from '../assets/img/boss/scrappedWatchman.webp';
 import championVictor from '../assets/img/boss/championVictor.webp';
 import paradeMaster from '../assets/img/boss/paredeMaster.webp';
 import kingsFlameFuoco from '../assets/img/boss/kingsFlameFuoco.webp';
 import fallenArchbishopAndreus from '../assets/img/boss/fallenArchbishopAndreus.webp';
 
+
+// importação de imagens para a seção informções sobre os chefes no geral
+import aboutBossesImage from '../assets/img/boss/aboutBosses.webp';
+import ergo1 from '../assets/img/boss/ergo1.webp';
+import ergo2 from '../assets/img/boss/ergo2.webp';
+import ergo3 from '../assets/img/boss/ergo3.webp';
+import kindsBossesImage from '../assets/img/boss/kindsBosses.webp';
+import showCaseBossesImage from '../assets/img/boss/showCaseBosses.webp';
+import showCaseBossesImage2 from '../assets/img/boss/showCaseBosses2.webp';
+import dyingImage from '../assets/img/boss/dying.webp';
+import spectresImage from '../assets/img/boss/spectres.webp';
+
+
+
+export const aboutBossses ={
+  title:"Chefes em Lies of P",
+  descripiton:"Os chefes em Lies of P são inimigos únicos que se caracterizam por terem uma barra de vida e uma força muito maiores, além de combinações de ataques e designs exclusivos. Os chefes de Lies of P podem ser facilmente identificados pela longa barra de vida exibida na tela, juntamente com o nome do chefe. Os chefes em Lies of P geralmente são encontrados no final de uma missão, e é necessário derrotá-los para concluir a missão e avançar na história. As recompensas de Lies of P incluem bônus especiais, como armas ou armaduras únicas, além de pontos de experiência, itens e outros recursos que melhorarão as estatísticas e a proficiência de Pinóquio em combate. Esta página contém uma lista de todos os chefes em Lies of P, e a lista de chefes contém um link para cada um deles com um passo a passo completo sobre como derrotá-los.",
+  image: aboutBossesImage
+}
+export const rewardsBosses = {
+  title:"Recompensas por derrotar chefes",
+  description:"As recompensas comuns por derrotar chefes são Ergos raros, peças valiosas e exclusivas de cada chefe que podem ser trocadas por armas e amuletos especiais. Os jogadores também podem obter peças e materiais exclusivos que podem ser usados para criar equipamentos, como as Armas da Legião, o que pode ser feito na Máquina de Criação Venigni no Hotel Krat, assim que ela for desbloqueada.",
+  description2:" Assim que os jogadores encontrarem Alidoro e tiverem acesso ao estoque do seu comerciante, ele poderá aceitar Ergo Raro em troca de Armas de Chefe ou Armas Especiais, além de Amuletos Especiais. ",
+  image: ergo1,
+  image2: ergo2,
+  image3: ergo3
+}
+export const kindsBosses = {
+  title:"Tipos de chefes em Lies of P",
+ description:"Além dos chefes principais obrigatórios encontrados no enredo principal, essenciais para obter itens-chave, os jogadores também podem encontrar chefes de campo, também conhecidos como minichefes ou inimigos de elite, que exibirão uma barra de chefe ao serem encontrados, mas não exibirão o logotipo de “Eliminado” após a derrota. Os minichefes são geralmente chefes opcionais menores que podem ser derrotados para obter materiais e recompensas valiosas adicionais, mas provavelmente não soltarão Ergos raros exclusivos como os chefes principais. ",
+ image: kindsBossesImage
+}
+
+export const showCaseBosses = {
+  title:"Apresentação da luta contra o chefe em Lies of P",
+  description:"Já vimos demonstrações de lutas contra chefes em Lies of P, e todas elas apresentam estilos de combate, armas e padrões de ataque diferentes. Esses são alguns dos aspectos que os jogadores também precisam aprender e aos quais devem se adaptar para derrotar os chefes em Lies of P. As lutas contra chefes em Lies of P são importantes, pois marcam o avanço da história, podem desbloquear novas áreas para você explorar e prolongam a experiência de jogo.",
+  description2:"Você saberá que está prestes a enfrentar uma batalha contra um chefe em Lies of P quando vir um nome específico acima da barra de vida dele, que geralmente fica na parte inferior da tela. Os chefes em Lies of P têm uma quantidade enorme de vida, e é por isso que você precisa entender bem como funcionam as batalhas contra chefes no jogo.",
+  description3:"Verifique seu equipamento — Assim como em outros jogos do estilo Souls, é sempre importante que seu equipamento esteja em boas condições. Existem opções para você melhorar suas armas, de modo que possa causar dano suficiente aos seus inimigos — incluindo os chefes.",
+  description4:"Como usar as Células de Pulso -  A Célula de Pulso funciona de maneira semelhante ao Frasco de Estus, um item essencial que os jogadores usarão ao longo do jogo. Esse item é usado para restaurar a saúde de Pinóquio. Essas células podem ser usadas 3 vezes, mas o número de cargas deve aumentar à medida que você avança no jogo. O que chama a atenção nas Células de Pulso é que elas podem ser recarregadas durante uma luta ao atacar inimigos, permitindo que a luta continue, e o jogador poderá ganhar uma carga em suas Células de Pulso.",
+  description5:"Troca de equipamentos — À medida que os jogadores descobrem os pontos fortes e fracos dos chefes que irão enfrentar, eles têm total liberdade para trocar seus equipamentos quando quiserem. Isso também permite personalização e controle sobre a forma como os jogadores desejam enfrentar uma batalha",
+  description6:"Perfect Guards - We have seen in the demo showcase that Pinocchio is able to execute a Perfect Guard- a move familiar to souls-like fans which is the best strategy when it comes to fending attacks. If the Perfect Guard is executed at the right time, this will consume a portion of Pinnochio's stamina, and he will not get damaged at all.",
+  image: showCaseBossesImage,
+  image2: showCaseBossesImage2,
+  }
+export const dying = {
+  title:"Morrer em uma luta contra chefe em Lies of P",
+  description:"Os jogadores sabem bem como as lutas contra chefes podem ser frustrantes nos jogos do estilo Souls, e Lies of P não será diferente. Vimos na demo como os ataques dos chefes podem causar uma quantidade devastadora de dano, o que muitas vezes leva à morte. Morrer em Lies of P fará com que Pinóquio perca Ergo, a moeda do jogo usada para fazer upgrades e comprar itens. Assim como em qualquer outro jogo do tipo Souls, é uma tarefa difícil recuperar o Ergo voltando ao local da morte, ainda mais quando isso acontece durante uma luta contra um chefe.",
+  description2:"No entanto, em Lies of P, foi adicionada uma funcionalidade em que o Ergo de Morte fica em um local fixo, logo antes do início da luta contra o chefe — permitindo que os jogadores se concentrem na grande batalha que têm pela frente. Trata-se de uma melhoria que facilita a vida dos jogadores, permitindo que eles conservem todo o Ergo conquistado com tanto esforço e possam desenvolver seu personagem conforme necessário.",
+  image: dyingImage,
+}
+export const spectres = {
+  title:"Espectros em Lies of P",
+  description:'Antes de enfrentar um chefe, você terá a oportunidade de invocar um Espectro usando um Fragmento Estelar no “Chamado da Fenda”, localizado próximo à arena do chefe. Esses Espectros ajudarão você a lutar contra o chefe e desaparecerão assim que você o derrotar.',
+  image: spectresImage
+}
 export interface Boss {
   id: string;
   name: string;
@@ -13,7 +69,7 @@ export interface Boss {
     NGplus: number;
     NGplus2: number;
   };
-  BossCategory: 'Chefe Principal' | 'Chefe Opcional' | 'Chefe de DLC'; // Categoria do chefe
+  BossCategory: 'Principal' | 'Chefe Opcional'; // Categoria do chefe
   location: string;
   isOptional: boolean;
   isSpecterSommer: boolean;
@@ -63,7 +119,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: false,
     isDLC: false,
     type: "Marionete",
-    BossCategory: "Chefe Principal",
+    BossCategory: "Principal",
     health: { normal: 4400, NGplus: 19727, NGplus2: 26166 },
     isbreakableWeapons: false,
     damage: { fase1: "Contundente", fase2: "Contundente" },
@@ -83,7 +139,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: true,
     isDLC: false,
     type: "Marionete",
-    BossCategory: "Chefe Principal",
+    BossCategory: "Principal",
     health: { normal: 8710, NGplus: 30088, NGplus2: 39446 },
     isbreakableWeapons: false,
     damage: { fase1: "Condudente",fase2: "Condudente, Descarga Elétrica",},
@@ -104,7 +160,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: true,
     isDLC: false,
     type: "Marionete",
-    BossCategory: "Chefe Principal",
+    BossCategory: "Principal",
     health: { normal: 8639, NGplus: 25736, NGplus2: 33850 },
     isbreakableWeapons: false,
     damage: { fase1: "Fogo, Contundente", fase2: "Fogo, Contundente" },
@@ -125,7 +181,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: true,
     isDLC: false,
     type: "Carcaça",
-    BossCategory: "Chefe Principal",
+    BossCategory: "Principal",
     health: { normal: 7927, NGplus: 16201, NGplus2: 21136 },
     isbreakableWeapons: true,
     damage: { fase1: "Ácido, Contundente", fase2: "Ácido, Contundente, Perfurante" },
@@ -146,7 +202,7 @@ export const bossesData: Boss[] = [
     isSpecterSommer: true,
     isDLC: false,
     type: "Humano",
-    BossCategory: "Chefe Principal",
+    BossCategory: "Principal",
     health: { normal: 23310, NGplus: 38694, NGplus2: 48951 },
     isbreakableWeapons: false,
     damage: { fase1: "Contundente", fase2: "Contundente" },

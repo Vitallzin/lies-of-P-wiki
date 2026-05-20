@@ -1,28 +1,28 @@
 /* CharacterCard.css - Otimizado */
-.characters-card {
+.NPC-card {
   /* Estilos herdados de .soulslike-card no global.css */
   width: 100%;
 }
 
-.characters-image-wrapper {
+.NPC-image-wrapper {
   position: relative;
   height: 400px;
   overflow: hidden;
 }
 
 @media (max-width: 768px) {
-  .characters-image-wrapper {
+  .NPC-image-wrapper {
     height: 300px;
   }
 }
 
 @media (max-width: 480px) {
-  .characters-image-wrapper {
+  .NPC-image-wrapper {
     height: 250px;
   }
 }
 
-.characters-card-img {
+.NPC-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -31,17 +31,17 @@
 }
 
 
-.characters-card:hover .characters-card-img {
+.NPC-card:hover .NPC-card-img {
   transform: scale(1.1);
   filter: grayscale(0%);
 }
 
-.characters-card-info {
+.NPC-card-info {
   padding: 25px;
   text-align: center;
 }
 
-.characters-card-name {
+.NPC-card-name {
   font-family: var(--font-heading);
   color: var(--color-text-primary);
   font-size: 1.3rem;
@@ -49,14 +49,14 @@
   letter-spacing: 1px;
 }
 
-.characters-card-location {
+.NPC-card-location {
   color: var(--color-text-secondary);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.characters-glow-line {
+.NPC-glow-line {
   width: 0%;
   height: 2px;
   background: var(--color-accent-gold);
@@ -64,11 +64,11 @@
   transition: width 0.4s ease;
 }
 
-.characters-card:hover .characters-glow-line {
+.NPC-card:hover .NPC-glow-line {
   width: 100%;
 }
 
-.is-dlc-boss .characters-glow-line {
+.is-dlc-boss .NPC-glow-line {
   background: var(--color-accent-dlc);
   box-shadow: 0 0 10px var(--color-accent-dlc);
 }

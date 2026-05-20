@@ -1,0 +1,122 @@
+/* LegionList.css - Baseado em WeaponList.css */
+.legion-list-page {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background-color: #0a0a0c;
+  position: relative;
+}
+
+.back-btn{
+  background: transparent;
+  border: none;
+  color: var(--color-accent-gold);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-btn .text {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.back-btn .btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--current-accent);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.back-btn:hover .btn-line {
+  width: 100%;
+}
+.list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.item-card {
+  padding: 20px;
+  text-align: center;
+}
+
+.item-image-wrapper {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.item-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+.item-info h3 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.item-info span {
+  color: var(--color-accent-gold);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.view-more {
+  margin-top: 15px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .legion-list-page {
+    padding: 100px 20px 40px;
+  }
+
+  .cinzel-title {
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinzel-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+}
