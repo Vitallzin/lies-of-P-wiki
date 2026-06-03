@@ -32,7 +32,7 @@ const Bosses = () => {
     const matchesFilter = filter === 'all' || 
                          (filter === 'DLC' ? boss.isDLC : 
                           filter === 'Optional' ? boss.isOptional : 
-                          filter === 'Mini-Boss' ? boss.BossCategory !== 'Principal' && boss.BossCategory !== 'Chefe Opcional' :
+                          filter === 'Mini-Boss' ? boss.BossCategory === 'Mini-Boss':
                           boss.BossCategory === filter);
 
     return matchesSearch && matchesFilter;

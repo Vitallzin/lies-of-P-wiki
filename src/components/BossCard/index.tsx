@@ -26,8 +26,12 @@ const BossCard = ({ id, name, location, image, isDLC, category }: BossCardProps)
         <div className="badge-container">
           {isDLC && <div className="dlc-badge">DLC</div>}
           {category && (
-            <div className={`difficulty-badge ${category === 'Principal' ? 'main-boss-badge' : 'mini-boss-badge'}`}>
-              {category === 'Principal' ? 'Principal' : 'Mini Boss'}
+            <div className={`difficulty-badge ${
+              category === 'Principal' ? 'main-boss-badge' : 
+              category === 'Chefe Opcional' ? 'optional-boss-badge' : 
+              'mini-boss-badge'
+            }`}>
+              {category}
             </div>
           )}
         </div>

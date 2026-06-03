@@ -5,7 +5,7 @@ import logoDLC from '../../assets/img/DLC/logoDLC.webp';
 
 const Dlc = () => { 
   return (
-    <div className="home-container dlc-page-container">
+    <div className="home-container dlc-page-container theme-dlc">
       {/* SEÇÃO 1: HERO / SINOPSE */}
       <section className="hero-section dlc-hero-section">
         <div className="hero-background dlc-hero-background"></div>

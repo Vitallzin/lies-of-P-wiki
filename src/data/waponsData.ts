@@ -105,6 +105,10 @@ export interface equipments {
     SprintgNormalAttack?: string;
     SprintSpecialAttack?: string;
   }
+  fableArts?: {
+    fableArt1: string;
+    fableArt2?: string;
+  }
   attack: string;
   Motivity: string;
   Technique: string;

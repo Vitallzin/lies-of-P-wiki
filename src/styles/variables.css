@@ -52,7 +52,7 @@
 .theme-dlc .footer-logo span,
 .theme-dlc .footer-section h3,
 .theme-dlc .creator-info h3,
-.theme-dlc .highlight-p {
+.theme-dlc .section-title {
   color: var(--color-accent-dlc) !important;
 }
 
@@ -68,5 +68,9 @@
 
 .theme-dlc .social-icons {
   color: var(--color-accent-dlc) !important;
+}
+
+.theme-dlc .gold-divider {
+  background: var(--color-accent-dlc) !important;
 }
 
