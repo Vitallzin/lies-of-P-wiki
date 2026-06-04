@@ -15,7 +15,7 @@ import laxasiaTheComplete from '../assets/img/boss/laxasiaTheComplete.webp';
 import simonManusAwakenedGod from '../assets/img/boss/simonManusAwakenedGod.webp';
 import namelessPuppet from '../assets/img/boss/namelessPuppet.webp';
 import tyrannicalPredator from '../assets/img/boss/tyrannicalPredator.webp';
-import markionaPuppeteerOfDeath from '../assets/img/boss/markionaPuppeteerOfDeath.webp';
+import markionaPuppeteerOfDeath from '../assets/img/boss/markionapuppeteerOfDeath.webp';
 import veroniqueLeaderOfTheSweepers from '../assets/img/boss/veroniqueLeaderOfTheSweepers.webp';
 import twoFacedOverseer from '../assets/img/boss/twoFacedOverseer.webp';
 import premetamorphicGreenHunter from '../assets/img/boss/premetamorphicGreenHunter.webp';
