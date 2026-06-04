@@ -14,7 +14,14 @@ import blackRabbitBrotherhoodEncounter2 from '../assets/img/boss/blackRabbitBrot
 import laxasiaTheComplete from '../assets/img/boss/laxasiaTheComplete.webp';
 import simonManusAwakenedGod from '../assets/img/boss/simonManusAwakenedGod.webp';
 import namelessPuppet from '../assets/img/boss/namelessPuppet.webp';
-
+import tyrannicalPredator from '../assets/img/boss/tyrannicalPredator.webp';
+import markionaPuppeteerOfDeath from '../assets/img/boss/markionaPuppeteerOfDeath.webp';
+import veroniqueLeaderOfTheSweepers from '../assets/img/boss/veroniqueLeaderOfTheSweepers.webp';
+import twoFacedOverseer from '../assets/img/boss/twoFacedOverseer.webp';
+import premetamorphicGreenHunter from '../assets/img/boss/premetamorphicGreenHunter.webp';
+import anguishedGuardianOfTheRuins from '../assets/img/boss/anguishedGuardianOfTheRuins.webp';
+import lumacchioLeaderOfTheBastards from '../assets/img/boss/lumacchioLeaderOfTheBastards.webp';
+import arlecchinoTheBloodArtist from '../assets/img/boss/arlecchinoTheBloodArtist.webp';
 
 // importação de imagens para a seção informções sobre os chefes no geral
 import aboutBossesImage from '../assets/img/boss/aboutBosses.webp';
@@ -422,8 +429,6 @@ export const bossesData: Boss[] = [
     drops: ["Pedra da Lua Cheia", "Quartzo"],
     image: corruptedParadeMaster
 },
-
-
 {
     id: 'black-rabbit-brotherhood',
     name: "Black Rabbit Brotherhood",
@@ -449,7 +454,6 @@ export const bossesData: Boss[] = [
     drops: ["Quartzo"],
     image: blackRabbitBrotherhoodEncounter2
 },
-
 {
     id: 'laxasia-the-complete',
     name: "Laxasia the Complete",
@@ -523,5 +527,202 @@ export const bossesData: Boss[] = [
     resistances: { overheat: 1020, shock: 694, decay: 694, SecondPhaceOverheat: 1020, SecondPhaceShock: 694, SecondPhaceDecay: 694 },
     drops: ["Ergo do Boneco Sem Nome"],
     image: namelessPuppet
+  },
+  {
+    id: 'tyrannical-predator',
+    name: "Tyrannical Predator",
+    location: "Zoológico de Krat, Centro de Experiência Savana",
+    biography: "Tyrannical Predator é um Chefe em Lies of P, encontrado na DLC Overture. Tyrannical Predator é um grande chefe crocodiliano que usa seu focinho largo para atacar os jogadores. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: false,
+    isDLC: true,
+    type: "Carcass", // Baseado na imagem e contexto visual/absorção de dano similar a Carcass
+    BossCategory: "Principal",
+    isSecondPhace: false,
+    health: { normal: 24708, NGplus: 32251, NGplus2: 38097 },
+    isbreakableWeapons: false,
+    damage: { fase1: "Não" },
+    weakAganist: ["Fogo", "Perfuração"], // Baseado nas absorções negativas (-15 de Fogo, -10 de Perfuração)
+    StrongAganist: ["Ácido", "Contundente"], // Baseado nas absorções positivas (25 de Ácido, 10 de Contundente)
+    inflictsStatus: ["Não"],
+    poise: { normal: 966, NGplus: 1063, NGplus2: 1159 }, 
+    ergoDrops: { normal: 7621, NGplus: 19205, NGplus2: 25543 },
+    absorptions: { slash: 0, strike: 10, pierce: -10, fire: -15, electric: 0, acid: 25 },
+    resistances: { overheat: 792, shock: 932, decay: 1165 },
+    drops: ["Pedra da Lua Cheia"],
+    image: tyrannicalPredator
+  },
+  {
+    id: 'markiona-puppeteer-of-death',
+    name: "Markiona, Puppeteer of Death",
+    location: "Estufa de Krat, Interior da Estufa",
+    biography: "Markiona, Puppeteer of Death é um Chefe em Lies of P, encontrado na DLC Overture. No encontro com Markiona, Puppeteer of Death, os jogadores lutarão simultaneamente contra o Queen's Arche Puppet junto com Markiona. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: true,
+    isDLC: true,
+    type: "Boneco", // Baseado no contexto de Puppeteer/Puppet
+    BossCategory: "Principal",
+    isSecondPhace: false, // Luta simultânea em dupla, sem segunda fase descrita
+    health: { normal: 27697, NGplus: 36153, NGplus2: 42706 }, // Utilizado os valores da Markiona principal
+    isbreakableWeapons: false, // Markiona é false
+    damage: { fase1: "Não" },
+    weakAganist: ["Ácido"], // Baseado na absorção de -15 de Ácido da Markiona
+    StrongAganist: ["Eletricidade"], // Baseado na absorção de 25 de Eletricidade da Markiona
+    inflictsStatus: ["Não"],
+    poise: { normal: 772, NGplus: 849, NGplus2: 926 }, // Utilizado os valores da Markiona
+    ergoDrops: { normal: 16728, NGplus: 42155, NGplus2: 56067 },
+    absorptions: { slash: 0, strike: 0, pierce: 0, fire: 0, electric: 25, acid: -15 }, // Utilizado os valores da Markiona
+    resistances: { overheat: 886, shock: 1108, decay: 753 }, // Utilizado os valores da Markiona
+    drops: ["Ergo do Titereiro Macabro", "Chave da Markiona"],
+    image: markionaPuppeteerOfDeath
+  },
+  {
+    id: 'veronique-leader-of-the-sweepers',
+    name: "Veronique, Leader of the Sweepers",
+    location: "Sala de Controle do Líquido de Arrefecimento",
+    biography: "Veronique, Leader of the Sweepers é uma Chefe em Lies of P, encontrada na DLC Overture. Veronique, Leader of the Sweepers empunha um grande martelo equipado com um motor, permitindo que Veronique aprimore seus ataques com Fogo. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: false,
+    isDLC: true,
+    type: "Humano", // "Sweepers" (Varredores) e o nome indicam um stalker/humano
+    BossCategory: "Principal",
+    isSecondPhace: false,
+    health: { normal: 21615, NGplus: 27937, NGplus2: 32788 },
+    isbreakableWeapons: true,
+    ifBreakableWeapons: { normal: 810, NGplus: 953, NGplus2: 1012 },
+    damage: { fase1: "Fogo" }, // Mencionado que aprimora os ataques com fogo na biografia
+    weakAganist: ["Não"], // Aponta amuletos específicos na print em vez de elementos/tipos de dano físicos
+    StrongAganist: ["Não"],
+    inflictsStatus: ["Não"],
+    poise: { normal: 803, NGplus: 883, NGplus2: 964 }, 
+    ergoDrops: { normal: 4400, NGplus: 11088, NGplus2: 14747 },
+    absorptions: { slash: 0, strike: 0, pierce: 0, fire: 0, electric: 0, acid: 0 },
+    resistances: { overheat: 0, shock: 0, decay: 0 },
+    drops: ["Veronique's Will", "Coolant Control Room Console Key", "Blue Sheep's Mask", "Blue Sheep's Battle Apparel"],
+    image: veroniqueLeaderOfTheSweepers
+  },
+  {
+    id: 'two-faced-overseer',
+    name: "Two-faced Overseer",
+    location: "Zona de Pesquisa do Elixir",
+    biography: "Two-faced Overseer é um Chefe em Lies of P, encontrado na DLC Overture. O Two-faced Overseer é um chefe que empunha um machado de batalha e fica mais forte à medida que fica enfurecido. O jogador pode usar o Chifre Envolto em Luz do Dia para invocar o Rastreador para ajudá-lo nesta luta.",
+    isOptional: false,
+    isSpecterSommer: true,
+    isDLC: true,
+    type: "Carcass",
+    BossCategory: "Principal",
+    isSecondPhace: false,
+    health: { normal: 44193, NGplus: 57119, NGplus2: 67036 },
+    isbreakableWeapons: true,
+    ifBreakableWeapons: { normal: 1350, NGplus: 1588, NGplus2: 1687 },
+    damage: { fase1: "Não" },
+    weakAganist: ["Fogo", "Perfuração"],
+    StrongAganist: ["Ácido", "Contundente"],
+    inflictsStatus: ["Não"],
+    poise: { normal: 820, NGplus: 902, NGplus2: 984 }, 
+    ergoDrops: { normal: 17351, NGplus: 43725, NGplus2: 58155 },
+    absorptions: { slash: 0, strike: 10, pierce: -10, fire: -15, electric: 0, acid: 25 },
+    resistances: { overheat: 774, shock: 911, decay: 1139 },
+    drops: ["Pedra da Lua Cheia do Pacto", "Máquina de Criptografia Sangrenta"],
+    image: twoFacedOverseer
+  },
+  {
+    id: 'premetamorphic-green-hunter',
+    name: "Premetamorphic Green Hunter",
+    location: "Local de Mineração de Ergo",
+    biography: "Premetamorphic Green Hunter é um chefe opcional oculto em Lies of P, encontrado na DLC Overture. O Premetamorphic Green Hunter é uma criatura alienígena que usa tentáculos, garras e ácido para atacar e causar acúmulo de Decomposição. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: true,
+    isSpecterSommer: false,
+    isDLC: true,
+    type: "Carcass",
+    BossCategory: "Chefe Opcional",
+    isSecondPhace: false,
+    health: { normal: 23114, NGplus: 29165, NGplus2: 34105 },
+    isbreakableWeapons: false,
+    damage: { fase1: "Não" },
+    weakAganist: ["Fogo", "Perfuração"],
+    StrongAganist: ["Ácido", "Contundente"],
+    inflictsStatus: ["Não"], 
+    poise: { normal: 671, NGplus: 738, NGplus2: 805 }, 
+    ergoDrops: { normal: 8807, NGplus: 22194, NGplus2: 29518 },
+    absorptions: { slash: 0, strike: 10, pierce: -10, fire: -15, electric: 0, acid: 25 },
+    resistances: { overheat: 808, shock: 950, decay: 1188 },
+    drops: ["Quartzo"],
+    image: premetamorphicGreenHunter
+  },
+  {
+    id: 'anguished-guardian-of-the-ruins',
+    name: "Anguished Guardian of the Ruins",
+    location: "Sítio de Escavação das Ruínas Antigas",
+    biography: "Anguished Guardian of the Ruins é um Chefe em Lies of P, encontrado na DLC Overture. O Anguished Guardian of the Ruins é um chefe humanoide massivo, empunhando um tridente e uma alabarda. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: true,
+    isDLC: true,
+    type: "Carcass", // Baseado na fraqueza contra fogo, alta absorção de ácido (25) e resistência a Decay na imagem image_77c504.jpg
+    BossCategory: "Principal",
+    isSecondPhace: false,
+    health: { normal: 52260, NGplus: 65942, NGplus2: 77110 },
+    isbreakableWeapons: true,
+    ifBreakableWeapons: { normal: 1080, NGplus: 1270, NGplus2: 1349 },
+    damage: { fase1: "Não" },
+    weakAganist: ["Fogo", "Perfuração"],
+    StrongAganist: ["Ácido", "Contundente"],
+    inflictsStatus: ["Não"],
+    poise: { normal: 1030, NGplus: 1133, NGplus2: 1236 }, 
+    ergoDrops: { normal: 18712, NGplus: 47154, NGplus2: 62717 },
+    absorptions: { slash: 0, strike: 10, pierce: -10, fire: -15, electric: 0, acid: 25 },
+    resistances: { overheat: 808, shock: 950, decay: 1188 },
+    drops: ["Tortured Guardian's Ergo"], 
+    image: anguishedGuardianOfTheRuins
+  },
+  {
+    id: 'lumacchio-leader-of-the-bastards',
+    name: "Lumacchio, Leader of the Bastards",
+    location: "Exterior do Naufrágio, Frota Archon",
+    biography: "Lumacchino, Leader of the Bastards é um Chefe em Lies of P, encontrado na DLC Overture. Lumacchino, Leader of the Bastards é um chefe altamente móvel que usa um guarda-chuva em combate. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: false,
+    isDLC: true,
+    type: "Humano", // Mencionado na imagem image_77c048.jpg que compartilha propriedades com outros "Stalkers"
+    BossCategory: "Principal",
+    isSecondPhace: true, // A imagem image_77c048.jpg detalha informações específicas de uma segunda fase
+    health: { normal: 26458, NGplus: 33078, NGplus2: 38425 },
+    isbreakableWeapons: true,
+    ifBreakableWeapons: { normal: 1350, NGplus: 1588, NGplus2: 1687 },
+    damage: { fase1: "Não" },
+    weakAganist: ["Fogo", "Perfuração"], // Baseado nas fraquezas da segunda fase descritas na imagem image_77c048.jpg
+    StrongAganist: ["Ácido", "Contundente"], // Baseado nas resistências fortes contra Acid e Strike na segunda fase da imagem image_77c048.jpg
+    inflictsStatus: ["Não"],
+    poise: { normal: 883, NGplus: 971, NGplus2: 1060 }, 
+    ergoDrops: { normal: 4885, NGplus: 12310, NGplus2: 16373 },
+    absorptions: { slash: 0, strike: 0, pierce: 0, fire: 0, electric: 0, acid: 0 }, // Fase 1 é neutra para todos os tipos de dano segundo a imagem image_77c048.jpg
+    resistances: { overheat: 0, shock: 0, decay: 0 },
+    drops: ["Golden Snail's Mask", "Golden Snail's Tailcoat"],
+    image: lumacchioLeaderOfTheBastards
+  },
+  {
+    id: 'arlecchino-the-blood-artist',
+    name: "Arlecchino the Blood Artist",
+    location: "Entrada do Jardim das Rosas",
+    biography: "Arlecchino the Blood Artist é um Chefe em Lies of P. Arlecchino the Blood Artist serve como o chefe final da DLC Overture. Na luta contra o chefe Arlecchino, os jogadores estarão lutando ao lado de Lea. Eliminar Chefes geralmente fará com que eles deixem cair Ergo raro. O Ergo que você obtém ao derrotar um chefe é extremamente valioso. Os jogadores eventualmente poderão usar isso para trocar por Armas e Amuletos especiais.",
+    isOptional: false,
+    isSpecterSommer: true,
+    isDLC: true,
+    type: "Boneco",
+    BossCategory: "Principal",
+    isSecondPhace: true,
+    health: { normal: 16128, NGplus: 19716, NGplus2: 22900, SecondPhaceNormal: 23553, SecondPhaceNGplus: 28794, SecondPhaceNGplus2: 33443 },
+    isbreakableWeapons: true,
+    ifBreakableWeapons: { normal: 1350, NGplus: 1588, NGplus2: 1687 },
+    damage: { fase1: "Não" },
+    weakAganist: ["Contundente", "Ácido"],
+    StrongAganist: ["Corte", "Perfuração", "Fogo"],
+    inflictsStatus: ["Não"],
+    poise: { normal: 772, NGplus: 849, NGplus2: 926, SecondPhaceNormal: 858, SecondPhaceNGplus: 944, SecondPhaceNGplus2: 1030 }, 
+    ergoDrops: { normal: 20423, NGplus: 51466, NGplus2: 68452 },
+    absorptions: { slash: 10, strike: -10, pierce: 10, fire: 25, electric: 0, acid: -15 },
+    resistances: { overheat: 1270, shock: 864, decay: 864, SecondPhaceOverheat: 1270, SecondPhaceShock: 864, SecondPhaceDecay: 864 },
+    drops: ["Chave da Sala Secreta", "Máscara do Líder", "Traje de Batalha do Líder", "Espada de Rosa de Monad"],
+    image: arlecchinoTheBloodArtist
   },
 ];

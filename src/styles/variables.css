@@ -11,8 +11,10 @@
   --color-accent-details: #b12727; /* Vermelho escuro para detalhes de icones */
   --color-accent-copper: #b85c38; /* Cobre para alguns subtextos */
   --color-accent-glow: #e71010; /* Azul do Ergo (energia do jogo) */
-  --color-accent-dlc: #00d4ff; /* Azul para itens DLC */
   --glow-color: rgba(0, 212, 255, 0.3); /* Cor de brilho para itens DLC */
+  --color-accent-dlc: #00d4ff; /* Azul para DLC */
+  --color-ng-plus-dlc: #ff69b4;     /* Rosa */
+  --color-ng-plus-2-dlc: #b026ff;   /* Roxo */
 
   /* Tipografia */
   --font-heading: 'EB Garamond', serif; 

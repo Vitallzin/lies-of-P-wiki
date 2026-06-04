@@ -140,6 +140,39 @@
   text-shadow: 0 0 8px rgba(255, 68, 68, 0.2);
 }
 
+/* --- OVERRIDES PARA DLC (NG+ e NG++) --- */
+.theme-dlc .mini-mode-btn.active.ng-plus,
+.theme-dlc .mini-mode-btn.active.phase-2 {
+  border-color: var(--color-ng-plus-dlc) !important;
+  color: var(--color-ng-plus-dlc) !important;
+  background: rgba(255, 105, 180, 0.15) !important;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2) !important;
+}
+
+.theme-dlc .mini-mode-btn.active.ng-plus-2 {
+  border-color: var(--color-ng-plus-2-dlc) !important;
+  color: var(--color-ng-plus-2-dlc) !important;
+  background: rgba(157, 0, 255, 0.15) !important;
+  box-shadow: 0 0 10px rgba(157, 0, 255, 0.2) !important;
+}
+
+.theme-dlc .mode-context-NGplus .data-item strong,
+.theme-dlc .phase-context-fase2 .sensor-item strong {
+  color: var(--color-ng-plus-dlc) !important;
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.2);
+}
+
+.theme-dlc .mode-context-NGplus2 .data-item strong {
+  color: var(--color-ng-plus-2-dlc) !important;
+  text-shadow: 0 0 8px rgba(157, 0, 255, 0.2);
+}
+
+/* Garantir que fraquezas (valores negativos) continuem vermelhas mesmo na DLC */
+.theme-dlc .sensor-item strong.weak {
+  color: #ff4444 !important;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.4) !important;
+}
+
 /* --- LAYOUT PRINCIPAL --- */
 .details-main-layout {
   display: flex;
