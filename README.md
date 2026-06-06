@@ -8,7 +8,8 @@
 
 Um guia definitivo e imersivo para os fãs de **Lies of P**, explorando a Belle Époque sombria da cidade de Krat. Este projeto reúne informações detalhadas sobre chefes, personagens, armas, classes e a expansão DLC.
 
-🔗 **Acesse agora:** [https://lies-of-p-wiki-ddsr.vercel.app](https://lies-of-p-wiki.vercel.app)
+🔗 **Acesse agora:** [https://lies-of-p-wiki.vercel.app](https://lies-of-p-wiki.vercel.app)
+**Documentação** [https://deepwiki.com/Vitallzin/lies-of-P-wiki](https://deepwiki.com/Vitallzin/lies-of-P-wiki)
 
 ---
 
