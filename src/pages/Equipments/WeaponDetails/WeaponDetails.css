@@ -1,6 +1,6 @@
 /* WeaponDetails.css - Otimizado e Ajustado */
 
-.details-page {
+.weapon-details-page {
   padding: 120px 20px 60px;
   min-height: 100vh;
   background: #0a0a0c;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.details-container {
+.weapon-details-container {
   max-width: 1200px;
   width: 100%;
 }
@@ -48,14 +48,14 @@
 }
 
 /* --- LAYOUT PRINCIPAL --- */
-.details-main-layout {
+.weapon-details-main-layout {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
 /* --- SEÇÃO SUPERIOR --- */
-.details-header-section {
+.weapon-details-header-section {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
@@ -90,50 +90,68 @@
 }
 
 /* --- SEÇÃO INFERIOR --- */
-.details-footer-info {
+.weapon-details-footer-info {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 20px;
+  align-items: stretch; /* Garante que os blocos tenham a mesma altura */
 }
 
-.info-block {
+.weapon-info-block {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
-.block-label {
+.weapon-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex-grow: 1; /* Faz a row ocupar o espaço disponível */
+  align-content: space-between; /* Distribui o espaço entre as linhas se houver wrap */
+}
+
+.weapon-data-item {
+  flex: 1 1 calc(50% - 15px); /* Tenta ocupar 50% menos o gap */
+  min-width: 140px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.weapon-data-item span { color: #888; font-size: 0.85rem; margin-right: 8px; }
+.weapon-data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
+
+.weapon-block-label {
   font-family: var(--font-heading);
-  color: #555;
+  color: var(--current-accent);
   text-transform: uppercase;
   font-size: 0.75rem;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   padding-bottom: 10px;
+  opacity: 0.8;
 }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+/* --- AJUSTE: Slash e Stab --- */
+.weapon-data-item.full-width {
+  flex: 1 1 100%; /* Ocupa a linha inteira */
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.data-item span { color: #888; font-size: 0.85rem; margin-right: 8px; }
-.data-item strong { color: var(--color-accent-gold); font-family: var(--font-heading); }
-
-/* --- AJUSTE: Slash e Stab Lado a Lado --- */
-.data-item.full-width {
-  grid-column: span 1; /* Remove o span total da grid para alinhar lado a lado */
-  display: flex; /* Alinha o texto e a barra horizontalmente */
-  align-items: center; 
-}
-
-.scaling-row {
+.weapon-scaling-row {
   display: flex;
   justify-content: space-around;
 }
 
-.scale-box {
+.weapon-scale-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,27 +166,141 @@
   margin-left: 5px; /* Pequeno espaçamento entre a label e a barra */
 }
 
-.scale-box .label { font-size: 0.65rem; color: #777; margin-bottom: 5px; }
-.scale-box .value { font-family: var(--font-heading); font-size: 1.8rem; color: #333; }
-.scale-box .value.gold { color: var(--color-accent-gold); }
+.weapon-scale-box .label { font-size: 0.65rem; color: #777; margin-bottom: 5px; }
+.weapon-scale-box .value { font-family: var(--font-heading); font-size: 1.8rem; color: #333; }
+.weapon-scale-box .value.gold { color: var(--color-accent-gold); }
 
 /* Localização */
 .location-block {
   grid-column: span 2;
-  border-left: 3px solid var(--color-accent-gold);
+  border-left: 3px solid var(--current-accent);
 }
 
 .location-block p { font-size: 0.9rem; color: #aaa; line-height: 1.5; }
+
+/* Fable Arts Redesigned */
+.weapon-fable-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.weapon-fable-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.weapon-fable-column:first-child::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.weapon-fable-column .label {
+  font-family: var(--font-heading);
+  color: #666;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.weapon-fable-column .value {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--current-accent);
+  text-shadow: 0 0 10px var(--current-glow);
+  line-height: 1.2;
+}
+
+/* Padrões de Ataque */
+.attack-patterns-block {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-patterns-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-grow: 1; /* Faz a grid ocupar o espaço disponível verticalmente */
+  align-content: space-between; /* Distribui as linhas de quadrados se houver espaço sobrando */
+}
+
+.weapon-pattern-item {
+  flex: 1 1 calc(33.333% - 10px); /* Tenta manter o visual de 3 colunas */
+  min-width: 80px; /* Garante que não fique pequeno demais */
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 80px;
+}
+
+.weapon-pattern-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--current-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.weapon-pattern-item span {
+  color: #666;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.weapon-pattern-item strong {
+  color: var(--current-accent);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
 
 /* Aplicando as variáveis dinâmicas */
 .back-btn-modern,
 .category-tag,
 .description-box h3,
-.data-item strong,
+.weapon-data-item strong,
 .value.gold,
 .stat-color {
   color: var(--current-accent) !important;
 }
+
+/* Scaling Colors - Base Game */
+.theme-normal .scale-S { color: #ff4444 !important; }
+.theme-normal .scale-A { color: var(--color-accent-gold) !important; }
+.theme-normal .scale-B { color: var(--color-accent-copper) !important; }
+.theme-normal .scale-C { color: #8b4513 !important; }
+.theme-normal .scale-D { color: #aaaaaa !important; }
+.theme-normal .scale-- { color: #555555 !important; }
+
+/* Scaling Colors - DLC */
+.theme-dlc .scale-S { color: #b026ff !important; } /* Roxo */
+.theme-dlc .scale-A { color: #ff69b4 !important; } /* Rosa */
+.theme-dlc .scale-B { color: #00d4ff !important; } /* Azul DLC */
+.theme-dlc .scale-C { color: #1e40af !important; } /* Azul Escuro */
+.theme-dlc .scale-D { color: #aaaaaa !important; } /* Cinza Claro */
+.theme-dlc .scale-- { color: #555555 !important; } /* Cinza Escuro */                   /* Cinza Escuro */
 
 .btn-line,
 .location-block {
@@ -186,11 +318,11 @@
 
 /* Responsivo */
 @media (max-width: 900px) {
-  .details-page {
+  .weapon-details-page {
     padding: 100px 20px 40px;
   }
 
-  .details-header-section {
+  .weapon-details-header-section {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -219,7 +351,7 @@
     text-align: center;
   }
 
-  .details-footer-info {
+  .weapon-details-footer-info {
     grid-template-columns: 1fr;
   }
 
@@ -232,21 +364,25 @@
   }
 
   /* No mobile, voltamos a ocupar a linha inteira para não espremer as barras */
-  .stats-row {
+  .weapon-stats-row {
     grid-template-columns: 1fr;
   }
-  
-  .data-item.full-width {
+
+  .weapon-data-item.full-width {
       display: block; /* Volta ao padrão */
       grid-column: span 1;
   }
 
-  .scaling-row {
+  .weapon-scaling-row {
     flex-wrap: wrap;
     gap: 20px;
   }
 
-  .scale-box {
+  .weapon-scale-box {
     width: 30%;
+  }
+
+  .weapon-patterns-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

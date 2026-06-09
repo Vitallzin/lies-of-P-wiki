@@ -38,18 +38,18 @@ const BossDetails = () => {
   };
 
   return (
-    <div className={`details-page ${themeClass}`}>
-      <div className="details-container">
+    <div className={`boss-details-page ${themeClass}`}>
+      <div className="boss-details-container">
         {/* BOTÃO VOLTAR PADRONIZADO */}
         <button className="back-btn-modern" onClick={() => navigate(-1)}>
           <span className="text">Voltar aos Chefes</span>
           <div className="btn-line"></div>
         </button>
 
-        <div className="details-main-layout">
+        <div className="boss-details-main-layout">
           {/* TOPO: LORE (ESQUERDA) | IMAGEM (DIREITA) */}
-          <div className="details-header-section">
-            <div className="header-text">
+          <div className="boss-details-header-section">
+            <div className="boss-header-text">
               <span className="category-tag">
                 {boss.isDLC ? `${boss.BossCategory} DLC` : boss.BossCategory}
               </span>
@@ -63,7 +63,7 @@ const BossDetails = () => {
               </div>
             </div>
 
-            <div className="header-visual">
+            <div className="boss-header-visual">
               <div className="image-frame">
                 <img src={boss.image} alt={boss.name} />
                 <div className="frame-glow"></div>
@@ -72,28 +72,28 @@ const BossDetails = () => {
           </div>
 
           {/* BAIXO: INFORMAÇÕES TÉCNICAS */}
-          <div className="details-footer-info">
+          <div className="boss-details-footer-info">
             {/* Bloco 1: Status Base */}
-            <div className={`info-block stats-block mode-context-${gameMode}`}>
+            <div className={`boss-info-block stats-block mode-context-${gameMode}`}>
               <div className="block-header-with-selector">
-                <h4 className="block-label">Análise de Combate</h4>
-                <div className="mini-mode-selector">
+                <h4 className="boss-block-label">Análise de Combate</h4>
+                <div className="boss-mini-mode-selector">
                   <button 
-                    className={`mini-mode-btn normal ${gameMode === 'normal' ? 'active' : ''}`}
+                    className={`boss-mini-mode-btn normal ${gameMode === 'normal' ? 'active' : ''}`}
                     onClick={() => setGameMode('normal')}
                     title="Normal"
                   >
                     NG
                   </button>
                   <button 
-                    className={`mini-mode-btn ng-plus ${gameMode === 'NGplus' ? 'active' : ''}`}
+                    className={`boss-mini-mode-btn ng-plus ${gameMode === 'NGplus' ? 'active' : ''}`}
                     onClick={() => setGameMode('NGplus')}
                     title="NG+"
                   >
                     NG+
                   </button>
                   <button 
-                    className={`mini-mode-btn ng-plus-2 ${gameMode === 'NGplus2' ? 'active' : ''}`}
+                    className={`boss-mini-mode-btn ng-plus-2 ${gameMode === 'NGplus2' ? 'active' : ''}`}
                     onClick={() => setGameMode('NGplus2')}
                     title="NG++"
                   >
@@ -102,15 +102,15 @@ const BossDetails = () => {
                 </div>
               </div>
               
-              <div className="stats-row">
+              <div className="boss-stats-row">
                 
-                <div className="data-item"><span>Tipo:</span> <strong>{boss.type || 'Marionete'}</strong></div>
+                <div className="boss-data-item"><span>Tipo:</span> <strong>{boss.type || 'Marionete'}</strong></div>
 
-                <div className="data-item"><span>Vida:</span><strong> {boss.health[gameMode].toLocaleString('pt-BR')} HP</strong></div>
+                <div className="boss-data-item"><span>Vida:</span><strong> {boss.health[gameMode].toLocaleString('pt-BR')} HP</strong></div>
 
-                <div className="data-item"><span>Convocação de espectro:</span> <strong>{boss.isSpecterSommer ? 'Sim' : 'Não'}</strong></div>
+                <div className="boss-data-item"><span>Convocação de espectro:</span> <strong>{boss.isSpecterSommer ? 'Sim' : 'Não'}</strong></div>
                 {boss.ergoDrops && (
-                  <div className="data-item">
+                  <div className="boss-data-item">
                     <span>Recompensa de Ergo:</span> 
                     <strong>
                       {boss.ergoDrops[gameMode].toLocaleString('pt-BR')}
@@ -118,26 +118,26 @@ const BossDetails = () => {
                   </div>
                 )}
 
-                <div className="data-item"><span>Dano Fase 1:</span> <strong>{boss.damage.fase1}</strong></div>
-                {boss.damage.fase3 && <div className="data-item"><span>Dano Fase 3:</span> <strong>{boss.damage.fase3}</strong></div>}
+                <div className="boss-data-item"><span>Dano Fase 1:</span> <strong>{boss.damage.fase1}</strong></div>
+                {boss.damage.fase3 && <div className="boss-data-item"><span>Dano Fase 3:</span> <strong>{boss.damage.fase3}</strong></div>}
 
-                <div className="data-item"><span>Quebra Arma:</span> <strong>{boss.isbreakableWeapons ? 'Sim' : 'Não'}</strong></div>
-                {boss.damage.fase2 && <div className="data-item"><span>Dano Fase 2:</span> <strong>{boss.damage.fase2}</strong></div>}
+                <div className="boss-data-item"><span>Quebra Arma:</span> <strong>{boss.isbreakableWeapons ? 'Sim' : 'Não'}</strong></div>
+                {boss.damage.fase2 && <div className="boss-data-item"><span>Dano Fase 2:</span> <strong>{boss.damage.fase2}</strong></div>}
 
                 {boss.isbreakableWeapons && boss.ifBreakableWeapons && (
-                  <div className="data-item">
+                  <div className="boss-data-item">
                     <span>Durabilidade da Arma:</span> 
                     <strong>
                       {boss.ifBreakableWeapons[gameMode]?.toLocaleString('pt-BR')}
                     </strong>
                   </div>
                 )}
-                {boss.weakAganist && <div className="data-item"><span>Fraco contra:</span> <strong>{boss.weakAganist.join(', ')}</strong></div>}
-                {boss.inflictsStatus && <div className="data-item"><span>Inflige Status:</span> <strong>{boss.inflictsStatus.join(', ')}</strong></div>}
-                {boss.StrongAganist && <div className="data-item"><span>Forte contra:</span> <strong>{boss.StrongAganist.join(', ')}</strong></div>}
+                {boss.weakAganist && <div className="boss-data-item"><span>Fraco contra:</span> <strong>{boss.weakAganist.join(', ')}</strong></div>}
+                {boss.inflictsStatus && <div className="boss-data-item"><span>Inflige Status:</span> <strong>{boss.inflictsStatus.join(', ')}</strong></div>}
+                {boss.StrongAganist && <div className="boss-data-item"><span>Forte contra:</span> <strong>{boss.StrongAganist.join(', ')}</strong></div>}
 
                 {boss.poise && (
-                  <div className="data-item">
+                  <div className="boss-data-item">
                     <span>Valor de Poise:</span> 
                     <strong>
                       {boss.poise[gameMode].toLocaleString('pt-BR')}
@@ -148,20 +148,20 @@ const BossDetails = () => {
               </div>
             </div>
 
-            {/* Bloco 2: Absorções (Onde a imagem da tabela entra) */}
-            <div className={`info-block analysis-grid-block phase-context-${phase}`}>
+            {/* Bloco 2: Análise Defensiva (Absorções e Resistências) */}
+            <div className={`boss-info-block analysis-grid-block phase-context-${phase}`}>
               <div className="block-header-with-selector">
-                <h4 className="block-label">Taxas de Absorção de Dano (%)</h4>
+                <h4 className="boss-block-label">Taxas de Absorção de Dano (%)</h4>
                 {boss.isSecondPhace && (
-                  <div className="mini-mode-selector">
+                  <div className="boss-mini-mode-selector">
                     <button 
-                      className={`mini-mode-btn phase-1 ${phase === 'fase1' ? 'active' : ''}`}
+                      className={`boss-mini-mode-btn phase-1 ${phase === 'fase1' ? 'active' : ''}`}
                       onClick={() => setPhase('fase1')}
                     >
                       Fase 1
                     </button>
                     <button 
-                      className={`mini-mode-btn phase-2 ${phase === 'fase2' ? 'active' : ''}`}
+                      className={`boss-mini-mode-btn phase-2 ${phase === 'fase2' ? 'active' : ''}`}
                       onClick={() => setPhase('fase2')}
                     >
                       Fase 2
@@ -169,51 +169,30 @@ const BossDetails = () => {
                   </div>
                 )}
               </div>
-              <div className="sensor-grid">
-                <div className="sensor-item"><span>Corte</span><strong className={Number(getAbsorption('slash')) < 0 ? 'weak' : ''}>{getAbsorption('slash')}%</strong></div>
-                <div className="sensor-item"><span>Impacto</span><strong className={Number(getAbsorption('strike')) < 0 ? 'weak' : ''}>{getAbsorption('strike')}%</strong></div>
-                <div className="sensor-item"><span>Perfuração</span><strong className={Number(getAbsorption('pierce')) < 0 ? 'weak' : ''}>{getAbsorption('pierce')}%</strong></div>
-                <div className="sensor-item-divider"></div>
-                <div className="sensor-item elemental"><span>Fogo</span><strong className={Number(getAbsorption('fire')) < 0 ? 'weak' : ''}>{getAbsorption('fire')}%</strong></div>
-                <div className="sensor-item elemental"><span>Elétrico</span><strong className={Number(getAbsorption('electric')) < 0 ? 'weak' : ''}>{getAbsorption('electric')}%</strong></div>
-                <div className="sensor-item elemental"><span>Ácido</span><strong className={Number(getAbsorption('acid')) < 0 ? 'weak' : ''}>{getAbsorption('acid')}%</strong></div>
+              <div className="boss-sensor-grid">
+                <div className="boss-sensor-item"><span>Corte</span><strong className={Number(getAbsorption('slash')) < 0 ? 'weak' : ''}>{getAbsorption('slash')}%</strong></div>
+                <div className="boss-sensor-item"><span>Impacto</span><strong className={Number(getAbsorption('strike')) < 0 ? 'weak' : ''}>{getAbsorption('strike')}%</strong></div>
+                <div className="boss-sensor-item"><span>Perfuração</span><strong className={Number(getAbsorption('pierce')) < 0 ? 'weak' : ''}>{getAbsorption('pierce')}%</strong></div>
+                <div className="boss-sensor-item-divider"></div>
+                <div className="boss-sensor-item elemental"><span>Fogo</span><strong className={Number(getAbsorption('fire')) < 0 ? 'weak' : ''}>{getAbsorption('fire')}%</strong></div>
+                <div className="boss-sensor-item elemental"><span>Elétrico</span><strong className={Number(getAbsorption('electric')) < 0 ? 'weak' : ''}>{getAbsorption('electric')}%</strong></div>
+                <div className="boss-sensor-item elemental"><span>Ácido</span><strong className={Number(getAbsorption('acid')) < 0 ? 'weak' : ''}>{getAbsorption('acid')}%</strong></div>
+                
+                <div className="boss-sensor-item-divider"></div>
+                <div className="boss-sensor-section-title">Resistência a Alterações de Estado</div>
+
+                <div className="boss-sensor-item"><span>Sobrecarga</span><strong>{getResistance('overheat')}</strong></div>
+                <div className="boss-sensor-item"><span>Choque</span><strong>{getResistance('shock')}</strong></div>
+                <div className="boss-sensor-item"><span>Decadência</span><strong>{getResistance('decay')}</strong></div>
               </div>
             </div>
 
-            {/* Bloco 3: Resistências a Status */}
-            <div className={`info-block analysis-grid-block phase-context-${phase}`}>
-              <div className="block-header-with-selector">
-                <h4 className="block-label">Resistência a Alterações de Estado</h4>
-                {boss.isSecondPhace && (
-                  <div className="mini-mode-selector">
-                    <button 
-                      className={`mini-mode-btn phase-1 ${phase === 'fase1' ? 'active' : ''}`}
-                      onClick={() => setPhase('fase1')}
-                    >
-                      Fase 1
-                    </button>
-                    <button 
-                      className={`mini-mode-btn phase-2 ${phase === 'fase2' ? 'active' : ''}`}
-                      onClick={() => setPhase('fase2')}
-                    >
-                      Fase 2
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="sensor-grid triplet">
-                <div className="sensor-item"><span>Sobrecarga</span><strong>{getResistance('overheat')}</strong></div>
-                <div className="sensor-item"><span>Choque</span><strong>{getResistance('shock')}</strong></div>
-                <div className="sensor-item"><span>Decadência</span><strong>{getResistance('decay')}</strong></div>
-              </div>
-            </div>
-
-            {/* Bloco 4: Drops (Ocupa a largura total) */}
-            <div className="info-block drops-block">
-              <h4 className="block-label">Recompensas de Ergo (Drops)</h4>
-              <div className="drops-container-flex">
+            {/* Bloco 3: Drops (Ocupa a largura total) */}
+            <div className="boss-info-block drops-block full-width">
+              <h4 className="boss-block-label">Recompensas de Ergo (Drops)</h4>
+              <div className="boss-drops-container-flex">
                 {boss.drops.map((drop, index) => (
-                  <div key={index} className="drop-tag"> {drop}</div>
+                  <div key={index} className="boss-drop-tag"> {drop}</div>
                 ))}
               </div>
             </div>

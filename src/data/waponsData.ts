@@ -78,192 +78,115 @@ export const weaponsCategories = [
 
 
 // Import de imagens de armas
-import boosterGlavie from '../assets/img/WeaponsDetails/booster-glaive-weapon.webp';
-import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-weapon.webp';
-import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.webp';
-import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.webp';
-import royalHornBow from '../assets/img/WeaponsDetails/royal_horn_bow-weapon-special.webp';
-import greatswordOfFate from '../assets/img/WeaponsDetails/greatsword-of-fate.webp';
+// import boosterGlavie from '../assets/img/WeaponsDetails/booster-glaive-weapon.webp';
+// import acidicCrystal from '../assets/img/WeaponsDetails/acidic-crystal-spear-weapon.webp';
+// import laVendetta from '../assets/img/WeaponsDetails/la_vendetta-weapon.webp';
+// import frozenFeast from '../assets/img/WeaponsDetails/frozen-feast-weapon-special.webp';
+// import royalHornBow from '../assets/img/WeaponsDetails/royal_horn_bow-weapon-special.webp';
+// import greatswordOfFate from '../assets/img/WeaponsDetails/greatsword-of-fate.webp';
+import carcassCrystalAxeImage from '../assets/img/WeaponsDetails/carcass-crystal-axe.webp';
+import brambleCurvedSwordImage from '../assets/img/WeaponsDetails/bramble-curved-sword.webp';
 
 export interface equipments {
   id: string;
-  isDLC?: boolean; // Indica se é do DLC
-  isSpecial?: boolean; // Indica se é um item especial
+  isDLC: boolean;
+  isSpecial: boolean; // Armas de Chefes (geralmente não desmontam)
   name: string;
-  type: string;
-  weight: string;
-  slash?: string;
-  stab?: string;
-  typeAttack?: {
+  type: string;       // Ex: "Contundente", "Espada"
+  weight: number;     // Melhor como number para somar peso total da build (ex: 17.9)
+  slash: string;      // Seus indicadores "███"
+  stab: string;
+  
+  // --- SISTEMA DE DESMONTAGEM ---
+  canDisassemble: boolean;
+
+  // --- ATAQUE E DEFESA ---
+  physicalAttack: number;
+  elementalAttackType?: 'Acid' | 'Fire' | 'Electric' | 'None';
+  elementalAttack?: number;
+  damageReductionRate: number; // Taxa de redução de dano defendendo (ex: 66.12)
+  durability: number;
+
+  // --- ESCALONAMENTO (SCALING) ---
+  Motivity: 'S' | 'A' | 'B' | 'C' | 'D' | '-';
+  Technique: 'S' | 'A' | 'B' | 'C' | 'D' | '-';
+  Advanced: 'S' | 'A' | 'B' | 'C' | 'D' | '-';
+
+  // --- MECÂNICAS COMPLEXAS (Que você vai adicionar depois) ---
+  typeAttack: {
     attackNormal1: string;
-    attackNormal2?: string;
-    attackSpecial1?: string;
+    attackNormal2: string;
+    attackNormal3?: string; // Nota: O machado tem até Attack 4 na imagem!
+    attackNormal4?: string;
+    attackSpecial1: string;
     attackSpecial2?: string;
-    attackCharged1?: number | string;
+    attackCharged1: number | string;
     attackCharged2?: number | string;
-    dodgingNormalAttack?: string;
-    SprintgNormalAttack?: string;
-    SprintSpecialAttack?: string;
-  }
-  fableArts?: {
-    fableArt1: string;
-    fableArt2?: string;
-  }
-  attack: string;
-  Motivity: string;
-  Technique: string;
-  Advanced: string;
-  durability: string;
+    dodgingNormalAttack: string;
+    SprintgNormalAttack: string; // Corrigindo o typo de "Sprintg" para "Sprinting"
+    SprintingSpecialAttack: string;
+  };
+  fableArts: {
+    fableArt1: string; // Arte da Lâmina
+    fableArt2: string; // Arte do Cabo
+  };
+
+  // --- TEXTOS E MÍDIA ---
   description: string;
   Location: string; 
+  ergoCost?: number; // Preço se for comprada em NPC
   image: string;
 }
 export const weaponsData: equipments[] = [
-  {
-    id: 'Booster_Glaive',
-    name: "Booster Glaive",
-    type: "Espada Grande",
-    weight: "x",
-    slash: "-",
-    stab: "-",
-    attack: "x",
-    Motivity: "D",
-    Technique: "B",
-    Advanced: "-",
-    durability: "x/x",
-    description: `Booster Glaive é uma arma em Lies of P. Booster Glaive é um conjunto de armas que consiste nas seguintes peças: Booster Glaive Blade e Booster Glaive Handle. 
-    Em Lies of P, as armas são encontradas como um único equipamento, como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre consiste 
-    em uma lâmina e um cabo que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência`,
-    
-    Location:`Pode ser encontrado em um baú. Depois de interromper o fluxo de água corrompida do Canal da União da Oficina, volte para o Observador de Estrelas da Entrada da 
-    União da Oficina e siga para a esquerda, afastando-se das escadas. Siga o caminho passando por alguns inimigos marionetes e desça a escada até onde a Marionete do Futuro 
-    ronda. O baú pode ser encontrado no final deste caminho, atrás dela.`,
-    image: boosterGlavie
-  },
-   {
-    id: 'Acidic_Crystal',    
-    name: "Acidic Crystal",
-    type: "Punhal",
-    weight: "9.0",
-    slash: "█░░",
-    stab: "██░",
-    attack: "49",
-    Motivity: "D",
-    Technique: "D",
-    Advanced: "A",
-    durability: "100",
-    description: `A Lança de Cristal Ácido é uma arma em Lies of P. A Lança de Cristal Ácido é um conjunto de armas que consiste nas seguintes peças: Lâmina da Lança de 
-    Cristal Ácido e Cabo da Lança de Cristal Ácido. Em Lies of P, as armas são encontradas como um único equipamento, como sabres, espadas, facas e até mesmo armas pesadas 
-    e contundentes. Cada arma que você descobre consiste em uma lâmina e um cabo que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua 
-    preferência.`,
-    
-    Location:`Pode ser encontrado em um baú. Depois de interromper o fluxo de água corrompida do Canal da União da Oficina, volte para o Observador de Estrelas da Entrada da 
-    União da Oficina e siga para a esquerda, afastando-se das escadas. Siga o caminho passando por alguns inimigos marionetes e desça a escada até onde a Marionete do Futuro 
-    ronda. O baú pode ser encontrado no final deste caminho, atrás dela.`,
-    image: acidicCrystal
-  },
-  {
-    id: 'La_Vendetta',
-    name: "La Vendetta",
-    isDLC: true,
-    type: "Contundente",
-    weight: "17.9",
-    slash: "███",
-    stab: "█░░",
-    attack: "132",
-    Motivity: "B",
-    Technique: "C",
-    Advanced: "-",
-    durability: "117",
-    description: `La Vendetta é uma arma em Lies of P. La Vendetta é um conjunto de armas que consiste nas seguintes peças: La Vendetta Head e La Vendetta Handle. Em Lies of P, 
-    as armas são encontradas como um único equipamento, como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre consiste em uma lâmina 
-    e um cabo que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência.`,
-    
-    Location:`A La Vendetta pode ser encontrada nas instalações subterrâneas Zelator. Esta arma é exclusiva do DLC Overture.
-    Você precisará completar a Sala de Controle de Refrigeração antes de procurar por esta arma.
-    Do Stargazer, desça a escada e siga pelo túnel à direita. Continue pelo caminho através do próximo túnel e desça até uma sala. Siga em frente pela despensa e desça as escadas. 
-    Derrote o inimigo Elite Rolling Carcass aqui e siga pelo arco para encontrar um baú contendo a La Vendetta.`,
-    image: laVendetta
-  },
-   {
-    id: 'Frozen_Feast',
-    name: "Frozen Feast",
-    isSpecial: true,
-    type: "Espada grande",
-    weight: "31.1",
-    slash: "██░",
-    stab: "█░░",
-    attack: "167",
-    Motivity: "B",
-    Technique: "C",
-    Advanced: "-",
-    durability: "84",
-    description: `Frozen Feast é uma arma especial (arma de chefe) em Lies of P. A Frozen Feast pode ser obtida ao dar o Ergo do Campeão Renascido a Alidoro no Hotel
-    Krat em troca dela. O Frozen Feast é uma espada longa que possui um bônus que aumenta a velocidade de ataque de Pinóquio a cada ataque bem-sucedido, até um máximo 
-    de 4 acumulações — semelhante à mecânica do Amuleto Arm of God.`,
-    
-    Location:`O Banquete Congelado pode ser adquirido trocando 1 Ergo do Campeão Renascido com Alidoro.
-    O Ergo do Campeão Renascido pode ser obtido derrotando o Campeão Victor.`,
-    image: frozenFeast
-  },
-   {
-    id: 'Royal_Horn_Bow',
-    name: "Royal Horn Bow",
-    isDLC: true,
-    isSpecial: true,
-    type: "Arco",
-    weight: "31.1",
-    slash: "████",
-    stab: "███",
-    attack: "75",
-    Motivity: "D",
-    Technique: "B",
-    Advanced: "-",
-    durability: "84",
-    description: `O Royal Horn Bow é uma arma especial (arma de chefe) em Lies of P. O Royal Horn Bow é uma arma de longo alcance adicionada com o DLC Overture que 
-    não pode ser desmontada. Armas de chefe ou armas especiais são armas derivadas dos chefes únicos encontrados em Lies of P. Elas são adquiridas ao fornecer itens 
-    Ergo do tipo chefe a um comerciante especial, Alidoro.`,
-    
-    Location:`O Royal Horn Bow pode ser encontrado no Hall of Adventure. Esta área é exclusiva do DLC Overture.
-    Pode ser encontrado em um baú no segundo nível da sala de exposição Zebra.`,
-    image: royalHornBow
-  },
-  {
-    id: 'Greatsword_of_Fate',
-    name: "Greatsword of Fate",
-    isDLC: false,
-    isSpecial: false,
-    type: "Espada grande",
-    weight: "13.8",
-    slash: "██░",
-    stab: "██░",
-    attack: "111",
-    Motivity: "B",
-    Technique: "D",
-    Advanced: "-",
-    durability: "100",
-    typeAttack: {
-      attackNormal1: "35",
-      attackNormal2: "37",
-      attackSpecial1: "46",
-      attackSpecial2: "44",
-      attackCharged1: "29+44",
-      attackCharged2: "64",
-      dodgingNormalAttack: "35",
-      SprintgNormalAttack: "34",
-      SprintSpecialAttack: "41"
-    },
-    description: `A Espada Longa do Destino é uma arma em Lies of P. A Espada Longa do Destino é um conjunto de armas composto pelas
-    seguintes peças: Lâmina da Espada Longa do Destino e Cabo da Espada Longa do Destino. Em Lies of P, as armas são encontradas como
-    peças individuais, tais como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre é composta
-    por uma Lâmina e um Cabo, que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência.`,
-    
-    Location:`Esta é a arma padrão ou inicial caso você escolha a Memória de Combate: Caminho do Varredor: Força.
-    Ela também pode ser comprada do Comerciante Errante por 300 Ergo`,
-    image: greatswordOfFate
-  }
-  // Adicione mais armas aqui seguindo o mesmo formato
-
-  //Falta por as armas da categoria "Braços da Legião"
+ {
+  id: 'Carcass_Crystal_Axe',
+  name: "Carcass Crystal Axe",
+  isDLC: false,
+  isSpecial: false,
+  type: "Blunt",
+  weight: 15.6,
+  slash: "██░",
+  stab: "█░░",
+  canDisassemble: true,
+  physicalAttack: 63,
+  elementalAttackType: 'Acid',
+  elementalAttack: 63,
+  damageReductionRate: 66.12,
+  durability: 100,
+  Motivity: "C",
+  Technique: "D",
+  Advanced: "B",
+  typeAttack: { attackNormal1: "43", attackNormal2: "40", attackNormal3: "41", attackNormal4: "41", attackSpecial1: "45", attackCharged1: "77", dodgingNormalAttack: "39", SprintgNormalAttack: "39", SprintingSpecialAttack: "45" },
+  fableArts: { fableArt1: "Acidic Explosion", fableArt2: "Conserve Energy" },
+  description: `Carcass Crystal Axe é uma Arma em Lies of P. Carcass Crystal Axe é um conjunto de arma que consiste nas seguintes partes: Carcass Crystal Axe Blade e Carcass Crystal Axe Handle. Em Lies of P, as armas são encontradas como um único equipamento, como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre consiste em uma Lâmina e um Cabo que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência.`,
+  Location: `Localização: Rua Rosa Isabelle. Stargazer mais próximo: Entrada da Rua Rosa Isabelle. Quando você visitar a Parede Externa da Abadia Arche pela primeira vez, certifique-se de falar com a Cobaia 826. Após derrotar Laxasia, a Completa, viaje rápido para a Entrada da Rua Rosa Isabelle e procure pela Cobaia 826. Você o encontrará em uma pequena ponte que passa sobre a rua em chamas onde você encontrou o fantoche de palhaço pela primeira vez. Fale com ele e verifique suas mercadorias para comprar este conjunto de arma por 3.700 Ergo.`,
+  ergoCost: 3700,
+  image: carcassCrystalAxeImage
+},
+{
+  id: 'Bramble_Curved_Sword',
+  name: "Bramble Curved Sword",
+  isDLC: false,
+  isSpecial: false,
+  type: "Sword",
+  weight: 9.6,
+  slash: "██░",
+  stab: "█░░",
+  canDisassemble: true,
+  physicalAttack: 101,
+  elementalAttackType: 'None',
+  elementalAttack: 0,
+  damageReductionRate: 50.32,
+  durability: 84,
+  Motivity: "C",
+  Technique: "C",
+  Advanced: "-",
+  typeAttack: { attackNormal1: "30", attackNormal2: "29", attackSpecial1: "37", attackSpecial2: "38", attackCharged1: "68", attackCharged2: "66", dodgingNormalAttack: "32", SprintgNormalAttack: "30", SprintingSpecialAttack: "37" },
+  fableArts: { fableArt1: "Storm Slash", fableArt2: "Furious Slash" },
+  description: `Bramble Curved Sword é uma Arma em Lies of P. Bramble Curved Sword é um conjunto de arma que consiste nas seguintes partes: Bramble Curved Sword Blade e Bramble Curved Sword Handle. Em Lies of P, as armas são encontradas como um único equipamento, como sabres, espadas, facas e até mesmo armas pesadas e contundentes. Cada arma que você descobre consiste em uma Lâmina e um Cabo que podem ser desmontados e combinados com outras peças para forjar uma arma única de sua preferência.`,
+  Location: `Pode ser adquirida trocando 2000 Ergo com o Comerciante do Mercado Negro do Distrito de Malum, na antiga Estalagem Red Lobster, no Distrito de Malum.`,
+  ergoCost: 2000,
+  image: brambleCurvedSwordImage
+},
 
 ];

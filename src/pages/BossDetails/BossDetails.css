@@ -1,6 +1,6 @@
 /* BossDetails.css - Otimizado e Unificado */
 
-.details-page {
+.boss-details-page {
   padding: 120px 20px 60px;
   min-height: 100vh;
   background: #0a0a0c;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.details-container {
+.boss-details-container {
   max-width: 1200px;
   width: 100%;
 }
@@ -57,18 +57,18 @@
   padding-bottom: 10px;
 }
 
-.block-header-with-selector .block-label {
+.block-header-with-selector .boss-block-label {
   margin-bottom: 0;
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.mini-mode-selector {
+.boss-mini-mode-selector {
   display: flex;
   gap: 18px;
 }
 
-.mini-mode-btn {
+.boss-mini-mode-btn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #666;
@@ -85,103 +85,125 @@
   border-radius: 2px;
 }
 
-.mini-mode-btn:hover {
+.boss-mini-mode-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
 /* --- ESTADOS ATIVOS DO MINI SELETOR --- */
-.mini-mode-btn.active.normal,
-.mini-mode-btn.active.phase-1 {
+.boss-mini-mode-btn.active.normal,
+.boss-mini-mode-btn.active.phase-1 {
   border-color: var(--current-accent) !important;
   color: var(--current-accent) !important;
   background: var(--current-glow) !important;
   box-shadow: 0 0 10px var(--current-glow) !important;
 }
 
-.mini-mode-btn.active.ng-plus,
-.mini-mode-btn.active.phase-2 {
+.boss-mini-mode-btn.active.ng-plus,
+.boss-mini-mode-btn.active.phase-2 {
   border-color: #cd7f32 !important;
   color: #cd7f32 !important;
   background: rgba(205, 127, 50, 0.15) !important;
   box-shadow: 0 0 10px rgba(205, 127, 50, 0.2) !important;
 }
 
-.mini-mode-btn.active.ng-plus-2 {
+.boss-mini-mode-btn.active.ng-plus-2 {
   border-color: #ff4444 !important;
   color: #ff4444 !important;
   background: rgba(255, 68, 68, 0.15) !important;
   box-shadow: 0 0 10px rgba(255, 68, 68, 0.2) !important;
 }
 
-.mini-mode-btn.phase-1,
-.mini-mode-btn.phase-2 {
-  width: 70px;
-}
-
-/* --- CONTEXTO DE CORES PARA O CARD DE ANÁLISE --- */
-/* Normal / Fase 1 */
-.mode-context-normal .data-item strong,
-.phase-context-fase1 .sensor-item strong {
-  color: var(--current-accent) !important;
-  text-shadow: 0 0 8px var(--current-glow);
-}
-
-/* NG+ / Fase 2 (Bronze) - Mantendo bronze para NG+, mas podemos ajustar se necessário */
-.mode-context-NGplus .data-item strong,
-.phase-context-fase2 .sensor-item strong {
-  color: #cd7f32 !important;
-  text-shadow: 0 0 8px rgba(205, 127, 50, 0.2);
-}
-
-/* NG++ */
-.mode-context-NGplus2 .data-item strong {
-  color: #ff4444 !important;
-  text-shadow: 0 0 8px rgba(255, 68, 68, 0.2);
-}
-
-/* --- OVERRIDES PARA DLC (NG+ e NG++) --- */
-.theme-dlc .mini-mode-btn.active.ng-plus,
-.theme-dlc .mini-mode-btn.active.phase-2 {
+/* Overrides de Botões para DLC */
+.theme-dlc .boss-mini-mode-btn.active.ng-plus,
+.theme-dlc .boss-mini-mode-btn.active.phase-2 {
   border-color: var(--color-ng-plus-dlc) !important;
   color: var(--color-ng-plus-dlc) !important;
   background: rgba(255, 105, 180, 0.15) !important;
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.2) !important;
 }
 
-.theme-dlc .mini-mode-btn.active.ng-plus-2 {
+.theme-dlc .boss-mini-mode-btn.active.ng-plus-2 {
   border-color: var(--color-ng-plus-2-dlc) !important;
   color: var(--color-ng-plus-2-dlc) !important;
-  background: rgba(157, 0, 255, 0.15) !important;
-  box-shadow: 0 0 10px rgba(157, 0, 255, 0.2) !important;
+  background: rgba(176, 38, 255, 0.15) !important;
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.2) !important;
 }
 
-.theme-dlc .mode-context-NGplus .data-item strong,
-.theme-dlc .phase-context-fase2 .sensor-item strong {
+.boss-mini-mode-btn.phase-1,
+.boss-mini-mode-btn.phase-2 {
+  width: 70px;
+}
+
+/* --- CONTEXTO DE CORES PARA O CARD DE ANÁLISE --- */
+/* Normal / Fase 1 */
+.mode-context-normal .boss-data-item strong,
+.mode-context-normal .boss-block-label,
+.phase-context-fase1 .boss-sensor-item strong,
+.phase-context-fase1 .boss-block-label,
+.phase-context-fase1 .boss-sensor-section-title {
+  color: var(--current-accent) !important;
+  text-shadow: 0 0 8px var(--current-glow);
+}
+.phase-context-fase1 .boss-sensor-item {
+  border-left-color: var(--current-accent) !important;
+}
+
+/* NG+ / Fase 2 (Bronze) */
+.mode-context-NGplus .boss-data-item strong,
+.mode-context-NGplus .boss-block-label,
+.phase-context-fase2 .boss-sensor-item strong,
+.phase-context-fase2 .boss-block-label,
+.phase-context-fase2 .boss-sensor-section-title {
+  color: #cd7f32 !important;
+  text-shadow: 0 0 8px rgba(205, 127, 50, 0.2);
+}
+.phase-context-fase2 .boss-sensor-item {
+  border-left-color: #cd7f32 !important;
+}
+
+/* NG++ */
+.mode-context-NGplus2 .boss-data-item strong,
+.mode-context-NGplus2 .boss-block-label {
+  color: #ff4444 !important;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.2);
+}
+
+/* --- OVERRIDES PARA DLC (NG+ e NG++) --- */
+.theme-dlc .mode-context-NGplus .boss-data-item strong,
+.theme-dlc .mode-context-NGplus .boss-block-label,
+.theme-dlc .phase-context-fase2 .boss-sensor-item strong,
+.theme-dlc .phase-context-fase2 .boss-block-label,
+.theme-dlc .phase-context-fase2 .boss-sensor-section-title {
   color: var(--color-ng-plus-dlc) !important;
   text-shadow: 0 0 8px rgba(255, 105, 180, 0.2);
 }
+.theme-dlc .phase-context-fase2 .boss-sensor-item {
+  border-left-color: var(--color-ng-plus-dlc) !important;
+}
 
-.theme-dlc .mode-context-NGplus2 .data-item strong {
+.theme-dlc .mode-context-NGplus2 .boss-data-item strong,
+.theme-dlc .mode-context-NGplus2 .boss-block-label {
   color: var(--color-ng-plus-2-dlc) !important;
   text-shadow: 0 0 8px rgba(157, 0, 255, 0.2);
 }
 
-/* Garantir que fraquezas (valores negativos) continuem vermelhas mesmo na DLC */
-.theme-dlc .sensor-item strong.weak {
+/* Garantir que fraquezas (valores negativos) continuem vermelhas SEMPRE */
+.boss-info-block .boss-sensor-item strong.weak,
+.theme-dlc .boss-info-block .boss-sensor-item strong.weak {
   color: #ff4444 !important;
   text-shadow: 0 0 10px rgba(255, 68, 68, 0.4) !important;
 }
 
 /* --- LAYOUT PRINCIPAL --- */
-.details-main-layout {
+.boss-details-main-layout {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
 /* --- SEÇÃO SUPERIOR --- */
-.details-header-section {
+.boss-details-header-section {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
@@ -235,19 +257,22 @@
 }
 
 /* --- SEÇÃO INFERIOR --- */
-.details-footer-info {
+.boss-details-footer-info {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 20px;
+  align-items: stretch; /* Garante que os blocos tenham a mesma altura */
 }
 
-.info-block {
+.boss-info-block {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
-.block-label {
+.boss-block-label {
   font-family: var(--font-heading);
   color: var(--current-accent);
   text-transform: uppercase;
@@ -258,38 +283,57 @@
   opacity: 0.8;
 }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.boss-stats-row {
+  display: flex;
+  flex-wrap: wrap;
   gap: 15px;
+  flex-grow: 1;
+  align-content: space-between; /* Distribui os itens verticalmente */
 }
 
 /* 1. TEXTOS E DECORAÇÕES ESPECÍFICAS */
-.data-item span { 
+.boss-data-item {
+  flex: 1 1 calc(50% - 15px);
+  min-width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.boss-data-item span { 
   color: #888; 
   font-size: 0.85rem; 
   margin-right: 8px; 
 }
-.data-item strong { color: var(--current-accent); font-family: var(--font-heading); }
+.boss-data-item strong { color: var(--current-accent); font-family: var(--font-heading); }
 
 /* 2. GRID DE SENSORES */
-.sensor-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.boss-sensor-grid {
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-top: 15px;
+  flex-grow: 1;
+  align-content: space-between;
 }
 
-.sensor-item {
+.boss-sensor-item {
+  flex: 1 1 calc(33.33% - 12px);
+  min-width: 90px;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.02);
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-left: 2px solid var(--current-accent);
+  text-align: center;
 }
 
-.sensor-item span {
+.boss-sensor-item span {
   font-size: 0.6rem;
   color: #666;
   text-transform: uppercase;
@@ -297,12 +341,13 @@
   margin-bottom: 4px;
 }
 
-.sensor-item strong.weak {
-  color: #ff4444 !important; 
-  text-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
+.boss-sensor-item strong {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
 }
 
-.sensor-item-divider {
+.boss-sensor-item-divider {
+  flex: 1 1 100%;
   grid-column: span 3;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--current-accent), transparent);
@@ -310,15 +355,33 @@
   margin: 10px 0;
 }
 
+.boss-sensor-section-title {
+  flex: 1 1 100%;
+  grid-column: span 3;
+  font-family: var(--font-heading);
+  color: var(--current-accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 10px 0 5px;
+  opacity: 0.8;
+  text-align: center;
+}
+
 /* 3. DROPS E TAGS */
-.drops-container-flex {
+.drops-block .boss-block-label {
+  text-align: center;
+}
+
+.boss-drops-container-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
+  justify-content: center;
 }
 
-.drop-tag {
+.boss-drop-tag {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--current-accent);
   padding: 6px 14px;
@@ -328,7 +391,7 @@
   transition: all 0.3s ease;
 }
 
-.drop-tag:hover {
+.boss-drop-tag:hover {
   background: var(--current-accent);
   color: #000;
   box-shadow: 0 0 15px var(--current-glow);
@@ -343,15 +406,15 @@
 .back-btn-modern,
 .category-tag,
 .description-box h3,
-.data-item strong,
-.sensor-item strong,
+.boss-data-item strong,
+.boss-sensor-item strong,
 .stat-color {
   color: var(--current-accent) !important;
 }
 
 .btn-line,
 .location-block,
-.drop-tag {
+.boss-drop-tag {
   border-color: var(--current-accent) !important;
 }
 
@@ -361,11 +424,11 @@
 }
 
 @media (max-width: 968px) {
-  .details-page {
+  .boss-details-page {
     padding: 100px 20px 40px;
   }
 
-  .details-header-section {
+  .boss-details-header-section {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -394,13 +457,13 @@
     text-align: center;
   }
 
-  .details-footer-info {
+  .boss-details-footer-info {
     grid-template-columns: 1fr;
   }
 
   .full-width { grid-column: span 1; }
-  .sensor-grid { grid-template-columns: repeat(2, 1fr); }
-  .sensor-item-divider { grid-column: span 2; }
+  .boss-sensor-grid { grid-template-columns: repeat(2, 1fr); }
+  .boss-sensor-item-divider { grid-column: span 2; }
 }
 
 @media (max-width: 480px) {
@@ -408,15 +471,15 @@
     font-size: 2rem;
   }
 
-  .stats-row {
+  .boss-stats-row {
     grid-template-columns: 1fr;
   }
 
-  .sensor-grid {
+  .boss-sensor-grid {
     grid-template-columns: 1fr;
   }
 
-  .sensor-item-divider {
+  .boss-sensor-item-divider {
     grid-column: span 1;
   }
 }

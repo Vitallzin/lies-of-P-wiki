@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { legionData } from '../../../data/legionData';
+import { 
+  legionData
+} from '../../../data/legionData';
 import './LegionDetails.css';
 
 const LegionDetails = () => {
@@ -67,15 +69,15 @@ const LegionDetails = () => {
               <div className="scaling-row">
                 <div className="scale-box">
                   <span className="label">Motricidade</span>
-                  <span className={`value ${legion.Motivity !== '-' ? 'stat-color' : ''}`}>{legion.Motivity}</span>
+                  <span className={`value scale-${legion.Motivity}`}>{legion.Motivity}</span>
                 </div>
                 <div className="scale-box">
                   <span className="label">Técnica</span>
-                  <span className={`value ${legion.Technique !== '-' ? 'stat-color' : ''}`}>{legion.Technique}</span>
+                  <span className={`value scale-${legion.Technique}`}>{legion.Technique}</span>
                 </div>
                 <div className="scale-box">
                   <span className="label">Avançado</span>
-                  <span className={`value ${legion.Advanced !== '-' ? 'stat-color' : ''}`}>{legion.Advanced}</span>
+                  <span className={`value scale-${legion.Advanced}`}>{legion.Advanced}</span>
                 </div>
               </div>
             </div>
@@ -85,28 +87,28 @@ const LegionDetails = () => {
               <div className="modifications-list">
                 <div className="mod-item">
                   <div className="mod-header">
-                    <span className="mod-level">{legion.modifications.level0}</span>
+                    <span className="mod-level lv0">{legion.modifications.level0}</span>
                     <span className="mod-materials">{legion.modifications.requiredMaterialsLv0}</span>
                   </div>
                   <p className="mod-desc">{legion.modifications.descriptionlevel0}</p>
                 </div>
                 <div className="mod-item">
                   <div className="mod-header">
-                    <span className="mod-level">Nível {legion.modifications.level1}</span>
+                    <span className="mod-level lv1">Nível {legion.modifications.level1}</span>
                     <span className="mod-materials">{legion.modifications.requiredMaterialsLv1}</span>
                   </div>
                   <p className="mod-desc">{legion.modifications.descriptionlevel1}</p>
                 </div>
                 <div className="mod-item">
                   <div className="mod-header">
-                    <span className="mod-level">Nível {legion.modifications.level2}</span>
+                    <span className="mod-level lv2">Nível {legion.modifications.level2}</span>
                     <span className="mod-materials">{legion.modifications.requiredMaterialsLv2}</span>
                   </div>
                   <p className="mod-desc">{legion.modifications.descriptionlevel2}</p>
                 </div>
                 <div className="mod-item">
                   <div className="mod-header">
-                    <span className="mod-level">Nível {legion.modifications.level3}</span>
+                    <span className="mod-level lv3">Nível {legion.modifications.level3}</span>
                     <span className="mod-materials">{legion.modifications.requiredMaterialsLv3}</span>
                   </div>
                   <p className="mod-desc">{legion.modifications.descriptionlevel3}</p>
@@ -120,6 +122,7 @@ const LegionDetails = () => {
                 <p>{legion.Location}</p>
               </div>
             )}
+
           </div>
         </div>
       </div>

@@ -1,9 +1,322 @@
 /* LegionList.css - Baseado em WeaponList.css */
 .legion-list-page {
   min-height: 100vh;
-  padding: 120px 20px 60px;
+  padding: 120px 0 60px;
   background-color: #0a0a0c;
   position: relative;
+}
+
+/* SEÇÃO BLOG - Estilo de Crônicas de Krat */
+.legion-blog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, rgba(20, 20, 24, 0.5) 0%, transparent 100%);
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(194, 153, 91, 0.1);
+}
+
+.blog-row {
+  display: flex;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.blog-row.full-width {
+  width: 100%;
+}
+
+.blog-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* CARDS DO BLOG - Estética Dark Victorian */
+.blog-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid rgba(194, 153, 91, 0.15);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; 
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.blog-card:hover {
+  border-color: rgba(194, 153, 91, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.blog-card:hover::before {
+  opacity: 1;
+}
+
+.card-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content h2 {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 2rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-content h3 {
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.mini-text {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, var(--color-bg-secondary) 100%);
+}
+
+.card-image.small { height: 200px; }
+.card-image.mini { height: 160px; }
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: sepia(20%) brightness(0.8);
+}
+
+.blog-card:hover .card-image img {
+  transform: scale(1.05);
+  filter: sepia(0%) brightness(1);
+}
+
+.blog-card.horizontal {
+  flex-direction: row;
+  min-height: 250px;
+  height: auto;
+}
+
+.blog-card.horizontal .card-content {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.blog-card.horizontal .card-image {
+  flex: 1;
+  height: 100%;
+  min-height: 250px;
+}
+
+/* Variações específicas */
+.what-card.horizontal { flex-direction: row-reverse; }
+.what-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
+
+.upgrade-card.horizontal { flex-direction: row-reverse; }
+.upgrade-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
+
+/* Card DLC com tema azul */
+.dlc-legion-card {
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  background: linear-gradient(135deg, rgba(20, 20, 24, 0.95) 0%, rgba(0, 100, 200, 0.15) 100%) !important;
+}
+
+.dlc-legion-card::before {
+  background: linear-gradient(90deg, transparent, var(--color-accent-dlc), transparent) !important;
+}
+
+.dlc-legion-card h3 {
+  color: var(--color-accent-dlc) !important;
+}
+
+.dlc-legion-card .card-image::after {
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 40, 80, 0.6) 100%) !important;
+}
+
+.about-card.horizontal {
+  min-height: 300px;
+}
+
+.about-card .card-image.small { 
+  flex: 1; 
+  height: 300px;
+  border-left: 1px solid rgba(194, 153, 91, 0.1);
+}
+
+.blog-list.mini {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.blog-list.mini li {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  padding: 5px 0 5px 25px;
+  position: relative;
+}
+
+.blog-list.mini li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-gold);
+  font-size: 0.8rem;
+}
+
+/* CONTROLE DE EXPANSÃO E FADE */
+.expand-controller {
+  position: relative;
+  text-align: center;
+  margin-top: -60px;
+  padding-top: 80px;
+  z-index: 10;
+}
+
+.expand-controller.is-expanded {
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #0a0a0c);
+  pointer-events: none;
+}
+
+.btn-saiba-mais-blog {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  padding: 12px 35px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 11;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn-saiba-mais-blog:hover {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  box-shadow: 0 0 25px rgba(194, 153, 91, 0.4);
+  transform: translateY(-2px);
+}
+
+.blog-expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  opacity: 0;
+}
+
+.blog-expandable-content.visible {
+  max-height: 4500px; /* Aumentado para acomodar mais conteúdo */
+  opacity: 1;
+  margin-top: 30px;
+}
+
+/* DIVISOR */
+.section-divider-container.mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 60px auto;
+  max-width: 1200px;
+}
+
+.gold-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
+}
+
+.divider-icon {
+  color: var(--color-accent-gold);
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(194, 153, 91, 0.5);
+}
+
+/* LISTAGEM */
+.list-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.cinzel-title {
+  font-size: 4rem;
+  letter-spacing: 12px;
+  margin-bottom: 10px;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  text-align: center;
+  font-family: var(--font-heading);
+}
+
+.gold-divider {
+  height: 2px;
+  width: 200px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
+  margin: 0 auto 30px;
 }
 
 .back-btn{
@@ -14,8 +327,10 @@
   flex-direction: column;
   cursor: pointer;
   padding: 0;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
+  max-width: 1200px;
   transition: all 0.3s ease;
+  padding: 0 20px;
 }
 
 .back-btn .text {
@@ -29,7 +344,7 @@
 .back-btn .btn-line {
   width: 40px;
   height: 1px;
-  background: var(--current-accent);
+  background: var(--color-accent-gold);
   margin-top: 8px;
   transition: width 0.3s ease;
 }
@@ -37,6 +352,7 @@
 .back-btn:hover .btn-line {
   width: 100%;
 }
+
 .list-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -94,29 +410,20 @@
 }
 
 /* Responsivo */
+@media (max-width: 1024px) {
+  .about-card { flex-direction: column; }
+  .about-card .card-image.small { border-left: none; border-top: 1px solid rgba(194, 153, 91, 0.1); }
+}
+
 @media (max-width: 768px) {
-  .legion-list-page {
-    padding: 100px 20px 40px;
-  }
-
-  .cinzel-title {
-    font-size: 2.2rem;
-    letter-spacing: 4px;
-  }
-
-  .items-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
+  .legion-list-page { padding: 100px 0 40px; }
+  .blog-row { flex-direction: column; padding: 0 15px; }
+  .what-card, .types-card, .best-card, .upgrade-card, .gain-card, .dlc-legion-card { flex-direction: column !important; }
+  .cinzel-title { font-size: 2.5rem; letter-spacing: 6px; }
+  .items-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
 }
 
 @media (max-width: 480px) {
-  .cinzel-title {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-
-  .items-grid {
-    grid-template-columns: 1fr;
-  }
+  .cinzel-title { font-size: 2rem; letter-spacing: 4px; }
+  .items-grid { grid-template-columns: 1fr; }
 }
