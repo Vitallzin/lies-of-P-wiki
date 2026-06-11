@@ -10,36 +10,51 @@ import {
 } from '../../data/bossesData';
 import BossCard from '../../components/BossCard';
 import SearchBar from '../../components/SearchBar';
+import { usePageFilterState } from '../../hooks/usePageFilterState';
 import './Bosses.css';
 
 const Bosses = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all');
+  const { searchTerm, setSearchTerm, filters, setFilters } = usePageFilterState('bosses');
   const [showMore, setShowMore] = useState(false);
+
+  const bossTypeOptions = Array.from(new Set(bossesData.map(boss => boss.type).filter(Boolean)))
+    .map(type => ({ value: `type:${type}`, label: `Tipo: ${type}` }));
 
   const filterOptions = [
     { value: 'all', label: 'Todos os Chefes' },
+    { value: 'base', label: 'Jogo Base' },
+    { value: 'dlc', label: 'DLC' },
     { value: 'Principal', label: 'Principais' },
     { value: 'Mini-Boss', label: 'Mini-Chefes' },
-    { value: 'Optional', label: 'Opcionais' },
-    { value: 'DLC', label: 'DLC' },
+    { value: 'optional', label: 'Opcionais' },
+    ...bossTypeOptions,
   ];
 
-  const filteredBosses = bossesData.filter(boss => {
-    const matchesSearch = boss.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          boss.location.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesFilter = filter === 'all' || 
-                         (filter === 'DLC' ? boss.isDLC : 
-                          filter === 'Optional' ? boss.isOptional : 
-                          filter === 'Mini-Boss' ? boss.BossCategory === 'Mini-Boss':
-                          boss.BossCategory === filter);
+  const filteredBosses = bossesData
+    .filter(boss => {
+      const normalizedSearch = searchTerm.toLowerCase();
+      const matchesSearch = boss.name.toLowerCase().includes(normalizedSearch) ||
+                            boss.location.toLowerCase().includes(normalizedSearch) ||
+                            boss.type.toLowerCase().includes(normalizedSearch) ||
+                            boss.BossCategory.toLowerCase().includes(normalizedSearch);
+      
+      const matchesFilter = filters.includes('all') ||
+                            filters.some(filter => {
+                              if (filter === 'base') return !boss.isDLC;
+                              if (filter === 'dlc') return boss.isDLC;
+                              if (filter === 'optional') return boss.isOptional;
+                              if (filter === 'Mini-Boss') return boss.BossCategory === 'Mini-Boss';
+                              if (filter === 'Principal') return boss.BossCategory === 'Principal';
+                              if (filter.startsWith('type:')) return boss.type === filter.replace('type:', '');
+                              return false;
+                            });
 
-    return matchesSearch && matchesFilter;
-  });
+      return matchesSearch && matchesFilter;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
   return (
-    <div className="bosses-page animate-fadeIn">
+    <div className="bosses-page">
       {/* SEÇÃO INFORMATIVA (BLOG) */}
       <section className="bosses-blog-section">
         
@@ -173,8 +188,8 @@ const Bosses = () => {
             value={searchTerm} 
             onChange={setSearchTerm} 
             placeholder="Buscar por nome ou local..."
-            filterValue={filter}
-            onFilterChange={setFilter}
+            filterValue={filters}
+            onFilterChange={setFilters}
             filterOptions={filterOptions}
           />
         </div>

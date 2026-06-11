@@ -45,6 +45,10 @@ body {
   padding-top: 80px; 
 }
 
+.page-transition {
+  min-height: calc(100vh - 80px);
+}
+
 /* Classes Globais Otimizadas */
 
 .page-container {

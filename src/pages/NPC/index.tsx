@@ -7,32 +7,50 @@ import {
 } from '../../data/NPCData';
 import CharacterCard from '../../components/CharacterCard';
 import SearchBar from '../../components/SearchBar';
+import { usePageFilterState } from '../../hooks/usePageFilterState';
 import './NPC.css';
 
 const NPC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all');
+  const { searchTerm, setSearchTerm, filters, setFilters } = usePageFilterState('npc');
   const [showMore, setShowMore] = useState(false);
+
+  const locationOptions = Array.from(new Set(NPCData.map(character => character.location).filter(Boolean)))
+    .map(location => ({ value: `location:${location}`, label: `Local: ${location}` }));
 
   const filterOptions = [
     { value: 'all', label: 'Todos os Habitantes' },
     { value: 'base', label: 'Jogo Base' },
     { value: 'dlc', label: 'DLC' },
+    { value: 'merchant', label: 'Comerciantes' },
+    { value: 'non-merchant', label: 'Nao Comerciantes' },
+    ...locationOptions,
   ];
 
-  const filteredNPC = NPCData.filter(NPC => {
-    const matchesSearch = NPC.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          NPC.location.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesFilter = filter === 'all' || 
-                         (filter === 'dlc' ? NPC.isDLC : !NPC.isDLC);
+  const filteredNPC = NPCData
+    .filter(NPC => {
+      const normalizedSearch = searchTerm.toLowerCase();
+      const matchesSearch = NPC.name.toLowerCase().includes(normalizedSearch) ||
+                            NPC.location.toLowerCase().includes(normalizedSearch) ||
+                            NPC.description.toLowerCase().includes(normalizedSearch) ||
+                            NPC.whereFind.toLowerCase().includes(normalizedSearch);
+      
+      const matchesFilter = filters.includes('all') ||
+                            filters.some(filter => {
+                              if (filter === 'base') return !NPC.isDLC;
+                              if (filter === 'dlc') return NPC.isDLC;
+                              if (filter === 'merchant') return NPC.isMerchant;
+                              if (filter === 'non-merchant') return !NPC.isMerchant;
+                              if (filter.startsWith('location:')) return NPC.location === filter.replace('location:', '');
+                              return false;
+                            });
 
-    return matchesSearch && matchesFilter;
-  });
+      return matchesSearch && matchesFilter;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
 /* No seu index.tsx, o retorno deve ser exatamente este: */
 return (
-  <div className="NPC-page animate-fadeIn" >
+  <div className="NPC-page" >
     {/* SEÇÃO INFORMATIVA (BLOG) */}
     <section className="NPC-blog-section">
       
@@ -122,8 +140,8 @@ return (
           value={searchTerm} 
           onChange={setSearchTerm} 
           placeholder="Buscar por nome ou local..."
-          filterValue={filter}
-          onFilterChange={setFilter}
+          filterValue={filters}
+          onFilterChange={setFilters}
           filterOptions={filterOptions}
         />
       </div>

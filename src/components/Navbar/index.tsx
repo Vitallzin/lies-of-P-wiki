@@ -58,6 +58,9 @@ const Navbar = () => {
               <li>
                 <NavLink to="/equipments/legioes" onClick={closeMenu}>Braços de Legião</NavLink>
               </li>
+              <li>
+                <NavLink to="/equipments/amuletos" onClick={closeMenu}>Amuletos</NavLink>
+              </li>
             </ul>
           </li>
 

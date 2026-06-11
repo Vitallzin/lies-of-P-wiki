@@ -12,38 +12,65 @@ import {
   newWeaponsDLC
 } from '../../../data/waponsData';
 import SearchBar from '../../../components/SearchBar'; 
+import { usePageFilterState } from '../../../hooks/usePageFilterState';
 import './WeaponList.css';
 
 const WeaponList = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all');
+  const { searchTerm, setSearchTerm, filters, setFilters } = usePageFilterState('weapons');
   const [showMore, setShowMore] = useState(false);
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
 
+  const weaponTypeOptions = Array.from(new Set(weaponsData.map(item => item.type).filter(Boolean)))
+    .map(type => ({ value: `type:${type}`, label: `Tipo: ${type}` }));
+
+  const elementalTypeOptions = Array.from(new Set(weaponsData.map(item => item.elementalAttackType).filter(Boolean)))
+    .filter(type => type !== 'None')
+    .map(type => ({ value: `element:${type}`, label: `Elemento: ${type}` }));
+
   const filterOptions = [
     { value: 'all', label: 'Todos os Itens' },
+    { value: 'base', label: 'Jogo Base' },
+    { value: 'dlc', label: 'DLC' },
     { value: 'common', label: 'Comuns' },
     { value: 'special', label: 'Especiais' },
-    { value: 'dlc', label: 'DLC' },
+    { value: 'disassemble', label: 'Desmontaveis' },
+    { value: 'not-disassemble', label: 'Nao Desmontaveis' },
+    ...weaponTypeOptions,
+    ...elementalTypeOptions,
   ];
 
   const categoryInfo = weaponsCategories.find(c => c.id === category);
 
-  const filteredItems = weaponsData.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          item.Location.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesFilter = filter === 'all' || 
-                         (filter === 'special' ? item.isSpecial : 
-                          filter === 'dlc' ? item.isDLC : 
-                          (!item.isSpecial && !item.isDLC));
-    
-    return matchesSearch && matchesFilter;
-  });
+  const filteredItems = weaponsData
+    .filter(item => {
+      const normalizedSearch = searchTerm.toLowerCase();
+      const matchesSearch = item.name.toLowerCase().includes(normalizedSearch) ||
+                            item.Location.toLowerCase().includes(normalizedSearch) ||
+                            item.type.toLowerCase().includes(normalizedSearch) ||
+                            item.description.toLowerCase().includes(normalizedSearch) ||
+                            item.fableArts.fableArt1.toLowerCase().includes(normalizedSearch) ||
+                            item.fableArts.fableArt2.toLowerCase().includes(normalizedSearch);
+      
+      const matchesFilter = filters.includes('all') ||
+                            filters.some(filter => {
+                              if (filter === 'base') return !item.isDLC;
+                              if (filter === 'dlc') return item.isDLC;
+                              if (filter === 'special') return item.isSpecial;
+                              if (filter === 'common') return !item.isSpecial && !item.isDLC;
+                              if (filter === 'disassemble') return item.canDisassemble;
+                              if (filter === 'not-disassemble') return !item.canDisassemble;
+                              if (filter.startsWith('type:')) return item.type === filter.replace('type:', '');
+                              if (filter.startsWith('element:')) return item.elementalAttackType === filter.replace('element:', '');
+                              return false;
+                            });
+      
+      return matchesSearch && matchesFilter;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
   return (
-    <div className="weapon-list-page animate-fadeIn">
+    <div className="weapon-list-page">
       <div className="list-overlay"></div>
       
       <div className="list-container">
@@ -189,8 +216,8 @@ const WeaponList = () => {
               value={searchTerm} 
               onChange={setSearchTerm} 
               placeholder="Buscar por nome ou localização..."
-              filterValue={filter}
-              onFilterChange={setFilter}
+              filterValue={filters}
+              onFilterChange={setFilters}
               filterOptions={filterOptions}
             />
           </div>

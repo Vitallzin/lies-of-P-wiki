@@ -16,10 +16,6 @@
     mask-image: linear-gradient(to right, transparent, black);
 }
 
-.dlc-hero-content {
-    animation: slideInLeft 1.2s ease-out forwards;
-}
-
 .dlc-hero-logo {
     /* Mesmo tamanho da Home: 200px (conforme Home.css) */
     width: 200px !important; 
@@ -37,15 +33,6 @@
 
 .dlc-quote-text {
     color: var(--color-accent-dlc) !important; /* Azul */
-}
-
-/* --- SEÇÕES DE CONTEÚDO (Com Animação de Fade) --- */
-.about-game-section {
-    animation: fadeIn 1.5s ease-out forwards;
-}
-
-.features-main-section {
-    animation: fadeIn 1.8s ease-out forwards;
 }
 
 /* Garante que o container de texto da seção de features ocupe a largura total e centralize */
@@ -205,25 +192,3 @@
     }
 }
 
-/* Keyframes de Animação */
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}

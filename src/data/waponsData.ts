@@ -54,9 +54,8 @@ export const newWeaponsDLC = {
 
 // src/data/waponsData.ts
 import bgarmas from '../assets/img/weapons/bgArmas.webp';
-import bglegiao from '../assets/img/weapons/bgLegiao.webp';
-import armas from '../assets/img/weapons/armas.webp';
 import legiao from '../assets/img/weapons/legiao.webp';
+import amuletos from '../assets/img/amulets/amulets.webp';
 
 
 export const weaponsCategories = [
@@ -65,14 +64,18 @@ export const weaponsCategories = [
     name: 'Todas as Armas',
     description: 'Lâminas e cabos forjados para enfrentar os horrores de Krat.',
     image: bgarmas,
-    bgImage: armas
   },
   {
     id: 'legioes',
     name: 'Braços da Legião',
     description: 'Próteses mecânicas com tecnologias únicas de combate.',
     image: legiao,
-    bgImage: bglegiao
+  },
+  {
+    id: 'amuletos',
+    name: 'Amuletos',
+    description: 'Relíquias poderosas que concedem diversos efeitos passivos ao portador.',
+    image: amuletos, // Usando amuletos temporariamente como placeholder
   }
 ];
 

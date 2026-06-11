@@ -18,6 +18,8 @@ import WeaponList from './pages/Equipments/WeaponList';
 import WeaponDetails from './pages/Equipments/WeaponDetails';
 import LegionList from './pages/Equipments/LegionList';
 import LegionDetails from './pages/Equipments/LegionDetails';
+import Amulets from './pages/Equipments/Amulets';
+import AmuletDetails from './pages/Equipments/AmuletDetails';
 import Bosses from './pages/Bosses';
 import BossDetails from './pages/BossDetails';
 import NPC from './pages/NPC';
@@ -31,6 +33,7 @@ import { bossesData } from './data/bossesData';
 import { weaponsData } from './data/waponsData';
 import { NPCData } from './data/NPCData';
 import { legionData } from './data/legionData';
+import { amuletsData } from './data/amuletsData';
 
 function AppContent() {
   const location = useLocation();
@@ -46,7 +49,8 @@ function AppContent() {
       ...bossesData.filter(b => b.isDLC).map(b => String(b.id)),
       ...weaponsData.filter(w => w.isDLC).map(w => String(w.id)),
       ...NPCData.filter(n => n.isDLC).map(n => String(n.id)),
-      ...legionData.filter(l => l.isDLC).map(l => String(l.id))
+      ...legionData.filter(l => l.isDLC).map(l => String(l.id)),
+      ...amuletsData.filter(a => a.isDLC).map(a => String(a.id))
     ];
 
     // 3. Verifica se o ID na URL pertence a um item DLC
@@ -65,21 +69,25 @@ function AppContent() {
     <div className="app-container">
       <Navbar />
       <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/equipments" element={<Equipments />} />
-          <Route path="/equipments/legioes" element={<LegionList />} />
-          <Route path="/equipments/legioes/:id" element={<LegionDetails />} />
-          <Route path="/equipments/:category" element={<WeaponList />} />
-          <Route path="/equipments/:category/:id" element={<WeaponDetails />} />
-          <Route path="/bosses" element={<Bosses />} />
-          <Route path="/bosses/:id" element={<BossDetails />} />
-          <Route path="/NPC" element={<NPC />} />
-          <Route path="/NPC/:id" element={<NPCDetails />} />
-          <Route path="/classes" element={<Classes />} />
-          <Route path="/classes/:id" element={<ClassDetails />} />
-          <Route path="/dlc" element={<Dlc />} />
-        </Routes>
+        <div key={location.pathname} className="page-transition animate-fadeIn">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/equipments" element={<Equipments />} />
+            <Route path="/equipments/legioes" element={<LegionList />} />
+            <Route path="/equipments/legioes/:id" element={<LegionDetails />} />
+            <Route path="/equipments/amuletos" element={<Amulets />} />
+            <Route path="/equipments/amuletos/:id" element={<AmuletDetails />} />
+            <Route path="/equipments/:category" element={<WeaponList />} />
+            <Route path="/equipments/:category/:id" element={<WeaponDetails />} />
+            <Route path="/bosses" element={<Bosses />} />
+            <Route path="/bosses/:id" element={<BossDetails />} />
+            <Route path="/NPC" element={<NPC />} />
+            <Route path="/NPC/:id" element={<NPCDetails />} />
+            <Route path="/classes" element={<Classes />} />
+            <Route path="/classes/:id" element={<ClassDetails />} />
+            <Route path="/dlc" element={<Dlc />} />
+          </Routes>
+        </div>
       </main>
       <Footer />
     </div>

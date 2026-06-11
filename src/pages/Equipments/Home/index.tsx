@@ -1,21 +1,12 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { weaponsCategories } from '../../../data/waponsData';
 import './Weapons.css';
 
   const Equipments = () => {
   const navigate = useNavigate();
-  // Estado para guardar qual imagem de fundo exibir
-  const [activeBg, setActiveBg] = useState('');
 
   return (
     <div className="weapons-page">
-      {/* Camada de Fundo Dinâmico */}
-      <div 
-        className={`dynamic-bg ${activeBg ? 'fade-in' : ''}`} 
-        style={{ backgroundImage: `url(${activeBg})` }}
-      ></div>
-      
       <div className="weapons-overlay"></div>
       
       <header className="weapons-header">
@@ -33,8 +24,6 @@ import './Weapons.css';
             key={cat.id} 
             className="weapon-category-card" 
             onClick={() => navigate(`/equipments/${cat.id}`)}
-            onMouseEnter={() => setActiveBg(cat.bgImage)} // Muda o fundo
-            onMouseLeave={() => setActiveBg('')}          // Volta ao padrão
           >
             <div className="card-image-wrapper">
               <img src={cat.image} alt={cat.name} />

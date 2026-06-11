@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './SearchBar.css';
 
 interface FilterOption {
@@ -9,8 +10,8 @@ interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
-  filterValue?: string;
-  onFilterChange?: (value: string) => void;
+  filterValue?: string[];
+  onFilterChange?: (value: string[]) => void;
   filterOptions?: FilterOption[];
 }
 
@@ -22,6 +23,35 @@ const SearchBar = ({
   onFilterChange, 
   filterOptions 
 }: SearchBarProps) => {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const selectedFilters = filterValue && filterValue.length > 0 ? filterValue : ['all'];
+  const isAllSelected = selectedFilters.includes('all');
+
+  const handleFilterToggle = (optionValue: string) => {
+    if (!onFilterChange) return;
+
+    if (optionValue === 'all') {
+      onFilterChange(['all']);
+      return;
+    }
+
+    const nextFilters = selectedFilters.includes(optionValue)
+      ? selectedFilters.filter(value => value !== optionValue)
+      : [...selectedFilters.filter(value => value !== 'all'), optionValue];
+
+    onFilterChange(nextFilters.length > 0 ? nextFilters : ['all']);
+  };
+
+  const selectedLabels = filterOptions
+    ?.filter(option => selectedFilters.includes(option.value))
+    .map(option => option.label) || [];
+
+  const filterButtonLabel = isAllSelected
+    ? (filterOptions?.find(option => option.value === 'all')?.label || 'Todos')
+    : selectedLabels.length <= 2
+      ? selectedLabels.join(', ')
+      : `${selectedLabels.length} filtros selecionados`;
+
   return (
     <div className="search-container-main">
       <div className="search-wrapper">
@@ -43,22 +73,39 @@ const SearchBar = ({
 
       {filterOptions && onFilterChange && (
         <div className="filter-wrapper">
-          <select 
-            className="custom-filter-select"
-            value={filterValue}
-            onChange={(e) => onFilterChange(e.target.value)}
+          <button
+            type="button"
+            className="custom-filter-button"
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            aria-expanded={isFilterOpen}
           >
-            {filterOptions.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            <span>{filterButtonLabel}</span>
+          </button>
           <div className="filter-icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
+
+          {isFilterOpen && (
+            <div className="filter-options-panel">
+              {filterOptions.map(option => {
+                const checked = selectedFilters.includes(option.value);
+
+                return (
+                  <label key={option.value} className={`filter-option ${checked ? 'active' : ''}`}>
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => handleFilterToggle(option.value)}
+                    />
+                    <span className="filter-option-check"></span>
+                    <span>{option.label}</span>
+                  </label>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>

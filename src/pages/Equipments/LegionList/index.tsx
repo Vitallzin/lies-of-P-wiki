@@ -12,35 +12,50 @@ import {
 } from '../../../data/legionData';
 import { weaponsCategories } from '../../../data/waponsData';
 import SearchBar from '../../../components/SearchBar';
+import { usePageFilterState } from '../../../hooks/usePageFilterState';
 import './LegionList.css';
 
 const LegionList = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all');
+  const { searchTerm, setSearchTerm, filters, setFilters } = usePageFilterState('legion-arms');
   const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
 
+  const attackTypeOptions = Array.from(new Set(legionData.map(item => item.typeAttack).filter(Boolean)))
+    .map(type => ({ value: `attack:${type}`, label: `Ataque: ${type}` }));
+
   const filterOptions = [
-    { value: 'all', label: 'Todos os Braços' },
+    { value: 'all', label: 'Todos os Bracos' },
     { value: 'base', label: 'Jogo Base' },
     { value: 'dlc', label: 'DLC' },
+    ...attackTypeOptions,
   ];
 
   // Encontra as informações da categoria 'legioes' para o cabeçalho
   const categoryInfo = weaponsCategories.find(c => c.id === 'legioes');
 
-  const filteredItems = legionData.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          item.Location.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredItems = legionData
+    .filter(item => {
+      const normalizedSearch = searchTerm.toLowerCase();
+      const matchesSearch = item.name.toLowerCase().includes(normalizedSearch) ||
+                            item.Location.toLowerCase().includes(normalizedSearch) ||
+                            item.typeAttack.toLowerCase().includes(normalizedSearch) ||
+                            item.description.toLowerCase().includes(normalizedSearch) ||
+                            item.infomationLegion.toLowerCase().includes(normalizedSearch);
 
-    const matchesFilter = filter === 'all' || 
-                         (filter === 'dlc' ? item.isDLC : !item.isDLC);
+      const matchesFilter = filters.includes('all') ||
+                            filters.some(filter => {
+                              if (filter === 'base') return !item.isDLC;
+                              if (filter === 'dlc') return item.isDLC;
+                              if (filter.startsWith('attack:')) return item.typeAttack === filter.replace('attack:', '');
+                              return false;
+                            });
 
-    return matchesSearch && matchesFilter;
-  });
+      return matchesSearch && matchesFilter;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
   return (
-    <div className="legion-list-page animate-fadeIn">
+    <div className="legion-list-page">
       <div className="list-overlay"></div>
 
       <div className="list-container">
@@ -186,8 +201,8 @@ const LegionList = () => {
               value={searchTerm} 
               onChange={setSearchTerm} 
               placeholder="Buscar por nome ou localização..."
-              filterValue={filter}
-              onFilterChange={setFilter}
+              filterValue={filters}
+              onFilterChange={setFilters}
               filterOptions={filterOptions}
             />
           </div>
