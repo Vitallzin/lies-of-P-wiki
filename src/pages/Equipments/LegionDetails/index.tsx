@@ -77,7 +77,7 @@ const LegionDetails = () => {
                 </div>
                 <div className="scale-box">
                   <span className="label">Avançado</span>
-                  <span className={`value scale-${legion.Advanced}`}>{legion.Advanced}</span>
+                  <span className={`value scale-${legion.Advance}`}>{legion.Advance}</span>
                 </div>
               </div>
             </div>

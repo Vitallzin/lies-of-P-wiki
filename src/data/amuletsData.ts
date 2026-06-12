@@ -58,7 +58,7 @@ export const amuletsData: Amulet[] = [
         weight: '2.0',
         effect: 'Aumenta o dano causado a inimigos humanos (10%)',
         description: 'Um amuleto que pode ser equipado em um fantoche. Informações e memórias úteis para movimentação podem ser gravadas no símbolo para extrair poderes especiais. \n\nA alegria de ter matado um humano jaz adormecida dentro do coração mecânico. Eu vou matar. Eu vou matar qualquer coisa que se pareça com um humano.',
-        location: 'Plataforma da Estação Central de Krat: Pode ser obtido após derrotar um chefe de elite "Advanced Scorpion Carcass" na Estação Central de Krat. A partir do Stargazer na Plataforma da Estação Central de Krat, saia para a direita e siga em direção ao final desta seção, cruzando a estreita barra de ferro para chegar ao portão à sua direita. Vá até o final desta seção e desça a escada. Continue para a direita para encontrar o grande "Advanced Scorpion Carcass" na grande plataforma no meio da sala.',
+        location: 'Plataforma da Estação Central de Krat: Pode ser obtido após derrotar um chefe de elite "Advance Scorpion Carcass" na Estação Central de Krat. A partir do Stargazer na Plataforma da Estação Central de Krat, saia para a direita e siga em direção ao final desta seção, cruzando a estreita barra de ferro para chegar ao portão à sua direita. Vá até o final desta seção e desça a escada. Continue para a direita para encontrar o grande "Advance Scorpion Carcass" na grande plataforma no meio da sala.',
         image: murdererPuppetsAmuletImage
     },
     {

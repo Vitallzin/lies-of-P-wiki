@@ -19,6 +19,8 @@ const WeaponDetails = () => {
   }
 
   const themeClass = weapon.isDLC ? 'theme-dlc' : 'theme-normal';
+  const hasUpgradeData = Boolean(weapon.upgrades?.length);
+  const hasScalingData = Boolean(weapon.scalings?.length);
 
   return (
     <div className={`weapon-details-page ${themeClass}`}>
@@ -68,7 +70,15 @@ const WeaponDetails = () => {
                 {weapon.ergoCost && (
                   <div className="weapon-data-item"><span>Custo Ergo:</span> <strong>{weapon.ergoCost}</strong></div>
                 )}
-                
+                {weapon.criticalRate !== undefined && (
+                  <div className="weapon-data-item"><span>Taxa crítica:</span> <strong>{weapon.criticalRate}%</strong></div>
+                )}
+                {weapon.fableCharge !== undefined && (
+                  <div className="weapon-data-item"><span>Carga de Fábula:</span> <strong>{weapon.fableCharge}</strong></div>
+                )}
+                {weapon.ChargePulseCells !== undefined && (
+                  <div className="weapon-data-item"><span>Carga de Células:</span> <strong>{weapon.ChargePulseCells}</strong></div>
+                )}
                 <div className="weapon-data-item full-width">
                   <span>Slash:</span> 
                   <strong className="ascii-bar">{weapon.slash}</strong>
@@ -113,7 +123,7 @@ const WeaponDetails = () => {
                 </div>
                 <div className="weapon-scale-box">
                   <span className="label">Avançado</span>
-                  <span className={`value scale-${weapon.Advanced}`}>{weapon.Advanced}</span>
+                  <span className={`value scale-${weapon.Advance}`}>{weapon.Advance}</span>
                 </div>
               </div>
             </div>
@@ -131,6 +141,66 @@ const WeaponDetails = () => {
                 </div>
               </div>
             </div>
+
+            {hasUpgradeData && (
+              <div className="weapon-info-block weapon-upgrades-block">
+                <h4 className="weapon-block-label">Melhorias da Arma</h4>
+                <div className="weapon-details-table-wrap">
+                  <table className="weapon-details-table">
+                    <thead>
+                      <tr>
+                        <th>Nivel</th>
+                        <th>Ataque</th>
+                        <th>Celulas</th>
+                        <th>Fabula</th>
+                        <th>Reducao</th>
+                        <th>Durabilidade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {weapon.upgrades?.map(upgrade => (
+                        <tr key={upgrade.level}>
+                          <td className="weapon-table-highlight">{upgrade.level}</td>
+                          <td>{upgrade.physicalAttack}</td>
+                          <td>{upgrade.ChargePulseCells}</td>
+                          <td>{upgrade.fableCharge}</td>
+                          <td>{upgrade.damageReduction}%</td>
+                          <td>{upgrade.durability}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {hasScalingData && (
+              <div className="weapon-info-block weapon-crank-scaling-block">
+                <h4 className="weapon-block-label">Escalonamento por Crank</h4>
+                <div className="weapon-details-table-wrap">
+                  <table className="weapon-details-table weapon-scaling-table">
+                    <thead>
+                      <tr>
+                        <th>Crank</th>
+                        <th>Motricidade</th>
+                        <th>Tecnica</th>
+                        <th>Avancado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {weapon.scalings?.map(scaling => (
+                        <tr key={scaling.crankType}>
+                          <td className="weapon-table-highlight">{scaling.crankType}</td>
+                          <td className={`scale-${scaling.Motivity}`}>{scaling.Motivity}</td>
+                          <td className={`scale-${scaling.Technique}`}>{scaling.Technique}</td>
+                          <td className={`scale-${scaling.Advance}`}>{scaling.Advance}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
 
             {/* LINHA 3: Localização (Ocupa tudo) */}
             {weapon.Location && (

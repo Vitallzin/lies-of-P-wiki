@@ -224,6 +224,72 @@
 }
 
 /* Padrões de Ataque */
+.weapon-upgrades-block,
+.weapon-crank-scaling-block {
+  grid-column: span 2;
+  border-left: 3px solid var(--current-accent);
+}
+
+.weapon-details-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.weapon-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.weapon-details-table th,
+.weapon-details-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.weapon-details-table th {
+  color: #777;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.weapon-details-table td {
+  color: #c9c9c9;
+  font-size: 0.88rem;
+}
+
+.weapon-details-table tbody tr {
+  transition: background 0.25s ease;
+}
+
+.weapon-details-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.weapon-table-highlight {
+  color: var(--current-accent) !important;
+  font-family: var(--font-heading);
+}
+
+.weapon-scaling-table {
+  min-width: 520px;
+}
+
+.weapon-scaling-table th:not(:first-child),
+.weapon-scaling-table td:not(:first-child) {
+  text-align: center;
+}
+
+.weapon-scaling-table td:not(:first-child) {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
 .attack-patterns-block {
   grid-column: span 1;
   display: flex;
@@ -303,7 +369,9 @@
 .theme-dlc .scale-- { color: #555555 !important; } /* Cinza Escuro */                   /* Cinza Escuro */
 
 .btn-line,
-.location-block {
+.location-block,
+.weapon-upgrades-block,
+.weapon-crank-scaling-block {
   border-color: var(--current-accent) !important;
 }
 
@@ -355,7 +423,11 @@
     grid-template-columns: 1fr;
   }
 
-  .location-block { grid-column: span 1; }
+  .location-block,
+  .weapon-upgrades-block,
+  .weapon-crank-scaling-block {
+    grid-column: span 1;
+  }
 }
 
 @media (max-width: 480px) {

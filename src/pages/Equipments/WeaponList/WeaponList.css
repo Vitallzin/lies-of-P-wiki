@@ -178,8 +178,8 @@
 .guide-card.horizontal { flex-direction: row-reverse; }
 .guide-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
 
-.advanced-card.horizontal { flex-direction: row-reverse; }
-.advanced-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
+.Advance-card.horizontal { flex-direction: row-reverse; }
+.Advance-card.horizontal .card-image { border-left: none; border-right: 1px solid rgba(194, 153, 91, 0.1); }
 
 /* Card DLC com tema azul */
 .dlc-weapons-card {
@@ -420,7 +420,7 @@
 @media (max-width: 768px) {
   .weapon-list-page { padding: 100px 0 40px; }
   .blog-row { flex-direction: column; padding: 0 15px; }
-  .guide-card, .assemble-card, .equip-card, .advanced-card, .dlc-weapons-card { flex-direction: column !important; }
+  .guide-card, .assemble-card, .equip-card, .Advance-card, .dlc-weapons-card { flex-direction: column !important; }
   .cinzel-title { font-size: 2.5rem; letter-spacing: 6px; }
   .items-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
 }

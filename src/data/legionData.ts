@@ -77,7 +77,7 @@ export interface equipmentsLegion {
     attack: string;
     Motivity: string;
     Technique: string;
-    Advanced: string;
+    Advance: string;
     description: string;
     infomationLegion: string;
     Location: string; 
@@ -107,7 +107,7 @@ export const legionData: equipmentsLegion[] = [
     attack: '69+50',
     Motivity: 'C',
     Technique: 'A',
-    Advanced: 'D',
+    Advance: 'D',
     description: 'O Puppet String é um Braço da Legião em Lies of P. O Puppet String é um Braço da Legião capaz de disparar um fio, sendo útil para puxar inimigos em sua direção e seguir com uma sequência de ataques. O Braço da Legião é uma prótese que proporciona a Pinóquio movimentos especiais que ele pode usar ao lutar contra personagens hostis. O Legion Arm consome um MP exclusivo destinado a ele e só pode ser reabastecido consumindo um determinado item consumível ou descansando em um Stargazer.',
     infomationLegion: "Um Braço da Legião capaz de lançar um fio. Ele pode ser enrolado em torno de um inimigo para arrastá-lo em sua direção ou para levá-lo até você. Os Stalkers criaram uma ferramenta que aumenta sua mobilidade durante o combate com marionetes. O fio reduz instantaneamente a distância entre você e seu inimigo, mas não garante sua segurança depois disso.",
     Location: 'Puppet String is obtained by talking to Eugenie in Hotel Krat, speak to her at her station when you first arrive at the hotel.',

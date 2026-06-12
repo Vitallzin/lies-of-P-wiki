@@ -8,7 +8,7 @@ import {
   howToUpgradeWeapons,
   howToEquipWeapons,
   howtoAssembleWeapons,
-  advancedWeapons,
+  AdvanceWeapons,
   newWeaponsDLC
 } from '../../../data/waponsData';
 import SearchBar from '../../../components/SearchBar'; 
@@ -170,15 +170,15 @@ const WeaponList = () => {
                 </div>
               </div>
 
-              {/* Advanced Weapons */}
+              {/* Advance Weapons */}
               <div className="blog-row full-width">
-                <div className="blog-card advanced-card horizontal">
+                <div className="blog-card Advance-card horizontal">
                   <div className="card-content">
-                    <h3>{advancedWeapons.title}</h3>
-                    <p className="mini-text">{advancedWeapons.description}</p>
+                    <h3>{AdvanceWeapons.title}</h3>
+                    <p className="mini-text">{AdvanceWeapons.description}</p>
                   </div>
                   <div className="card-image mini">
-                    <img src={advancedWeapons.image} alt={advancedWeapons.title} />
+                    <img src={AdvanceWeapons.image} alt={AdvanceWeapons.title} />
                   </div>
                 </div>
               </div>
