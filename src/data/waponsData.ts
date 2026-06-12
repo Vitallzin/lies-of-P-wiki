@@ -5,7 +5,7 @@ import howToUpgradeWeaponsImage from '../assets/img/weaponsList/howToUpgradeWeap
 import howToEquipWeaponsImage from '../assets/img/weaponsList/howToEquipWeapons.webp';
 import howToEquipWeaponsImage2 from '../assets/img/weaponsList/howToEquipWeapons2.webp';
 import howToAssembleWeaponsImage from '../assets/img/weaponsList/howtoAssembleWeapon.webp';
-import AdvanceWeaponsImage from '../assets/img/weaponsList/AdvancedWeapons.webp';
+import AdvanceWeaponsImage from '../assets/img/weaponsList/advancedWeapons.webp';
 import newWeaponsDLCImage from '../assets/img/weaponsList/newWeaponsDLC.webp';
 
 
