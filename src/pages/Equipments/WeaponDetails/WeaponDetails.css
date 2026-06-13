@@ -296,6 +296,77 @@
   flex-direction: column;
 }
 
+.weapon-block-header-with-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 10px;
+}
+
+.weapon-block-header-with-selector .weapon-block-label {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.weapon-attack-mode-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.weapon-attack-mode-btn {
+  min-height: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  color: #777;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 7px 12px;
+  transition: all 0.2s ease;
+}
+
+.weapon-attack-mode-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.weapon-attack-mode-btn.active {
+  border-color: var(--current-accent);
+  color: var(--current-accent);
+  background: var(--current-glow);
+  box-shadow: 0 0 10px var(--current-glow);
+}
+
+.weapon-pattern-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weapon-pattern-group + .weapon-pattern-group {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.weapon-pattern-group-title {
+  color: var(--current-accent);
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
 .weapon-patterns-grid {
   display: flex;
   flex-wrap: wrap;
@@ -421,6 +492,15 @@
 
   .weapon-details-footer-info {
     grid-template-columns: 1fr;
+  }
+
+  .weapon-block-header-with-selector {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .weapon-attack-mode-selector {
+    justify-content: flex-start;
   }
 
   .location-block,

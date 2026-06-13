@@ -122,6 +122,57 @@ import deathsTalonImage from '../assets/img/WeaponsDetails/deaths-talon.webp';
 import monadsRoseSwordImage from '../assets/img/WeaponsDetails/monads-rose-sword.webp';
 import paleKnightImage from '../assets/img/WeaponsDetails/pale-knight.webp';
 import goldenLieImage from '../assets/img/WeaponsDetails/golden-lie.webp';
+import holySwordOfTheArkImage from '../assets/img/WeaponsDetails/holy-sword-of-the-ark.webp';
+import noblesseObligeImage from '../assets/img/WeaponsDetails/noblesse-oblige-boss.webp';
+import puppetRipperImage from '../assets/img/WeaponsDetails/puppet-ripper.webp';
+import sevenCoilSpringSwordImage from '../assets/img/WeaponsDetails/seven-coil-spring-sword.webp';
+import tridentOfTheCovenantImage from '../assets/img/WeaponsDetails/trident-of-the-covenant.webp';
+import twoDragonsSwordImage from '../assets/img/WeaponsDetails/two-dragons-sword.webp';
+import uroborosEyeImage from '../assets/img/WeaponsDetails/uroboros-eye.webp';
+import proofOfHumanityImage from '../assets/img/WeaponsDetails/proof-of-humanity.webp';
+
+type WeaponAttackPattern = {
+  attackNormal1?: string;
+  attackNormal2?: string;
+  attackNormal3?: string;
+  attackNormal4?: string;
+  attackNormal5?: string;
+  attackSpecial1?: string;
+  attackSpecial2?: string;
+  successfulChargedParry?: string;
+  successfulChargedParryCounter?: string;
+  attackCharged1?: number | string;
+  attackCharged2?: number | string;
+  dodgingNormalAttack?: string;
+  SprintgNormalAttack?: string;
+  SprintingSpecialAttack?: string;
+};
+
+type DefaultWeaponAttackPattern = WeaponAttackPattern & {
+  attackNormal1: string;
+  attackNormal2: string;
+  attackSpecial1: string;
+  attackCharged1: number | string;
+  dodgingNormalAttack: string;
+  SprintgNormalAttack: string;
+  SprintingSpecialAttack: string;
+};
+
+type WeaponTypeAttack =
+  | (DefaultWeaponAttackPattern & {
+      swordForm?: WeaponAttackPattern;
+      glaiveForm?: WeaponAttackPattern;
+      standardForm?: WeaponAttackPattern;
+      stormNoticeActive?: WeaponAttackPattern;
+    })
+  | {
+      swordForm: WeaponAttackPattern;
+      glaiveForm: WeaponAttackPattern;
+    }
+  | {
+      standardForm: WeaponAttackPattern;
+      stormNoticeActive: WeaponAttackPattern;
+    };
 
 export interface equipments {
   id: string;
@@ -147,11 +198,12 @@ export interface equipments {
   // --- Upgrade ---
   upgrades?: {
     level: string;
-    physicalAttack: number;
+    physicalAttack: number | null;
     ChargePulseCells: number;
     fableCharge: number;
     damageReduction: number;
-    durability: number;
+    durability: number | null;
+    requiredMaterials?: { ergo: number; material: string } | null;
   }[];
   scalings?: {
     crankType: string;
@@ -166,19 +218,8 @@ export interface equipments {
   Advance: 'S' | 'A' | 'B' | 'C' | 'D' | '-';
 
   // --- MECÂNICAS COMPLEXAS (Que você vai adicionar depois) ---
-  typeAttack: {
-    attackNormal1: string;
-    attackNormal2: string;
-    attackNormal3?: string; // Nota: O machado tem até Attack 4 na imagem!
-    attackNormal4?: string;
-    attackSpecial1: string;
-    attackSpecial2?: string;
-    attackCharged1: number | string;
-    attackCharged2?: number | string;
-    dodgingNormalAttack: string;
-    SprintgNormalAttack: string; // Corrigindo o typo de "Sprintg" para "Sprinting"
-    SprintingSpecialAttack: string;
-  };
+  typeAttack: WeaponTypeAttack;
+
   fableArts: {
     fableArt1: string; // Arte da Lâmina
     fableArt2: string; // Arte do Cabo
@@ -1665,6 +1706,419 @@ export const weaponsData: equipments[] = [
   description: `Golden Lie é uma Arma Especial em Lies of P. Golden Lie é uma arma que não pode ser desmontada, é uma arma secreta que só pode ser obtida se você atingir o nível máximo de Humanidade. Uma haste de madeira mística obtida do retrato do garoto. Fascinantemente, ela se estende e se retrai ao capricho do fantoche de Geppetto. "Existem dois tipos de mentiras. A sua é a mentira que deixa seu nariz comprido." O garoto adorava o conto de fadas sobre a aventura do fantoche de madeira. Pelo menos o pai do fantoche de madeira era gentil.`,
   Location: `Localização: Hotel Krat. Para obter esta arma secreta, você deve aumentar sua humanidade através de mentiras, ouvir discos, resolver enigmas e outros eventos semelhantes. Derrote o Eldest of the Black Rabbit Brotherhood, encontre o "Portrait of a Boy" no esconderijo da Black Rabbit Brotherhood no Malum District Town Hall (Área 5) e entregue o retrato para Geppetto no Hotel Krat. Atinja o nível 10 de Humanidade e interaja com o quadro para obter a arma.`,
   image: goldenLieImage
+},
+{
+  id: 'Holy_Sword_of_the_Ark',
+  name: "Holy Sword of the Ark",
+  isDLC: false,
+  isSpecial: true,
+  type: "Greatsword",
+  weight: 21.2,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 140,
+  elementalAttackType: 'None',
+  damageReductionRate: 71.87,
+  durability: 100,
+  fableCharge: 528,
+  ChargePulseCells: 11.50,
+  Motivity: "B",
+  Technique: "C",
+  Advance: "-",
+  typeAttack: {
+    swordForm: {
+      attackNormal1: "50",
+      attackNormal2: "51",
+      attackSpecial1: "55",
+      attackSpecial2: "57",
+      attackCharged1: "91",
+      attackCharged2: "93",
+      dodgingNormalAttack: "48",
+      SprintgNormalAttack: "48",
+      SprintingSpecialAttack: "56"
+    },
+    glaiveForm: {
+      attackNormal1: "39",
+      attackNormal2: "39",
+      attackSpecial1: "47",
+      attackSpecial2: "57",
+      attackCharged1: "82",
+      attackCharged2: "38+57",
+      dodgingNormalAttack: "48",
+      SprintgNormalAttack: "46",
+      SprintingSpecialAttack: "58"
+    }
+  },
+  fableArts: {
+    fableArt1: "Patient Smash",
+    fableArt2: "Alter"
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 140, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 100, requiredMaterials: { ergo: 0, material: "None" } },
+    { level: "+1", physicalAttack: 170, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 110, requiredMaterials: { ergo: 200, material: "1x Dark Moon Moonstone of the Covenant" } },
+    { level: "+2", physicalAttack: 201, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 120, requiredMaterials: { ergo: 230, material: "2x Dark Moon Moonstone of the Covenant" } },
+    { level: "+3", physicalAttack: 232, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 130, requiredMaterials: { ergo: 260, material: "4x Dark Moon Moonstone of the Covenant" } },
+    { level: "+4", physicalAttack: 263, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 140, requiredMaterials: { ergo: 320, material: "1x Full Moonstone of the Covenant" } },
+    { level: "+5", physicalAttack: 294, ChargePulseCells: 11.5, fableCharge: 528, damageReduction: 71.87, durability: 150, requiredMaterials: { ergo: 430, material: "2x Full Moonstone of the Covenant" } }
+  ],
+  description: `Holy Sword of the Ark é uma Arma Especial (Arma de Chefe) em Lies of P. Holy Sword of the Ark é uma arma do tipo espada grande que não pode ser desmontada, pode ser obtida dando o King's Flame Ergo para Alidoro. Uma espada grande especial que estava adormecida na St. Frangelico Cathedral. Ela pode se transformar entre uma espada grande especial e uma glaive. A arma da Ark Saintess foi reproduzida para uso de fantoches e teve uma grande aparição nos eventos de Krat. No entanto, sua santidade lendária não pôde ser reproduzida.`,
+  Location: `Localização: Alidoro. Esta arma de chefe pode ser adquirida trocando 1x King's Flame Ergo com Alidoro.`,
+  image: holySwordOfTheArkImage
+},
+{
+  id: 'Noblesse_Oblige',
+  name: "Noblesse Oblige",
+  isDLC: false,
+  isSpecial: true,
+  type: "Large Blunt",
+  weight: 24.7,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 153,
+  elementalAttackType: 'None',
+  damageReductionRate: 69.90,
+  durability: 84,
+  fableCharge: 569,
+  ChargePulseCells: 16.15,
+  Motivity: "A",
+  Technique: "D",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "61", 
+    attackNormal2: "56", 
+    attackNormal3: "57",
+    attackNormal4: "48",
+    attackNormal5: "48",
+    attackSpecial1: "76", 
+    attackSpecial2: "65",
+    attackCharged1: "102", 
+    attackCharged2: "102",
+    dodgingNormalAttack: "51", 
+    SprintgNormalAttack: "52", 
+    SprintingSpecialAttack: "58" 
+  },
+  fableArts: { 
+    fableArt1: "Ergo Release", 
+    fableArt2: "Endure" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 153, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 84 },
+    { level: "+1", physicalAttack: 186, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 92 },
+    { level: "+2", physicalAttack: 220, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 101 },
+    { level: "+3", physicalAttack: 253, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 109 },
+    { level: "+4", physicalAttack: 287, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 118 },
+    { level: "+5", physicalAttack: 321, ChargePulseCells: 16.15, fableCharge: 569, damageReduction: 69.90, durability: 126 }
+  ],
+  description: `Noblesse Oblige é uma Arma Especial (Arma de Chefe) em Lies of P. Noblesse Oblige é uma grande arma de impacto que não pode ser desmontada, ela pode ser obtida dando o Fallen One's Ergo para Alidoro. Um porrete místico feito de uma árvore de cristal de Ergo. Enquanto espanca os inimigos, ele emite esporos, aumentando a taxa de aquisição de Ergo. O Stalker que desejava riqueza fez um contrato com um diabo que gostava de música para ganhar um porrete. Junto com isso, ele foi presenteado com Ergo transbordante e a Doença da Petrificação.`,
+  Location: `Localização: Alidoro. Esta boss weapon pode ser adquirida trocando 1x Fallen One's Ergo com Alidoro.`,
+  image: noblesseObligeImage
+},
+{
+  id: 'Puppet_Ripper',
+  name: "Puppet Ripper",
+  isDLC: false,
+  isSpecial: true,
+  type: "Sword",
+  weight: 16.4,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 138,
+  elementalAttackType: 'None',
+  damageReductionRate: 51.77,
+  durability: 100,
+  fableCharge: 528,
+  ChargePulseCells: 11.65,
+  Motivity: "C",
+  Technique: "B",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "37", 
+    attackNormal2: "40", 
+    attackSpecial1: "47", 
+    attackSpecial2: "47",
+    attackCharged1: "29+44", 
+    attackCharged2: "28+42",
+    dodgingNormalAttack: "44", 
+    SprintgNormalAttack: "46", 
+    SprintingSpecialAttack: "47" 
+  },
+  fableArts: { 
+    fableArt1: "Quick Upward Slash", 
+    fableArt2: "Storm Spinning Slash" 
+  },
+  description: `Puppet Ripper é uma Arma Especial (Arma de Chefe) em Lies of P. Puppet Ripper é uma arma do tipo espada que não pode ser desmontada, ela pode ser obtida dando o Burnt-White King's Ergo para Alidoro. Um cabo de foice-corrente que outrora borrifou uma névoa sangrenta sobre Krat. O dispositivo de mola permite ao usuário estender ou recolher a corrente facilmente. Krat tem uma lenda sobre um assassino hedonista sorridente. Dizem que seu coração era feito de engrenagens.`,
+  Location: `Localização: Alidoro. Esta boss weapon pode ser adquirida trocando 1x Burnt-White King's Ergo com Alidoro.`,
+  image: puppetRipperImage
+},
+{
+  id: 'Seven_Coil_Spring_Sword',
+  name: "Seven-Coil Spring Sword",
+  isDLC: false,
+  isSpecial: true,
+  type: "Greatsword",
+  weight: 18.7,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 130,
+  elementalAttackType: 'None',
+  damageReductionRate: 61.34,
+  durability: 100,
+  fableCharge: 562,
+  ChargePulseCells: 12.40,
+  Motivity: "B",
+  Technique: "C",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "43", 
+    attackNormal2: "44", 
+    attackSpecial1: "52", 
+    attackSpecial2: "52",
+    attackCharged1: "97", 
+    attackCharged2: "27+64",
+    dodgingNormalAttack: "36", 
+    SprintgNormalAttack: "44", 
+    SprintingSpecialAttack: "52" 
+  },
+  fableArts: { 
+    fableArt1: "Seven Explosions", 
+    fableArt2: "Guard Parry" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 130, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 100 },
+    { level: "+1", physicalAttack: 158, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 110 },
+    { level: "+2", physicalAttack: 187, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 120 },
+    { level: "+3", physicalAttack: 215, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 130 },
+    { level: "+4", physicalAttack: 244, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 140 },
+    { level: "+5", physicalAttack: 273, ChargePulseCells: 12.40, fableCharge: 562, damageReduction: 61.34, durability: 150 }
+  ],
+  description: `Seven-Coil Spring Sword é uma Arma Especial (Arma de Chefe) em Lies of P. Seven-Coil Spring Sword é uma arma do tipo espada grande que não pode ser desmontada, ela pode ser obtida dando o Parade Leader's Ergo para Alidoro. Uma preciosa espada de mola de sete bobinas que estava guardada na torre do Workshop. Mesmo Gepetto não conseguiu replicar esta obra-prima refinada. Sete ##s em sete lâminas. O texto que permaneceu gravado na relíquia oriental inspirou os técnicos do Workshop a fazerem uma obra-prima para esta geração.`,
+  Location: `Localização: Alidoro ou Klaus. Esta boss weapon pode ser adquirida trocando 1x Parade Leader's Ergo com Alidoro ou com Klaus em Eventide Hotel Krat.`,
+  image: sevenCoilSpringSwordImage
+},
+{
+  id: 'Trident_of_the_Covenant',
+  name: "Trident of the Covenant",
+  isDLC: false,
+  isSpecial: true,
+  type: "Blunt",
+  weight: 16.4,
+  slash: "███",
+  stab: "███",
+  canDisassemble: false,
+  physicalAttack: 122,
+  criticalRate: 30.00,
+  elementalAttackType: 'None',
+  damageReductionRate: 55.89,
+  durability: 117,
+  fableCharge: 450,
+  ChargePulseCells: 9.80,
+  Motivity: "C",
+  Technique: "B",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "35", 
+    attackNormal2: "36", 
+    attackNormal3: "38",
+    attackSpecial1: "41", 
+    attackSpecial2: "47",
+    attackCharged1: "31+47", 
+    attackCharged2: "73",
+    dodgingNormalAttack: "35", 
+    SprintgNormalAttack: "36", 
+    SprintingSpecialAttack: "38" 
+  },
+  fableArts: { 
+    fableArt1: "Link Rush Stab", 
+    fableArt2: "Guard Parry" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 122, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 117 },
+    { level: "+1", physicalAttack: 148, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 129 },
+    { level: "+2", physicalAttack: 175, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 140 },
+    { level: "+3", physicalAttack: 202, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 152 },
+    { level: "+4", physicalAttack: 229, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 164 },
+    { level: "+5", physicalAttack: 256, ChargePulseCells: 9.80, fableCharge: 450, damageReduction: 55.89, durability: 175 }
+  ],
+  scalings: [
+    { crankType: "Standard (Balance Crank)", Motivity: "C", Technique: "B", Advance: "-" },
+    { crankType: "Motivity Crank", Motivity: "B", Technique: "C", Advance: "-" },
+    { crankType: "Technique Crank", Motivity: "D", Technique: "A", Advance: "-" },
+    { crankType: "Advance Crank", Motivity: "C", Technique: "B", Advance: "D" }
+  ],
+  description: `Trident of the Covenant é uma Arma Especial (Arma de Chefe) em Lies of P. Trident of the Covenant é uma arma de impacto que não pode ser desmontada, ela pode ser obtida dando o Twisted Angel's Ergo para Alidoro. Um tridente ritualístico que estava adormecido na relíquia de Trismegistus. Presume-se que pertenceu outrora a um grande guerreiro que serviu a um antigo rei. O guerreiro do mar jurou proteger o povo da relíquia amaldiçoada. Ele manteve seu voto quando sua pele foi esmagada até ficar verde.`,
+  Location: `Localização: Alidoro. Esta boss weapon pode ser adquirida trocando 1x Twisted Angel's Ergo com Alidoro.`,
+  image: tridentOfTheCovenantImage
+},
+{
+  id: 'Two_Dragons_Sword',
+  name: "Two Dragons Sword",
+  isDLC: false,
+  isSpecial: true,
+  type: "Sword",
+  weight: 12.9,
+  slash: "███",
+  stab: "███",
+  canDisassemble: false,
+  physicalAttack: 107,
+  elementalAttackType: 'None',
+  damageReductionRate: 47.16,
+  durability: 100,
+  fableCharge: 423,
+  ChargePulseCells: 10.55,
+  Motivity: "D",
+  Technique: "A",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "30", 
+    attackNormal2: "32", 
+    attackNormal3: "34",
+    attackSpecial1: "29", 
+    attackSpecial2: "38",
+    successfulChargedParry: "57",
+    successfulChargedParryCounter: "104",
+    attackCharged1: "57", 
+    attackCharged2: "33+33",
+    dodgingNormalAttack: "29", 
+    SprintgNormalAttack: "31", 
+    SprintingSpecialAttack: "36" 
+  },
+  fableArts: { 
+    fableArt1: "Link Emergency Dodge", 
+    fableArt2: "Wind of Swords" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 107, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 100 },
+    { level: "+1", physicalAttack: 130, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 110 },
+    { level: "+2", physicalAttack: 155, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 120 },
+    { level: "+3", physicalAttack: 181, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 130 },
+    { level: "+4", physicalAttack: 207, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 140 },
+    { level: "+5", physicalAttack: 234, ChargePulseCells: 10.55, fableCharge: 423, damageReduction: 47.16, durability: 150 }
+  ],
+  scalings: [
+    { crankType: "Standard (Balance Crank)", Motivity: "D", Technique: "A", Advance: "-" },
+    { crankType: "Motivity Crank", Motivity: "C", Technique: "B", Advance: "-" },
+    { crankType: "Technique Crank", Motivity: "-", Technique: "S", Advance: "-" },
+    { crankType: "Advance Crank", Motivity: "D", Technique: "A", Advance: "D" }
+  ],
+  description: `Two Dragons Sword é uma Arma Especial (Arma de Chefe) em Lies of P. Two Dragons Sword é uma arma do tipo espada que não pode ser desmontada, ela pode ser obtida dando o Puppet-Devouring Green Hunter's Ergo para Alidoro. Uma espada preciosa que estava na galeria da Grand Exhibition. Dizem que era o sabre de um comandante de uma terra oriental tranquila. O mar se lembra do voto do guerreiro. O general que se levantou com o dragão para proteger o povo reivindicou uma vitória solitária em dezenas de guerras.`,
+  Location: `Localização: Alidoro. Esta boss weapon pode ser adquirida trocando 1x Puppet-Devouring Green Hunter's Ergo com Alidoro.`,
+  image: twoDragonsSwordImage
+},
+{
+  id: 'Uroboros_Eye',
+  name: "Uroboros's Eye",
+  isDLC: false,
+  isSpecial: true,
+  type: "Sword",
+  weight: 16.5,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 128,
+  elementalAttackType: 'None',
+  damageReductionRate: 52.91,
+  durability: 100,
+  fableCharge: 477,
+  ChargePulseCells: 11.90,
+  Motivity: "C",
+  Technique: "B",
+  Advance: "-",
+  typeAttack: { 
+    standardForm: {
+      attackNormal1: "39", 
+      attackNormal2: "42", 
+      attackSpecial1: "49", 
+      attackSpecial2: "46",
+      attackCharged1: "31+47", 
+      attackCharged2: "32+48",
+      dodgingNormalAttack: "36", 
+      SprintgNormalAttack: "41", 
+      SprintingSpecialAttack: "43"
+    },
+    stormNoticeActive: {
+      attackNormal1: "44", 
+      attackNormal2: "50", 
+      attackSpecial1: "56", 
+      attackSpecial2: "54",
+      attackCharged1: "58+32", 
+      attackCharged2: "60+36",
+      dodgingNormalAttack: "56", 
+      SprintgNormalAttack: "40", 
+      SprintingSpecialAttack: "50"
+    }
+  },
+  fableArts: { 
+    fableArt1: "Wandering Moon", 
+    fableArt2: "Storm Notice" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 128, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 100 },
+    { level: "+1", physicalAttack: 156, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 110 },
+    { level: "+2", physicalAttack: 186, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 120 },
+    { level: "+3", physicalAttack: 217, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 130 },
+    { level: "+4", physicalAttack: 248, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 140 },
+    { level: "+5", physicalAttack: 280, ChargePulseCells: 11.90, fableCharge: 477, damageReduction: 52.91, durability: 150 }
+  ],
+  scalings: [
+    { crankType: "Standard (Balance Crank)", Motivity: "C", Technique: "B", Advance: "-" },
+    { crankType: "Motivity Crank", Motivity: "B", Technique: "C", Advance: "-" },
+    { crankType: "Technique Crank", Motivity: "D", Technique: "A", Advance: "-" },
+    { crankType: "Advance Crank", Motivity: "C", Technique: "B", Advance: "D" }
+  ],
+  description: `Uroboros's Eye é uma Arma Especial (Arma de Chefe) em Lies of P. Uroboros's Eye é uma arma do tipo espada que não pode ser desmontada, ela pode ser obtida dando o Sad Zealot's Ergo para Alidoro. Uma espada da lua que estava adormecida na Arche Abbey. Dizem que esta arma foi feita à mão por um Alquimista lendário. Philippus Paracelsus era uma lenda até mesmo entre os Alquimistas. A espada da lua que ele fez modelando a marca Uroboros simbolizava a totalidade.`,
+  Location: `Localização: Alidoro. Esta boss weapon pode ser adquirida trocando 1x Sad Zealot's Ergo com Alidoro.`,
+  image: uroborosEyeImage
+},
+{
+  id: 'Proof_of_Humanity',
+  name: "Proof of Humanity",
+  isDLC: false,
+  isSpecial: true,
+  type: "Sword",
+  weight: 20.5,
+  slash: "███",
+  stab: "█░░",
+  canDisassemble: false,
+  physicalAttack: 110,
+  criticalRate: 30.00,
+  elementalAttackType: 'None',
+  damageReductionRate: 64.15,
+  durability: 84,
+  fableCharge: 520,
+  ChargePulseCells: 11.30,
+  Motivity: "B",
+  Technique: "B",
+  Advance: "-",
+  typeAttack: { 
+    attackNormal1: "28", 
+    attackNormal2: "32", 
+    attackSpecial1: "15+19", 
+    attackSpecial2: "15+19",
+    attackCharged1: "13+13+27", 
+    attackCharged2: "15+15+30",
+    dodgingNormalAttack: "34", 
+    SprintgNormalAttack: "32", 
+    SprintingSpecialAttack: "20" 
+  },
+  fableArts: { 
+    fableArt1: "Link Slash", 
+    fableArt2: "Grind" 
+  },
+  upgrades: [
+    { level: "+0", physicalAttack: 110, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: 84, requiredMaterials: null },
+    { level: "+1", physicalAttack: null, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: null, requiredMaterials: { ergo: 200, material: "1x Dark Moon Moonstone of the Covenant" } },
+    { level: "+2", physicalAttack: null, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: null, requiredMaterials: { ergo: 230, material: "2x Dark Moon Moonstone of the Covenant" } },
+    { level: "+3", physicalAttack: null, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: null, requiredMaterials: { ergo: 260, material: "4x Dark Moon Moonstone of the Covenant" } },
+    { level: "+4", physicalAttack: null, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: null, requiredMaterials: { ergo: 320, material: "1x Full Moonstone of the Covenant" } },
+    { level: "+5", physicalAttack: null, ChargePulseCells: 11.30, fableCharge: 520, damageReduction: 64.15, durability: null, requiredMaterials: { ergo: 430, material: "2x Full Moonstone of the Covenant" } }
+  ],
+  description: `Proof of Humanity é uma Arma Especial (Arma de Chefe) em Lies of P. Proof of Humanity é uma arma do tipo espada que não pode ser desmontada, e a Proof of Humanity pode ser obtida dando o Nameless Puppet's Ergo para o Explorer Hugo ou para Alidoro. Uma lâmina de tesoura gigante usada por um fantoche sem nome. É uma espada de dois gumes que pode acabar com a liberdade de alguém, ou concedê-la cortando as cordas da manipulação. Os fantoches estão amarrados a cordas. Os humanos cortaram suas próprias cordas. O menino fez uma escolha e se tornou humano.`,
+  Location: `Localização: Alidoro ou Explorer Hugo. Esta boss weapon pode ser adquirida trocando 1x Nameless Puppet's Ergo com Alidoro. O Nameless Puppet's Ergo pode ser obtido derrotando o Nameless Puppet localizado em Under the Abyss.`,
+  image: proofOfHumanityImage
 },
 ];
 
