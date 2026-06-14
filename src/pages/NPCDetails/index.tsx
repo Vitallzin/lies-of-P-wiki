@@ -1,6 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { NPCData } from '../../data/NPCData';
+import { NPCData, type MerchantItem } from '../../data/NPCData';
 import './NPC.css';
+
+const formatMerchantCost = (cost: number | 'special') =>
+  cost === 'special' ? 'Especial' : `${cost.toLocaleString('pt-BR')} Ergo`;
 
 const CharacterDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -12,6 +15,21 @@ const CharacterDetails = () => {
   if (!character) return null;
 
   const themeClass = character.isDLC ? 'theme-dlc' : 'theme-normal';
+  const inventoryByCollection = character.merchantInventory?.reduce<Record<string, MerchantItem[]>>(
+    (groups, item) => {
+      const groupKey = item.requiredCollection === 0
+        ? 'Disponivel inicialmente'
+        : `${item.requiredCollection} colecao(oes) necessaria(s)`;
+
+      if (!groups[groupKey]) {
+        groups[groupKey] = [];
+      }
+
+      groups[groupKey].push(item);
+      return groups;
+    },
+    {}
+  );
 
   return (
     <div className={`details-page ${themeClass}`}>
@@ -26,9 +44,11 @@ const CharacterDetails = () => {
           {/* TOPO: BIOGRAFIA (ESQUERDA) | IMAGEM (DIREITA) */}
           <div className="details-header-section">
             <div className="header-text">
-              <span className="category-tag">
-                {character.location}
-              </span>
+              <div className="npc-detail-badges">
+                <span className="category-tag">{character.location}</span>
+                {character.isDLC && <span className="npc-detail-badge dlc">DLC</span>}
+                {character.isMerchant && <span className="npc-detail-badge merchant">Mercante</span>}
+              </div>
               <h1 className="weapon-name-title">{character.name}</h1>
               <div className="description-box">
                 <h3>Crônica do Personagem</h3>
@@ -61,6 +81,33 @@ const CharacterDetails = () => {
                 ))}
               </ul>
             </div>
+
+            {character.isMerchant && inventoryByCollection && (
+              <div className="info-block full-width merchant-inventory-block">
+                <h4 className="block-label">Estoque do Mercante</h4>
+                <div className="merchant-inventory-groups">
+                  {Object.entries(inventoryByCollection).map(([groupName, items]) => (
+                    <div className="merchant-inventory-group" key={groupName}>
+                      <h5>{groupName}</h5>
+                      <div className="merchant-items-grid">
+                        {items.map((item) => (
+                          <div className="merchant-item-card" key={`${groupName}-${item.name}`}>
+                            <div>
+                              <strong>{item.name}</strong>
+                              <span>{item.type}</span>
+                            </div>
+                            <div className="merchant-item-meta">
+                              <span>{formatMerchantCost(item.cost)}</span>
+                              {item.isNGPlus && <em>NG+</em>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Bloco 3: Curiosidades (Ocupa a largura total) */}
             <div className="info-block full-width">

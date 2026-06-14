@@ -7,9 +7,10 @@ interface CharacterCardProps {
   location: string;
   image: string;
   isDLC?: boolean;
+  isMerchant?: boolean;
 }
 
-const CharacterCard = ({ id, name, location, image, isDLC }: CharacterCardProps) => {
+const CharacterCard = ({ id, name, location, image, isDLC, isMerchant }: CharacterCardProps) => {
   const navigate = useNavigate();
 
   return (
@@ -21,8 +22,10 @@ const CharacterCard = ({ id, name, location, image, isDLC }: CharacterCardProps)
       <div className="NPC-image-wrapper">
         <img src={image} alt={name} className="NPC-card-img" />
         <div className="NPC-card-gradient"></div>
-        {/* Badge de DLC no estilo do BossCard */}
-        {isDLC && <div className="difficulty-badge">DLC</div>}
+        <div className="NPC-badge-container">
+          {isDLC && <div className="dlc-badge">DLC</div>}
+          {isMerchant && <div className="merchant-badge">Mercante</div>}
+        </div>
       </div>
       <div className="NPC-card-info">
         <h3 className="NPC-card-name">{name}</h3>

@@ -76,6 +76,34 @@
   letter-spacing: 3px;
 }
 
+.npc-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.npc-detail-badge {
+  border: 1px solid var(--current-accent);
+  color: var(--current-accent);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+
+.npc-detail-badge.dlc {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: var(--color-accent-dlc);
+  color: var(--color-accent-dlc);
+}
+
+.npc-detail-badge.merchant {
+  background: rgba(194, 153, 91, 0.12);
+}
+
 .description-box h3 {
   font-family: var(--font-heading);
   color: var(--color-accent-gold);
@@ -168,6 +196,75 @@
   line-height: 1.5;
 }
 
+.merchant-inventory-block {
+  border-left: 2px solid var(--current-accent);
+}
+
+.merchant-inventory-groups {
+  display: grid;
+  gap: 24px;
+}
+
+.merchant-inventory-group h5 {
+  color: var(--current-accent);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.merchant-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.merchant-item-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 14px;
+}
+
+.merchant-item-card strong {
+  color: #eee;
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.merchant-item-card span {
+  color: #888;
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.merchant-item-meta {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.merchant-item-meta span {
+  color: var(--current-accent);
+  font-family: var(--font-heading);
+}
+
+.merchant-item-meta em {
+  border: 1px solid rgba(194, 153, 91, 0.35);
+  color: var(--current-accent);
+  display: inline-block;
+  font-size: 0.7rem;
+  font-style: normal;
+  margin-top: 6px;
+  padding: 3px 6px;
+}
+
 /* Aplicando as variáveis dinâmicas */
 .back-btn-modern,
 .category-tag,
@@ -215,6 +312,10 @@
     text-align: center;
   }
 
+  .npc-detail-badges {
+    justify-content: center;
+  }
+
   .description-box {
     text-align: center;
   }
@@ -224,6 +325,14 @@
   }
 
   .full-width { grid-column: span 1; }
+
+  .merchant-item-card {
+    flex-direction: column;
+  }
+
+  .merchant-item-meta {
+    text-align: left;
+  }
 }
 
 @media (max-width: 480px) {

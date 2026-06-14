@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+﻿import { useParams, useNavigate } from 'react-router-dom';
 import { 
   legionData
 } from '../../../data/legionData';
@@ -84,41 +84,48 @@ const LegionDetails = () => {
 
             <div className="info-block modifications-block">
               <h4 className="block-label">Modificações e Melhorias</h4>
-              <div className="modifications-list">
-                <div className="mod-item">
-                  <div className="mod-header">
-                    <span className="mod-level lv0">{legion.modifications.level0}</span>
-                    <span className="mod-materials">{legion.modifications.requiredMaterialsLv0}</span>
+              {legion.modifications ? (
+                <div className="modifications-list">
+                  <div className="mod-item">
+                    <div className="mod-header">
+                      <span className="mod-level lv0">{legion.modifications.level0}</span>
+                      <span className="mod-materials">{legion.modifications.requiredMaterialsLv0}</span>
+                    </div>
+                    <p className="mod-desc">{legion.modifications.descriptionlevel0}</p>
                   </div>
-                  <p className="mod-desc">{legion.modifications.descriptionlevel0}</p>
-                </div>
-                <div className="mod-item">
-                  <div className="mod-header">
-                    <span className="mod-level lv1">Nível {legion.modifications.level1}</span>
-                    <span className="mod-materials">{legion.modifications.requiredMaterialsLv1}</span>
+                  <div className="mod-item">
+                    <div className="mod-header">
+                      <span className="mod-level lv1">Nível {legion.modifications.level1}</span>
+                      <span className="mod-materials">{legion.modifications.requiredMaterialsLv1}</span>
+                    </div>
+                    <p className="mod-desc">{legion.modifications.descriptionlevel1}</p>
                   </div>
-                  <p className="mod-desc">{legion.modifications.descriptionlevel1}</p>
-                </div>
-                <div className="mod-item">
-                  <div className="mod-header">
-                    <span className="mod-level lv2">Nível {legion.modifications.level2}</span>
-                    <span className="mod-materials">{legion.modifications.requiredMaterialsLv2}</span>
+                  <div className="mod-item">
+                    <div className="mod-header">
+                      <span className="mod-level lv2">Nível {legion.modifications.level2}</span>
+                      <span className="mod-materials">{legion.modifications.requiredMaterialsLv2}</span>
+                    </div>
+                    <p className="mod-desc">{legion.modifications.descriptionlevel2}</p>
                   </div>
-                  <p className="mod-desc">{legion.modifications.descriptionlevel2}</p>
-                </div>
-                <div className="mod-item">
-                  <div className="mod-header">
-                    <span className="mod-level lv3">Nível {legion.modifications.level3}</span>
-                    <span className="mod-materials">{legion.modifications.requiredMaterialsLv3}</span>
+                  <div className="mod-item">
+                    <div className="mod-header">
+                      <span className="mod-level lv3">Nível {legion.modifications.level3}</span>
+                      <span className="mod-materials">{legion.modifications.requiredMaterialsLv3}</span>
+                    </div>
+                    <p className="mod-desc">{legion.modifications.descriptionlevel3}</p>
                   </div>
-                  <p className="mod-desc">{legion.modifications.descriptionlevel3}</p>
                 </div>
-              </div>
+              ) : (
+                <div className="no-modifications-message">
+                  <strong>Sem modificações disponíveis</strong>
+                  <p>Este Braço da Legião não possui melhorias ou níveis de modificação.</p>
+                </div>
+              )}
             </div>
 
             {legion.Location && (
               <div className="info-block location-block">
-                <h4 className="block-label">Localização</h4>
+                <h4 className="block-label">Localizaçãoo</h4>
                 <p>{legion.Location}</p>
               </div>
             )}

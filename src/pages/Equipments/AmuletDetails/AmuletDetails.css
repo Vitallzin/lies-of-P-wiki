@@ -81,18 +81,38 @@
   border-radius: 0 10px 10px 0;
 }
 
-.amulet-details-description h3 {
+.amulet-details-section-label {
+  display: block;
   font-family: var(--font-heading);
   color: var(--color-accent-gold);
-  font-size: 1.2rem;
-  margin-bottom: 10px;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
 }
 
-.amulet-details-description p {
+.amulet-details-effect-box {
+  display: grid;
+  gap: 12px;
+}
+
+.amulet-details-effect-box p {
+  border-left: 1px solid rgba(194, 153, 91, 0.35);
+  color: #f2e4cf;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding-left: 14px;
+}
+
+.amulet-details-description p,
+.amulet-details-paragraphs p {
   color: var(--color-text-secondary);
   line-height: 1.8;
   font-size: 1rem;
+}
+
+.amulet-details-description .amulet-details-effect-box p {
+  color: #f2e4cf;
 }
 
 .amulet-details-visual {
@@ -147,6 +167,11 @@
   width: 100%;
 }
 
+.amulet-details-location-grid {
+  display: grid;
+  width: 100%;
+}
+
 .amulet-details-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(194, 153, 91, 0.1);
@@ -172,8 +197,7 @@
 }
 
 .amulet-details-spec-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 20px;
   font-size: 1rem;
 }
@@ -186,9 +210,30 @@
   color: var(--color-accent-gold);
 }
 
-.amulet-details-location p {
-  color: var(--color-text-secondary);
-  line-height: 1.6;
+.amulet-details-weight-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.amulet-details-weight-list strong {
+  background: rgba(194, 153, 91, 0.1);
+  border: 1px solid rgba(194, 153, 91, 0.18);
+  border-radius: 999px;
+  padding: 7px 12px;
+}
+
+.amulet-details-paragraphs {
+  display: grid;
+  gap: 16px;
+}
+
+.amulet-details-lore .amulet-details-paragraphs p:first-child {
+  color: #d8d0c7;
+}
+
+.amulet-details-location {
+  border-left: 2px solid rgba(194, 153, 91, 0.55);
 }
 
 @media (max-width: 1024px) {
