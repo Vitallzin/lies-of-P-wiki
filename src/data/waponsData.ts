@@ -2121,4 +2121,3 @@ export const weaponsData: equipments[] = [
   image: proofOfHumanityImage
 },
 ];
-

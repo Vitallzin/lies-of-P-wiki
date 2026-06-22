@@ -1,9 +1,19 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { NPCData, type MerchantItem } from '../../data/NPCData';
+import { NPCData, type MerchantItem, type ShopInventoryItem } from '../../data/NPCData';
 import './NPC.css';
 
-const formatMerchantCost = (cost: number | 'special') =>
-  cost === 'special' ? 'Especial' : `${cost.toLocaleString('pt-BR')} Ergo`;
+const formatMerchantCost = (cost: number | string) =>
+  cost === 'special'
+    ? 'Especial'
+    : typeof cost === 'number'
+      ? `${cost.toLocaleString('pt-BR')} Ergo`
+      : cost;
+
+const getQuestName = (quest: string | { name: string }) =>
+  typeof quest === 'string' ? quest : quest.name;
+
+const getQuestDescription = (quest: string | { description?: string }) =>
+  typeof quest === 'string' ? undefined : quest.description;
 
 const CharacterDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +30,19 @@ const CharacterDetails = () => {
       const groupKey = item.requiredCollection === 0
         ? 'Disponivel inicialmente'
         : `${item.requiredCollection} colecao(oes) necessaria(s)`;
+
+      if (!groups[groupKey]) {
+        groups[groupKey] = [];
+      }
+
+      groups[groupKey].push(item);
+      return groups;
+    },
+    {}
+  );
+  const shopInventoryByRequirement = character.shopInventory?.reduce<Record<string, ShopInventoryItem[]>>(
+    (groups, item) => {
+      const groupKey = item.required || 'Disponivel';
 
       if (!groups[groupKey]) {
         groups[groupKey] = [];
@@ -77,7 +100,10 @@ const CharacterDetails = () => {
               <h4 className="block-label">Objetivos (Quests)</h4>
               <ul className="quests-list">
                 {character.quests.map((quest, i) => (
-                  <li key={i}>{quest}</li>
+                  <li key={i}>
+                    <strong>{getQuestName(quest)}</strong>
+                    {getQuestDescription(quest) && <span>{getQuestDescription(quest)}</span>}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -99,6 +125,140 @@ const CharacterDetails = () => {
                             <div className="merchant-item-meta">
                               <span>{formatMerchantCost(item.cost)}</span>
                               {item.isNGPlus && <em>NG+</em>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {character.isMerchant && shopInventoryByRequirement && (
+              <div className="info-block full-width merchant-inventory-block">
+                <h4 className="block-label">Estoque do Mercante</h4>
+                <div className="merchant-inventory-groups">
+                  {Object.entries(shopInventoryByRequirement).map(([groupName, items]) => (
+                    <div className="merchant-inventory-group" key={groupName}>
+                      <h5>{groupName}</h5>
+                      <div className="merchant-items-grid">
+                        {items.map((item) => (
+                          <div className={`merchant-item-card ${item.isDLC ? 'merchant-item-dlc' : ''}`} key={`${groupName}-${item.itemName}`}>
+                            <div>
+                              <strong>{item.itemName}</strong>
+                              <span>{item.itemType}</span>
+                            </div>
+                            <div className="merchant-item-meta">
+                              <span>{formatMerchantCost(item.cost)}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {character.inventoryRareErgo && (
+              <div className="info-block full-width merchant-inventory-block">
+                <h4 className="block-label">Trocas de Ergo Raro</h4>
+                <div className="merchant-items-grid">
+                  {character.inventoryRareErgo.map((item) => (
+                    <div className={`merchant-item-card ${character.isDLC || item.isDLC ? 'merchant-item-dlc' : ''}`} key={`${item.name}-${item.price}`}>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span>{item.type}</span>
+                      </div>
+                      <div className="merchant-item-meta">
+                        <span>{item.price}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {character.inventoryAncientDisks && (
+              <div className="info-block full-width merchant-inventory-block">
+                <h4 className="block-label">Discos Antigos</h4>
+                <div className="merchant-items-grid">
+                  {character.inventoryAncientDisks.map((item) => (
+                    <div className={`merchant-item-card ${character.isDLC || item.isDLC ? 'merchant-item-dlc' : ''}`} key={`${item.name}-${item.required}`}>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span>{item.type} - Qtde: {item.amount}</span>
+                      </div>
+                      <div className="merchant-item-meta">
+                        <span>{item.price} disco(s)</span>
+                        {item.required !== '-' && <em>{item.required}</em>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {character.baseGame && (
+              <div className="info-block full-width merchant-inventory-block">
+                <h4 className="block-label">Estoque do Jogo Base</h4>
+                <div className="merchant-location-list">
+                  {character.baseGame.locations.map((location) => (
+                    <p key={`${location.chapter}-${location.name}`}>
+                      <strong>{location.chapter} - {location.name}:</strong> {location.detail}
+                    </p>
+                  ))}
+                </div>
+                <div className="merchant-inventory-groups">
+                  {character.baseGame.inventories.map((inventory) => (
+                    <div className="merchant-inventory-group" key={inventory.shopLocation}>
+                      <h5>{inventory.shopLocation}</h5>
+                      {inventory.note && <p className="merchant-note">{inventory.note}</p>}
+                      <div className="merchant-items-grid">
+                        {inventory.items.map((item) => (
+                          <div className={`merchant-item-card ${item.isDLC ? 'merchant-item-dlc' : ''}`} key={`${inventory.shopLocation}-${item.name}`}>
+                            <div>
+                              <strong>{item.name}</strong>
+                              <span>{item.type} - Qtde: {item.amount}</span>
+                            </div>
+                            <div className="merchant-item-meta">
+                              <span>{item.price}</span>
+                              {item.required && <em>{item.required}</em>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {character.dlc && (
+              <div className="info-block full-width merchant-inventory-block merchant-dlc-section">
+                <h4 className="block-label">Estoque da DLC Overture</h4>
+                <div className="merchant-location-list">
+                  {character.dlc.locations.map((location) => (
+                    <p key={`${location.chapter}-${location.name}`}>
+                      <strong>{location.chapter} - {location.name}:</strong> {location.detail}
+                    </p>
+                  ))}
+                </div>
+                <div className="merchant-inventory-groups">
+                  {character.dlc.inventories.map((inventory) => (
+                    <div className="merchant-inventory-group" key={inventory.shopLocation}>
+                      <h5>{inventory.shopLocation}</h5>
+                      <div className="merchant-items-grid">
+                        {inventory.items.map((item) => (
+                          <div className="merchant-item-card merchant-item-dlc" key={`${inventory.shopLocation}-${item.name}`}>
+                            <div>
+                              <strong>{item.name}</strong>
+                              <span>{item.type} - Qtde: {item.amount}</span>
+                            </div>
+                            <div className="merchant-item-meta">
+                              <span>{item.price}</span>
+                              {item.required && <em>{item.required}</em>}
                             </div>
                           </div>
                         ))}

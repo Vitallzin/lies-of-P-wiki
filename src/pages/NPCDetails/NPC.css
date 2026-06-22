@@ -159,6 +159,20 @@
   padding-left: 16px;
 }
 
+.quests-list li strong {
+  color: #eee;
+  display: block;
+  font-weight: 700;
+}
+
+.quests-list li span {
+  color: #999;
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
 .quests-list li::before {
   content: '✦';
   position: absolute;
@@ -230,6 +244,18 @@
   padding: 14px;
 }
 
+.merchant-item-card.merchant-item-dlc,
+.merchant-dlc-section {
+  background: rgba(0, 212, 255, 0.045);
+  border-color: rgba(0, 212, 255, 0.28);
+}
+
+.merchant-item-card.merchant-item-dlc strong,
+.merchant-dlc-section .merchant-inventory-group h5,
+.merchant-dlc-section .block-label {
+  color: var(--color-accent-dlc);
+}
+
 .merchant-item-card strong {
   color: #eee;
   display: block;
@@ -263,6 +289,33 @@
   font-style: normal;
   margin-top: 6px;
   padding: 3px 6px;
+}
+
+.merchant-item-card.merchant-item-dlc .merchant-item-meta span,
+.merchant-item-card.merchant-item-dlc .merchant-item-meta em {
+  border-color: rgba(0, 212, 255, 0.35);
+  color: var(--color-accent-dlc);
+}
+
+.merchant-location-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.merchant-location-list p,
+.merchant-note {
+  color: #999;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.merchant-location-list strong {
+  color: #eee;
+}
+
+.merchant-note {
+  margin-bottom: 12px;
 }
 
 /* Aplicando as variáveis dinâmicas */
