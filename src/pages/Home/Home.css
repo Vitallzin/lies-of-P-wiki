@@ -256,7 +256,27 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    min-height: 50vh;
+    min-height: auto;
+    padding: 95px 24px 70px;
+    background-color: var(--color-bg-primary);
+  }
+
+  .hero-background {
+    display: none;
+  }
+
+  .hero-overlay {
+    background: radial-gradient(circle at center, rgba(194, 153, 91, 0.12), transparent 65%);
+  }
+
+  .hero-logo {
+    width: min(240px, 78vw);
+    margin-bottom: 0;
+  }
+
+  .hero-logo img {
+    width: 100%;
+    display: block;
   }
 
   .synopsis-text {

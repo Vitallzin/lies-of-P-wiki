@@ -240,6 +240,7 @@
 
   .dropdown-menu {
     position: static;
+    width: 100%;
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -257,6 +258,7 @@
   .dropdown:hover .dropdown-menu {
     max-height: 200px;
     margin-top: 10px;
+    transform: none;
   }
 
   .dropdown-menu li a {

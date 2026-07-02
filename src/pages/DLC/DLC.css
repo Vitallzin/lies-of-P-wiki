@@ -180,7 +180,27 @@
 
 @media (max-width: 480px) {
     .dlc-hero-section {
-        min-height: 50vh;
+        min-height: auto;
+        padding: 95px 24px 70px;
+        background-color: var(--color-bg-primary);
+    }
+
+    .dlc-hero-background {
+        display: none;
+    }
+
+    .dlc-hero-overlay {
+        background: radial-gradient(circle at center, rgba(0, 212, 255, 0.14), transparent 65%);
+    }
+
+    .dlc-hero-logo {
+        width: min(260px, 76vw) !important;
+        margin-bottom: 0;
+    }
+
+    .dlc-hero-logo img {
+        width: 100%;
+        display: block;
     }
 
     .dlc-feature-title {

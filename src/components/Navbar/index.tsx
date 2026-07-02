@@ -81,13 +81,13 @@ const Navbar = () => {
             </NavLink>
             <ul className="dropdown-menu">
               <li>
-                <NavLink to="/classes/1" onClick={closeMenu}>Equilíbrio</NavLink>
+                <NavLink to="/classes/Caminho_do_Grilo" onClick={closeMenu}>Equilíbrio</NavLink>
               </li>
               <li>
-                <NavLink to="/classes/2" onClick={closeMenu}>Destreza</NavLink>
+                <NavLink to="/classes/Caminho_do_Bastardo" onClick={closeMenu}>Destreza</NavLink>
               </li>
               <li>
-                <NavLink to="/classes/3" onClick={closeMenu}>Força</NavLink>
+                <NavLink to="/classes/Caminho_do_Varredor" onClick={closeMenu}>Força</NavLink>
               </li>
             </ul>
           </li>
