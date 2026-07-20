@@ -31,7 +31,7 @@ const Home = () => {
       {/* SEÇÃO 2: Visão Geral do Jogo */}
       <section className="about-game-section">
         <div className="about-game-container">
-          <div className="about-game-image">
+          <div className="about-game-image about-game-image-large">
             <div className="image-frame">
               <img src={aboutGame.image} alt="Lies of P Game" />
               <div className="frame-border-top"></div>
@@ -54,7 +54,7 @@ const Home = () => {
       {/* SEÇÃO 3: História e Cenário */}
       <section className="about-game-section" style={{backgroundColor: 'var(--color-bg-secondary)'}}>
         <div className="about-game-container-reverse">
-           <div className="about-game-image">
+           <div className="about-game-image about-game-image-large">
             <div className="image-frame">
               <img src={historyGame.image} alt="Lies of P History" />
               <div className="frame-border-top"></div>

@@ -22,12 +22,38 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Scrollbar customizada estilo Soulslike (Firefox) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-gold) var(--color-bg-secondary);
+}
+
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  /* Scrollbar customizada estilo Soulslike */
+  scrollbar-width: thin;
   scrollbar-color: var(--color-accent-gold) var(--color-bg-secondary);
+}
+
+/* Scrollbar customizada (Chrome/Edge/Safari) - segue o tema dourado/azul via variáveis */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-gold);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.2);
 }
 
 /* Garante que o footer vá para baixo mesmo com pouco conteúdo */

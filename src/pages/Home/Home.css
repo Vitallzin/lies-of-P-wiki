@@ -107,6 +107,10 @@
   position: relative;
 }
 
+.about-game-image-large {
+  flex: 1.5;
+}
+
 .image-frame img {
   filter: sepia(20%) contrast(1.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);

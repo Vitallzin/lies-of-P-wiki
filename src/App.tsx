@@ -57,11 +57,13 @@ function AppContent() {
     const pathSegments = pathname.split('/');
     const isDlcItem = dlcIds.some(id => pathSegments.includes(id));
 
-    // Aplica o tema global
+    // Aplica o tema global (html também recebe a classe para a scrollbar do documento)
     if (isDlcSection || isDlcItem) {
       document.body.classList.add('theme-dlc');
+      document.documentElement.classList.add('theme-dlc');
     } else {
       document.body.classList.remove('theme-dlc');
+      document.documentElement.classList.remove('theme-dlc');
     }
   }, [location.pathname]);
 
